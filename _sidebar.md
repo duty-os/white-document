@@ -1,3 +1,7 @@
+* 更新日志
+
+  * [white-sdk V1](releaseNote.md)
+
 * 入门介绍
 
   * [项目简介](introduction.md)
@@ -23,8 +27,4 @@
   * [Android 使用指南](Android_detail_api.md)
   * [iOS 使用指南](iOS_detail_api.md)
   * [Server 使用指南](server_detail_api.md)
-
-* 更新日志
-
-  * [white-sdk V1](releaseNote.md)
 

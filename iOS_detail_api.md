@@ -1,8 +1,10 @@
 # 我们的解决方案
+
 * 提供一块容易集成同时又功能强大的实时互动白板。
 * 白板提供灵活的扩展能力和二次开发能力，提供全平台（iOS、Android、Web、小程序） SDK 。
 
-# 白板状态
+# 白板的教具与状态
+
 * 我的 UI 组件已经做好了，我如何让 UI 组件的操作影响到白板的行为？
 * 白板有哪些状态，我的 UI 组件如何监听、获取白板的状态？
 
@@ -15,7 +17,19 @@
 设置状态与获取状态的API，可以在 `WhiteRoom.h` 中查看。
 *每个主动设置API，会在后面附上需要查看的关键类。* 
 
+## 教具列表
+
+| 名称 | objective-C 常量 | 描述 |
+| :--- | :--- | :--- |
+| 选择 | ApplianceSelector | 选择、移动、放缩 |
+| 铅笔 | AppliancePencil | 画出带颜色的轨迹 |
+| 矩形 | ApplianceRectangle | 画出矩形 |
+| 椭圆 | ApplianceEllipse | 画出正圆或椭圆 |
+| 橡皮 | ApplianceEraser | 删除轨迹 |
+| 文字 | ApplianceEraser | 编辑、输入文字 |
+
 ## 切换教具
+
 * White SDK 提供多种教具，我们可以通过生成 `WhiteMemberState` 实例，来设置当前的教具。
 * 例如，将当前教具，切换成「铅笔」工具，可以使用如下代码：
 
@@ -26,17 +40,6 @@ WhiteMemberState *memberState = [[WhiteMemberState alloc] init];
 memberState.currentApplianceName = AppliancePencil;
 [whiteRoom setMemberState:memberState];
 ```
-
-### 教具介绍
-
-| 名称 | objective-C 常量 | 描述 |
-| :--- | :--- | :--- |
-| 选择 | ApplianceSelector | 选择、移动、放缩 |
-| 铅笔 | AppliancePencil | 画出带颜色的轨迹 |
-| 矩形 | ApplianceRectangle | 画出矩形 |
-| 椭圆 | ApplianceEllipse | 画出正圆或椭圆 |
-| 橡皮 | ApplianceEraser | 删除轨迹 |
-| 文字 | ApplianceEraser | 编辑、输入文字 |
 
 ## 设置教具颜色，粗细
 `WhiteMemberState` 还有其他属性:
@@ -145,6 +148,7 @@ White SDK 提供的白板是向四方无限延伸的。同时也允许用户通�
 主播模式中，主播就好像摄像机，其他人就好像电视机。主播看到的东西会被同步到其他人的电视机上。
 
 ## 修改主播模式
+
 可以通过生成 `WhiteBroadcast` 类，设置 `viewMode` 枚举属性，传递给 WhiteRoom，来修改主播模式。
 具体代码参考
 ```objectivec
@@ -169,7 +173,7 @@ WhiteBroadcastState *state = [[WhiteBroadcastState alloc] init];
 [self.room setViewMode:state];
 ```
 
-## 获取当前主播模式
+## 获取当前视角状态
 ```objectivec
 [self.room getBroadcastStateWithResult:^(WhiteBroadcastState *state) {
     NSLog(@"%@", [state jsonString]);

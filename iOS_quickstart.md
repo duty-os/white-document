@@ -3,15 +3,17 @@
 Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自己的 iOS 工程中引入一块互动白板。不过首先，我们假定你已经了解 Objective-C 的基础语法。
 
 
-# 主要步骤
+# 开始准备
 
-### 1. 在工程项目中，添加依赖
+* 下载 [Xcode](https://itunes.apple.com/cn/app/xcode/id497799835?ls=1&mt=12) 并配置 iOS 开发环境。
 
-* 首先，你需要参考 [iOS SDK安装](https://www.yuque.com/herewhite/sdk/ios_sdk_setup) ，在 Podfile 中，添加 White-iOS-SDK 的依赖。使用 `pod install` 安装White-iOS-SDK。
+# 添加依赖
 
-### 2. 使用sdk创建白板
+* 首先，你需要参考 [iOS SDK安装](iOS_SDK_install.md) ，在 Podfile 中，添加 White-iOS-SDK 的依赖。使用 `pod install` 安装White-iOS-SDK。
 
-#### 引入white-sdk相关头文件
+
+
+# 引入 white-sdk 相关头文件
 
 * 在需要添加白板的 ViewController 实例中，引入 White-iOS-SDK 的头文件文件 WhiteSDK.h。
 
@@ -26,17 +28,20 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 @end
 ```
 
-#### 使用SDK创建白板
+# 使用 SDK 创建白板
 
-##### 首先，我们需要获取房间的 `RoomUUID`  `RoomToken` 。
+## 1. 获取权限
+
+首先，我们需要获取房间的 RoomUUID  RoomToken 。
 
 有以下两种情况：
-1. 创建一个全新的房间: 通过openAPI，创建一个新房间，获取 `RoomUUID` `RoomToken` ，然后再加入房间。
-2. 进入一个已有的房间：有 `RoomUUID` ，通过openAPI，获取到对应的 `RoomToken` 。
+
+- 1. 创建一个全新的房间: 通过openAPI，创建一个新房间，获取 `RoomUUID` `RoomToken` ，然后再加入房间。
+- 2. 进入一个已有的房间：有 `RoomUUID` ，通过openAPI，获取到对应的 `RoomToken` 。
 
 demo中，我们暂时只考虑创建房间。
 
-为了确保安全性，我们推荐您参考 [最佳实践](https://www.yuque.com/herewhite/sdk/advanced_generality) ，通过后端进行获取 `RoomToken` 。
+为了确保安全性，我们推荐您参考 [最佳实践](concept.md) ，通过后端进行获取 `RoomToken` 。
 在Demo中，我们在使用 iOS 官方 API 请求 OpenAPI 获取`RoomUUID` 和 `RoomToken` 。
 
 ```objectivec
@@ -67,9 +72,9 @@ demo中，我们暂时只考虑创建房间。
 }
 ```
 
-##### 创建 `WhiteBoardView` 和 `WhiteSDK` 
+## 2. 创建实例
 
-在 `ViewDidLoad` 中创建sdk需要的实例类。
+创建 `WhiteBoardView` 和 `WhiteSDK`， 在 `ViewDidLoad` 中创建sdk需要的实例类。
 
 ```objectivec
 - (void)viewDidLoad {
@@ -83,7 +88,9 @@ demo中，我们暂时只考虑创建房间。
 }
 ```
 
-##### 在 ViewDidLoad 中，调用 `creatNewRoomRequestWithResult:` 方法，获取 `RoomUUID` 以及`RoomToken` API。在回调中通过调用 WhiteSDK joinRoomWithRoomUuid 加入和连接白板。
+## 3. 加入白板
+
+在 ViewDidLoad 中，调用 `creatNewRoomRequestWithResult:` 方法，获取 `RoomUUID` 以及`RoomToken` API。在回调中通过调用 WhiteSDK joinRoomWithRoomUuid 加入和连接白板。
 
 ```objectivec
 - (void)viewDidLoad {
@@ -122,20 +129,13 @@ demo中，我们暂时只考虑创建房间。
 
 ```
 
-#### 好了，到这里，等待顶部导航栏变为 "我的白板" 。这时候，我们就成功添加了一个白板应用。
-
-在模拟器中，在模拟中，按住鼠标，随意涂抹，就能看到笔画啦。
-
+# 体验白板
+ 
+好了，到这里，等待顶部导航栏变为 "我的白板" 。这时候，我们就成功添加了一个白板应用。在模拟器中，在模拟中，按住鼠标，随意涂抹，就能看到笔画啦。
 
 ![image.png | left | 488x850](https://cdn.nlark.com/yuque/0/2018/png/102623/1534672728702-8c1d95f6-12cd-48ce-aec2-729b0a0de0e1.png "")
 
-#### 相关资料：
+# Demo 代码获取
 
-[iOS SDK 安装](https://www.yuque.com/herewhite/sdk/ios_sdk_setup) 
-
-## 接下来：
-
-1. [white-iOS-Demo](https://github.com/duty-os/white-demo-ios) 
-2. [最佳实践](https://www.yuque.com/herewhite/sdk/advanced_generality) 
-3. [iOS客户端开发指南](https://www.yuque.com/herewhite/sdk/ios_client_user_guide) 
+- [white-iOS-Demo](https://github.com/duty-os/white-demo-ios) 
 

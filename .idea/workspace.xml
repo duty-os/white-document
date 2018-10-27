@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8fe9a2fd-5ada-4779-a159-c4318c2cdae0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/js_SDK_install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android_SDK.md" beforeDir="false" afterPath="$PROJECT_DIR$/Android_SDK_install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android_detail_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/Android_detail_api.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android_quickstart.md" beforeDir="false" afterPath="$PROJECT_DIR$/Android_quickstart.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_sidebar.md" beforeDir="false" afterPath="$PROJECT_DIR$/_sidebar.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/concept.md" beforeDir="false" afterPath="$PROJECT_DIR$/concept.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iOS_SDK.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iOS_detail_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/iOS_detail_api.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iOS_quickstart.md" beforeDir="false" afterPath="$PROJECT_DIR$/iOS_quickstart.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js_SDK.md" beforeDir="false" afterPath="$PROJECT_DIR$/iOS_SDK_install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_SDK.md" beforeDir="false" afterPath="$PROJECT_DIR$/react_SDK_intsall.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/releaseNote.md" beforeDir="false" afterPath="$PROJECT_DIR$/releaseNote.md" afterDir="false" />
-    </list>
+    <list default="true" id="8fe9a2fd-5ada-4779-a159-c4318c2cdae0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_sidebar.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_sidebar.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_sidebar.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -36,6 +22,18 @@
                 <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,21 +92,6 @@
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="-1491">
                 <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="react_SDK_intsall.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/react_SDK_intsall.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="295">
-                <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-                <folding>
-                  <element signature="e#0#26#0" expanded="true" />
-                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -259,12 +242,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540628633924</updated>
-      <workItem from="1540628635233" duration="10038000" />
+      <workItem from="1540628635233" duration="10328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10038000" />
+    <option name="totallyTimeSpent" value="10328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="74" width="1276" height="771" extended-state="0" />
@@ -383,16 +366,6 @@
             <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -540,6 +513,16 @@
             <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

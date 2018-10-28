@@ -11,14 +11,14 @@
 
 * 如何安装
 
-  * [JavaScript SDK 安装](js_SDK.md)
-  * [React SDK 安装](react_SDK.md)
-  * [iOS SDK 安装](react_SDK.md)
-  * [Android SDK 安装](react_SDK.md)
+  * [JavaScript SDK 安装](js_SDK_install.md)
+  * [React SDK 安装](react_SDK_intsall.md)
+  * [iOS SDK 安装](iOS_SDK_install.md)
+  * [Android SDK 安装](Android_SDK_install.md)
 
 * 主要概念
 
-  * [概念详解](concept.md)
+  * [接入流程与概念详解](concept.md)
   * [实践流程](process.md)
 
 * 使用指南

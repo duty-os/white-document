@@ -16,8 +16,8 @@ yarn add white-web-sdk
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/1.2.0.css">
-        <script src="https://sdk.herewhite.com/white-web-sdk/1.2.0.js"></script>
+        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/1.3.0.css">
+        <script src="https://sdk.herewhite.com/white-web-sdk/1.3.0.js"></script>
     </head>
     <body>
         <div id="whiteboard" style="width: 100%; height: 100vh;"></div>

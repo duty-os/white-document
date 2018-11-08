@@ -113,7 +113,7 @@ public class DemoAPI {
 
 ```
 dependencies {
-    compile 'com.github.duty-os:white-sdk-android:1.0'
+    compile 'com.github.duty-os:white-sdk-android:1.3.0'
     compile 'com.squareup.okhttp3:okhttp:3.11.0' // 添加这行
 }
 ```

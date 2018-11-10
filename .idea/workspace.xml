@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8fe9a2fd-5ada-4779-a159-c4318c2cdae0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/Android_SDK_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/Android_SDK_install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/_sidebar.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/_sidebar.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/concept.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/concept.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/iOS_SDK_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/iOS_SDK_install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/js_SDK_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/js_SDK_install.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/process.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/process.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/react_SDK_intsall.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/react_SDK_intsall.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/js_detail_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/js_detail_api.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,7 +32,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="js_detail_api.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/en-uk/js_detail_api.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="282">
+                <caret line="264" column="104" selection-start-line="264" selection-start-column="104" selection-end-line="264" selection-end-column="104" />
+                <folding>
+                  <element signature="n#!!doc" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="process.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/en-uk/process.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -57,6 +66,16 @@
               <first_editor relative-caret-position="436">
                 <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="js_SDK_install.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js_SDK_install.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
               <second_editor />
             </state>
           </provider>
@@ -128,28 +147,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Android_quickstart.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/en-uk/Android_quickstart.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="113">
-                <caret line="188" column="11" lean-forward="true" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iOS_detail_api.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/en-uk/iOS_detail_api.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -200,6 +197,7 @@
         <option value="$PROJECT_DIR$/en-uk/_sidebar.md" />
         <option value="$PROJECT_DIR$/en-uk/concept.md" />
         <option value="$PROJECT_DIR$/en-uk/process.md" />
+        <option value="$PROJECT_DIR$/en-uk/js_detail_api.md" />
       </list>
     </option>
   </component>
@@ -294,21 +292,21 @@
       <workItem from="1541657929198" duration="436000" />
       <workItem from="1541658887214" duration="3430000" />
       <workItem from="1541749594423" duration="4193000" />
-      <workItem from="1541821632474" duration="4024000" />
+      <workItem from="1541821632474" duration="6128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25611000" />
+    <option name="totallyTimeSpent" value="27715000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="165" y="75" width="1276" height="771" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32937685" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.32937685" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -331,16 +329,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Android_SDK_install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="663">
-            <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Android_detail_api.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -474,14 +462,6 @@
           <first_editor>
             <caret column="6" selection-start-column="6" selection-end-column="6" />
           </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js_SDK_install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
           <second_editor />
         </state>
       </provider>
@@ -742,12 +722,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/process.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="272">
+            <caret line="16" column="150" selection-start-line="16" selection-start-column="150" selection-end-line="16" selection-end-column="150" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/en-uk/concept.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="436">
             <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js_SDK_install.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
           <second_editor />
         </state>
       </provider>
@@ -762,11 +760,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/en-uk/process.md">
+    <entry file="file://$PROJECT_DIR$/en-uk/js_detail_api.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="272">
-            <caret line="16" column="150" selection-start-line="16" selection-start-column="150" selection-end-line="16" selection-end-column="150" />
+          <first_editor relative-caret-position="282">
+            <caret line="264" column="104" selection-start-line="264" selection-start-column="104" selection-end-line="264" selection-end-column="104" />
+            <folding>
+              <element signature="n#!!doc" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>

@@ -1,4 +1,6 @@
-# Develop with Android Studio
+# Develop Tool
+
+We assume that you develop with Android Studio
 
 # Create project
 

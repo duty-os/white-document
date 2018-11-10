@@ -1,38 +1,46 @@
-# 使用包管理工具安装
+# Install using the package management tool
 
-<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">White 的 Web 端 SDK 已经发布到了 npmjs.com。如果你的项目使用 npm 或 yarn 等工具来管理依赖包，仅仅输入几行命令，你就可以把我们的 SDK 安装到项目中。</span></span>
+White's Web-side SDK has been released to npmjs.com. If your project uses tools such as npm or yarn to manage dependencies, just enter a few lines of commands and you can install our SDK into your project.
 
-如果你的项目基于 React 开发，你可以直接安装 White 的 React SDK。
+If your project is based on React development, you can install White's React SDK directly.
 
-<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">首先打开你的终端，然后进入到你的项目文件夹中。请确保此时文件夹中包含了 </span></span>`package.json`<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> 这个文件。如果你使用 npm，输入如下命令。</span></span>
+First open your terminal and then go to your project folder. Make sure that the folder contains the `package.json` file at this time. If you use npm, enter the following command.
+
 ```bash
 npm install white-react-sdk --save
 ```
 
-<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">如果你使用 yarn，输入如下命令。</span></span>
+If you use yarn, enter the following command.
+
 ```bash
 yarn add white-react-sdk
 ```
 
-# TypeScript 的配置
-如果你使用 TypeScript 作为开发语言，你还需要做额外的配置。否则你可以跳过这个步骤。
+# TypeScript configuration
 
-`'white-web-sdk'`<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> 提供了 </span></span>`*.d.ts`<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> 文件来标明类型。你需要在 </span></span>`tsconfig.json`<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> 文件的 </span></span><span data-type="color" style="color:rgb(36, 41, 46)"><span data-type="background" style="background-color:rgba(27, 31, 35, 0.0470588)"><code>compilerOptions </code></span></span><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> 属性下添加如下内容来引入它们。</span></span>
+If you use TypeScript as your development language, you will need to do additional configuration. Otherwise you can skip this step.
+
+`white-web-sdk` provides a `*.d.ts` file to indicate the type. You need to add the following to the `compilerOptions` property of the `tsconfig.json` file to introduce them.
+
 ```json
 "paths": {
     "*" : ["node_modules/white-web-sdk/types/*"]
 }
 ```
 
-# 构造 whiteWebSdk 对象
-<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">在</span></span>[《JavaScript 进阶教程》](https://www.yuque.com/herewhite/sdk/advanced_generality_js)<span data-type="color" style="color:rgb(38, 38, 38)">中，我们提到，第一步应该构造出 </span><span data-type="color" style="color:rgb(38, 38, 38)"><code>whiteWebSdk</code></span><span data-type="color" style="color:rgb(38, 38, 38)"> 对象。</span>
+# Construct a whiteWebSdk object
+
+在 [《JavaScript 进阶教程》](https://www.yuque.com/herewhite/sdk/advanced_generality_js) 中，我们提到，第一步应该构造出 </span><span data-type="color" style="color:rgb(38, 38, 38)"><code>whiteWebSdk</code></span><span data-type="color" style="color:rgb(38, 38, 38)"> 对象。</span>
+
 ```javascript
 import {WhiteWebSdk} from 'white-web-sdk';
 const whiteWebSdk = new WhiteWebSdk();
 ```
 
 # 在网页上显示白板
+
 `'white-react-sdk'` 提供了 `RoomWhiteboard` 来专门展示白板，这是一个 `React.Component` 。在使用它之前，你需要先获取 room 对象。
+
 ```javascript
 import {WhiteWebSdk} from 'white-web-sdk';
 
@@ -43,6 +51,7 @@ whiteWebSdk.joinRoom({uuid: uuid, roomToken: roomToken}).then(function(room) {
 ```
 
 之后，通过如下方式展示出白板。
+
 ```javascript
 import React from 'react';
 import ReactDOM from "react-dom";
@@ -60,6 +69,7 @@ ReactDOM.render(<App/>, document.getElementById('react-root');
 ```
 
 注意 `<RoomWhiteboard>` 中的 `style` 属性，<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">如果没有它，最终的白板可能蜷缩在网页的一个角落中。如果你希望使用 css 来代替 </span></span>`style`<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> 属性，可以写成如下形式。</span></span>
+
 ```javascript
 render() {
     return <RoomWhiteboard room={room} className='whiteboard'/>;

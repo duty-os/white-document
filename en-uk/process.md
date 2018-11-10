@@ -1,13 +1,17 @@
-# 最佳实践
+# Best Practices
 
-## 业务描述
-我们自己实现一套用户系统，用户通过用户名和密码登录。用户可以创建一个白板（房间）。然后他可以自己进入房间在白板上写写画画，同时，他可以将房间分享给其他用户。其他收到邀请后，可以通过邀请进入该房间。然后和房间其他人一起互动。
+We will briefly explain the best way to use it.
 
-## 实现
-用户在登录了我们自己实现的用户系统后，需要调用业务服务器的“创建白板”的 API。业务服务器通过鉴权，确定该用户有“创建白板”的权限后，通过 Mini Token 调用 White 的 API，创建了一个房间。之后，业务服务器将房间的 `uuid` 和 `roomToken` 传给用户。
+## Business description
 
-用户拿到 `uuid` 和 `roomToken` 之后，调用客户端 SDK 的 API 进入到该房间。
+We implement a set of user systems ourselves, and the user logs in with a username and password. Users can create a whiteboard (room). Then he can enter the room and write and draw on the whiteboard. At the same time, he can share the room with other users. After receiving the invitation, you can enter the room by invitation. Then interact with the rest of the room.
 
-随后，用户希望将这个房间分享给其他用户。他 / 她调用业务服务器的“分享给其他人”的 API，并将房间的 `uuid` 传给了业务服务器。业务服务器生成多份邀请通知发给其他用户。在邀请通知中同时包含 `uuid` 和 `roomToken` 。
+## Achieve
 
-其他用户接收到邀请通知后，通过 `uuid` 和 `roomToken` 之后，调用客户端 SDK 的 API 进入到该房间。
+After logging in to our own user system, the user needs to invoke the "create whiteboard" API of the business server. After the service server authenticates, it determines that the user has the permission to create a whiteboard, and then calls the White API through the Mini Token to create a room. The business server then passes the room's `uuid` and `roomToken` to the user.
+
+After the user gets the `uuid` and `roomToken`, they call the API of the client SDK to enter the room.
+
+Subsequently, the user wishes to share this room with other users. He/she calls the "Share to Others" API of the business server and passes the room's `uuid` to the business server. The business server generates multiple invitation notifications to other users. Both the `uuid` and `roomToken` are included in the invitation notification.
+
+After other users receive the invitation notification, they pass the `uuid` and `roomToken` and then call the API of the client SDK to enter the room.

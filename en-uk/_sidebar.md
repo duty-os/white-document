@@ -16,12 +16,12 @@
   * [iOS SDK install](en-uk/iOS_SDK_install.md)
   * [Android SDK install](en-uk/Android_SDK_install.md)
 
-* 主要概念
+* Main concept
 
   * [Process & concept](en-uk/concept.md)
   * [Practical process](en-uk/process.md)
 
-* 使用指南
+* User guidance
 
   * [Javascript guide](en-uk/js_detail_api.md)
   * [Android guide](en-uk/Android_detail_api.md)

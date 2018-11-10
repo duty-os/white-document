@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/en-uk/iOS_SDK_install.md" description="如果你未接触过 Cocoapods ，我们推荐您阅读" line="1" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8fe9a2fd-5ada-4779-a159-c4318c2cdae0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/en-uk/Android_SDK_install.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/Android_detail_api.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/Android_quickstart.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/CNAME" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/_navbar.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/_sidebar.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/build_docker.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/concept.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/iOS_SDK_install.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/iOS_detail_api.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/iOS_quickstart.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/introduction.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/js_SDK_install.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/js_detail_api.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/js_quickstart.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/nginx.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/process.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/react_SDK_intsall.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/releaseNote.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/en-uk/server_detail_api.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_sidebar.md" beforeDir="false" afterPath="$PROJECT_DIR$/_sidebar.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/Android_SDK_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/Android_SDK_install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/_sidebar.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/_sidebar.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/concept.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/concept.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/iOS_SDK_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/iOS_SDK_install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/js_SDK_install.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/js_SDK_install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/process.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/process.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/en-uk/react_SDK_intsall.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/react_SDK_intsall.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,32 +30,32 @@
         <entry file="file://$PROJECT_DIR$/en-uk/_sidebar.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="34">
-                <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+              <first_editor relative-caret-position="391">
+                <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/en-uk/README.md">
+      <file leaf-file-name="process.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/en-uk/process.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="306">
-                <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+              <first_editor relative-caret-position="272">
+                <caret line="16" column="150" selection-start-line="16" selection-start-column="150" selection-end-line="16" selection-end-column="150" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="introduction.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/en-uk/introduction.md">
+      <file leaf-file-name="concept.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/en-uk/concept.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="283">
-                <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <first_editor relative-caret-position="436">
+                <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               </first_editor>
               <second_editor />
             </state>
@@ -80,8 +66,20 @@
         <entry file="file://$PROJECT_DIR$/en-uk/js_quickstart.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1329">
+              <first_editor relative-caret-position="1479">
                 <caret line="87" column="128" selection-start-line="87" selection-start-column="128" selection-end-line="87" selection-end-column="128" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="js_SDK_install.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/en-uk/js_SDK_install.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="463">
+                <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
                 <folding>
                   <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 </folding>
@@ -91,73 +89,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iOS_quickstart.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/en-uk/iOS_quickstart.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="715">
-                <caret line="137" column="8" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Android_quickstart.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/en-uk/Android_quickstart.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="453">
-                <caret line="208" column="8" selection-start-line="208" selection-start-column="8" selection-end-line="208" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Android_detail_api.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/en-uk/Android_detail_api.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="68">
-                <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="releaseNote.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/en-uk/releaseNote.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="952">
-                <caret line="56" column="158" selection-start-line="56" selection-start-column="158" selection-end-line="56" selection-end-column="158" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="34">
-                <caret line="2" column="56" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="56" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_sidebar.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_sidebar.md">
+      <file leaf-file-name="iOS_SDK_install.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/en-uk/iOS_SDK_install.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor>
-                <caret column="2" selection-start-column="2" selection-end-column="6" />
+                <caret column="27" selection-start-column="27" selection-end-column="27" />
               </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="react_SDK_intsall.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/en-uk/react_SDK_intsall.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="922">
+                <caret line="72" selection-start-line="72" selection-end-line="72" />
+                <folding>
+                  <element signature="e#0#26#0" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Android_SDK_install.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/en-uk/Android_SDK_install.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="487">
+                <caret line="43" column="237" selection-start-line="43" selection-start-column="237" selection-end-line="43" selection-end-column="237" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Android_quickstart.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/en-uk/Android_quickstart.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="113">
+                <caret line="188" column="11" lean-forward="true" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iOS_detail_api.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/en-uk/iOS_detail_api.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
               <second_editor />
             </state>
           </provider>
@@ -173,6 +160,8 @@
       <find>1.2.0</find>
       <find>Edit Document</find>
       <find>white</find>
+      <find>https://www.yuque.com/</find>
+      <find>在 《快速开始</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,7 +186,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/_navbar.md" />
         <option value="$PROJECT_DIR$/_sidebar.md" />
-        <option value="$PROJECT_DIR$/en-uk/_sidebar.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/en-uk/README.md" />
         <option value="$PROJECT_DIR$/en-uk/releaseNote.md" />
@@ -205,6 +193,13 @@
         <option value="$PROJECT_DIR$/en-uk/js_quickstart.md" />
         <option value="$PROJECT_DIR$/en-uk/iOS_quickstart.md" />
         <option value="$PROJECT_DIR$/en-uk/Android_quickstart.md" />
+        <option value="$PROJECT_DIR$/en-uk/js_SDK_install.md" />
+        <option value="$PROJECT_DIR$/en-uk/react_SDK_intsall.md" />
+        <option value="$PROJECT_DIR$/en-uk/Android_SDK_install.md" />
+        <option value="$PROJECT_DIR$/en-uk/iOS_SDK_install.md" />
+        <option value="$PROJECT_DIR$/en-uk/_sidebar.md" />
+        <option value="$PROJECT_DIR$/en-uk/concept.md" />
+        <option value="$PROJECT_DIR$/en-uk/process.md" />
       </list>
     </option>
   </component>
@@ -218,8 +213,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-28" />
-    <option name="y" value="73" />
+    <option name="x" value="165" />
+    <option name="y" value="75" />
     <option name="width" value="1276" />
     <option name="height" value="771" />
   </component>
@@ -298,21 +293,23 @@
       <workItem from="1541656928527" duration="1000" />
       <workItem from="1541657929198" duration="436000" />
       <workItem from="1541658887214" duration="3430000" />
-      <workItem from="1541749594423" duration="3932000" />
+      <workItem from="1541749594423" duration="4193000" />
+      <workItem from="1541821632474" duration="4024000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21326000" />
+    <option name="totallyTimeSpent" value="25611000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-28" y="73" width="1276" height="771" extended-state="0" />
+    <frame x="165" y="75" width="1276" height="771" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32937685" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -325,7 +322,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,71 +331,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/iOS_SDK_install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="442">
-            <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iOS_detail_api.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="85">
-            <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js_SDK_install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iOS_quickstart.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="2329">
-            <caret line="137" selection-start-line="137" selection-end-line="137" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/concept.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="6" selection-start-column="6" selection-end-column="6" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="55" selection-start-line="95" selection-start-column="55" selection-end-line="95" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_sidebar.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="340">
-            <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Android_SDK_install.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -687,16 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/en-uk/_sidebar.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="34">
-            <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -730,21 +651,8 @@
     <entry file="file://$PROJECT_DIR$/en-uk/introduction.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="283">
+          <first_editor relative-caret-position="799">
             <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/en-uk/js_quickstart.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1329">
-            <caret line="87" column="128" selection-start-line="87" selection-start-column="128" selection-end-line="87" selection-end-column="128" />
-            <folding>
-              <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            </folding>
           </first_editor>
           <second_editor />
         </state>
@@ -753,7 +661,7 @@
     <entry file="file://$PROJECT_DIR$/en-uk/iOS_quickstart.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="715">
+          <first_editor relative-caret-position="2329">
             <caret line="137" column="8" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
           </first_editor>
           <second_editor />
@@ -763,8 +671,102 @@
     <entry file="file://$PROJECT_DIR$/en-uk/Android_quickstart.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="453">
-            <caret line="208" column="8" selection-start-line="208" selection-start-column="8" selection-end-line="208" selection-end-column="8" />
+          <first_editor relative-caret-position="113">
+            <caret line="188" column="11" lean-forward="true" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/iOS_detail_api.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/js_quickstart.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1479">
+            <caret line="87" column="128" selection-start-line="87" selection-start-column="128" selection-end-line="87" selection-end-column="128" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/react_SDK_intsall.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="922">
+            <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <folding>
+              <element signature="e#0#26#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/Android_SDK_install.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="487">
+            <caret line="43" column="237" selection-start-line="43" selection-start-column="237" selection-end-line="43" selection-end-column="237" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/iOS_SDK_install.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="27" selection-start-column="27" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/js_SDK_install.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="463">
+            <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+            <folding>
+              <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/concept.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="436">
+            <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/_sidebar.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="391">
+            <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/en-uk/process.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="272">
+            <caret line="16" column="150" selection-start-line="16" selection-start-column="150" selection-end-line="16" selection-end-column="150" />
           </first_editor>
           <second_editor />
         </state>

@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fe9a2fd-5ada-4779-a159-c4318c2cdae0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/en-uk/Android_detail_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/Android_detail_api.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/en-uk/iOS_detail_api.md" beforeDir="false" afterPath="$PROJECT_DIR$/en-uk/iOS_detail_api.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -95,11 +93,8 @@
         <entry file="file://$PROJECT_DIR$/en-uk/iOS_detail_api.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="14" selection-start-column="14" selection-end-column="14" />
-                <folding>
-                  <element signature="e#104#174#0" />
-                </folding>
+              <first_editor relative-caret-position="199">
+                <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
               </first_editor>
               <second_editor />
             </state>
@@ -154,6 +149,7 @@
       <find>white</find>
       <find>https://www.yuque.com/</find>
       <find>在 《快速开始</find>
+      <find>翻页</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -290,12 +286,12 @@
       <workItem from="1541658887214" duration="3430000" />
       <workItem from="1541749594423" duration="4193000" />
       <workItem from="1541821632474" duration="6430000" />
-      <workItem from="1541832325889" duration="1945000" />
+      <workItem from="1541832325889" duration="4665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29962000" />
+    <option name="totallyTimeSpent" value="32682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="164" y="75" width="1276" height="771" extended-state="0" />
@@ -757,11 +753,8 @@
     <entry file="file://$PROJECT_DIR$/en-uk/iOS_detail_api.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="14" selection-start-column="14" selection-end-column="14" />
-            <folding>
-              <element signature="e#104#174#0" />
-            </folding>
+          <first_editor relative-caret-position="199">
+            <caret line="128" column="15" selection-start-line="128" selection-start-column="15" selection-end-line="128" selection-end-column="15" />
           </first_editor>
           <second_editor />
         </state>

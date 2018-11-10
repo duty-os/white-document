@@ -191,4 +191,18 @@ WhiteBroadcastState *state = [[WhiteBroadcastState alloc] init];
 
 尺寸应该和白板在产品中的实际尺寸相同（一般而言就是浏览器页面或者应用屏幕的尺寸）。如果用户调整了窗口大小导致白板尺寸改变。应该重新调用该方法刷新尺寸。
 
+## 自定义消息
 
+可以使用自定义消息来满足类似 IM 、弹幕、点赞等场景。
+
+```Objective-C
+- (void)dispatchMagixEvent:(NSString *)eventName payload:(NSDictionary *)payload;
+- (void)addMagixEventListener:(NSString *)eventName;
+- (void)removeMagixEventListener:(NSString *)eventName;
+```
+
+- dispatchMagixEvent:
+  - eventName 为消息类型名称，同一个房间的所有人都会收到房间内同一个消息类型的消息
+  - payload 为字典类型
+
+- addMagixEventListener 和 removeMagixEventListener 用来增加和删除消息监听器，eventName 为消息类型名称。

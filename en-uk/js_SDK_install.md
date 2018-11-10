@@ -1,17 +1,21 @@
-# 使用包管理工具安装
-White 的 Web 端 SDK 已经发布到了 npmjs.com。如果你的项目使用 npm 或 yarn 等工具来管理依赖包，仅仅输入几行命令，你就可以把我们的 SDK 安装到项目中。
+# Install using the package management tool
 
-首先打开你的终端，然后进入到你的项目文件夹中。请确保此时文件夹中包含了 `package.json` 这个文件。如果你使用 npm，输入如下命令。
+White's Web-side SDK has been released to npmjs.com. If your project uses tools such as npm or yarn to manage dependencies, just enter a few lines of commands and you can install our SDK into your project.
+
+First open your terminal and then go to your project folder. Make sure that the folder contains the `package.json` file at this time. If you use npm, enter the following command.
+
 ```bash
 npm install white-web-sdk --save
 ```
 
-如果你使用 yarn，输入如下命令。
+If you use yarn, enter the following command.
+
 ```bash
 yarn add white-web-sdk
 ```
 
-# 通过 CDN 安装
+# Installed via CDN
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -26,47 +30,54 @@ yarn add white-web-sdk
 
 ```
 
-# 在 JavaScript 项目中使用
-在[《JavaScript 进阶教程》](https://www.yuque.com/herewhite/sdk/advanced_generality_js)中，我们提到，第一步应该构造出 `whiteWebSdk` 对象。如果我们使用 npm 或 yarn 安装了 `'white-web-sdk'` ，可以使用如下代码构造出它。
+# Used in a JavaScript project
+
+In [《JavaScript advanced tutorial》](https://www.yuque.com/herewhite/sdk/advanced_generality_js), we mentioned that the first step should be to construct the `whiteWebSdk` object. If we installed `'white-web-sdk'` with npm or yarn , we can construct it using the following code.
+
 ```javascript
 var WhiteWebSdk = require('white-web-sdk').WhiteWebSdk;
 var whiteWebSdk = new WhiteWebSdk();
 ```
 
-# 在 ES6 项目中使用
-ES6 是 ECMAScript 6 的缩写。我们可以通过如下代码构造出 `whiteWebSdk` 对象。
+# Used in ES6 projects
+
+ES6 is an abbreviation for ECMAScript 6. We can construct the `whiteWebSdk` object with the following code.
+
 ```javascript
 import {WhiteWebSdk} from 'white-web-sdk';
 const whiteWebSdk = new WhiteWebSdk();
 ```
 
-# 在 TypeScript 中使用
-`'white-web-sdk'` 提供了 `*.d.ts` 文件来标明类型。你需要在 `tsconfig.json` 文件的 <span data-type="color" style="color:rgb(36, 41, 46)"><span data-type="background" style="background-color:rgba(27, 31, 35, 0.0470588)"><code>compilerOptions </code></span></span> 属性下添加如下内容来引入它们。
+# Used in TypeScript
+
+`white-web-sdk` provides a `*.d.ts` file to indicate the type. You need to add the following to the `compilerOptions` property of the `tsconfig.json` file to introduce them.
+
 ```json
 "paths": {
     "*" : ["node_modules/white-web-sdk/types/*"]
 }
 ```
 
-之后，我们可以通过如下代码构造出 `whiteWebSdk` 对象。
+After that, we can construct the `whiteWebSdk` object with the following code.
+
 ```typescript
 import {WhiteWebSdk} from 'white-web-sdk';
 const whiteWebSdk: WhiteWebSdk = new WhiteWebSdk();
 ```
 
-# 安装 css 文件
+# Install css file
 
-White 的 SDK 附带了一个 css 文件，你将它正确引入你的项目中才能使用。
+White's SDK comes with a css file that you can use to properly import it into your project.
 
-你可以在项目所在目录的 `node_modules/white-web-sdk/style/index.css` 找到它。你可以直接将它上传到静态服务器的资源文件夹中，或上传到对象存储中。然后在网页的 `<head>` 通过 URL 引入该 css 即可。
+You can find it in the directory where the project is located at `node_modules/white-web-sdk/style/index.css`. You can upload it directly to the resource folder of the static server or upload it to the object store. Then introduce the css through the URL in the `<head>` of the web page.
 
-如果你使用了 `css-loader` 之类的插件，你可以在项目的 `index.js` 中的引入。
+If you use a plugin like `css-loader`, you can introduce it in the project's `index.js`.
 
 ```javascript
 import 'white-web-sdk/style/index.css';
 ```
 
-或在你的 `index.css` 中引入。
+Or introduced in your `index.css`.
 
 ```css
 @import 'white-web-sdk/style/index.css';

@@ -1,48 +1,49 @@
-# 我们的解决方案
+# Our solution
 
-* 提供一块容易集成同时又功能强大的实时互动白板。
-* 白板提供灵活的扩展能力和二次开发能力，提供全平台（iOS、Android、Web、小程序） SDK 。
+* Provide a real-time interactive whiteboard that is easy to integrate and powerful.
+* The whiteboard provides flexible scalability and secondary development capabilities, providing a full platform (iOS, Android, Web, applet) SDK.
 
-# 白板的教具与状态
+# Whiteboard teaching aids and status
 
-* 我的 UI 组件已经做好了，我如何让 UI 组件的操作影响到白板的行为？
-* 白板有哪些状态，我的 UI 组件如何监听、获取白板的状态？
+* My UI components are ready, how do I make the operation of the UI components affect the behavior of the whiteboard?
+* What state does the whiteboard have, how does my UI component listen and get the state of the whiteboard ?
 
-当你加入一个房间后，你可以获取和修改的房间状态主要有如下几种：
-* __GlobalState__：全房间的状态，自房间创建其就存在。所有人可见，所有人可修改。
-* __MemberState__：成员状态。每个房间成员都有独立的一份实例，成员加入房间时自动创建，成员离开房间时自动释放。成员只能获取、监听、修改自己的 MemberState。
-* __BroadcastState__：视角状态，和主播模式、跟随模式相关。
+When you join a room, you can get and modify the room status mainly as follows:
 
-事件通知API，可以在 `WhiteRoomCallbacks.h` 中查看。
-设置状态与获取状态的API，可以在 `WhiteRoom.h` 中查看。
-*每个主动设置API，会在后面附上需要查看的关键类。* 
+* __GlobalState__: The state of the whole room, it exists from the creation of the room. Visible to everyone, everyone can modify it.
+* __MemberState__: Member status. Each room member has a separate instance that is automatically created when a member joins the room and is automatically released when the member leaves the room. Members can only get, listen to, and modify their own MemberState.
+* __BroadcastState__: The angle of view state is related to the anchor mode and the follow mode.
 
-## 教具列表
+The event notification API can be viewed in `WhiteRoomCallbacks.h`.
+The API for setting status and getting status can be viewed in `WhiteRoom.h`.
+*Each active setting API will be followed by the key classes that need to be viewed.* 
 
-| 名称 | objective-C 常量 | 描述 |
+## Tool list
+
+| name | objective-C constant | script |
 | :--- | :--- | :--- |
-| 选择 | ApplianceSelector | 选择、移动、放缩 |
-| 铅笔 | AppliancePencil | 画出带颜色的轨迹 |
-| 矩形 | ApplianceRectangle | 画出矩形 |
-| 椭圆 | ApplianceEllipse | 画出正圆或椭圆 |
-| 橡皮 | ApplianceEraser | 删除轨迹 |
-| 文字 | ApplianceEraser | 编辑、输入文字 |
+| selector | ApplianceSelector | Select, move, zoom |
+| pencil | AppliancePencil | Draw a colored track |
+| rectangle | ApplianceRectangle | Draw a rectangle |
+| ellipse | ApplianceEllipse | Draw a perfect circle or ellipse |
+| eraser | ApplianceEraser | Delete track |
+| text | ApplianceText | Edit, enter text |
 
-## 切换教具
+## Switch tool
 
-* White SDK 提供多种教具，我们可以通过生成 `WhiteMemberState` 实例，来设置当前的教具。
-* 例如，将当前教具，切换成「铅笔」工具，可以使用如下代码：
+* The White SDK provides a variety of teaching aids, and we can set the current teaching aid by generating a `WhiteMemberState` instance.
+* For example, to switch the current teaching aid to the "pencil" tool, you can use the following code:
 
 ```objectivec
 WhiteMemberState *memberState = [[WhiteMemberState alloc] init];
-//白板初始状态时，教具默认为画笔pencil。
-//可在 WhiteMemeberState.h 中看到当前提供的各种教具常量
+// When the whiteboard is in the initial state, the teaching aid defaults to the brush pencil.
+// You can see the various teaching aid constants currently available in WhiteMemeberState.h
 memberState.currentApplianceName = AppliancePencil;
 [whiteRoom setMemberState:memberState];
 ```
 
-## 设置教具颜色，粗细
-`WhiteMemberState` 还有其他属性:
+## Set the aid color, thickness
+`WhiteMemberState` There are other attributes:
 
 ```objectivec
 @interface WhiteMemberState : WhiteObject
@@ -52,67 +53,72 @@ memberState.currentApplianceName = AppliancePencil;
 @property (nonatomic, strong) NSNumber *strokeWidth;
 ```
 
-1. `strokeColor` 属性，可以调整教具的颜色。该属性，能够影响铅笔、矩形、椭圆、文字工具颜色。
-2. `strokeWidth` 属性，可以调整教具粗细。该属性，能够影响铅笔、矩形、椭圆、文字工具颜色。
+1. The `strokeColor` property allows you to adjust the color of the teaching aid. This property can affect the color of pencils, rectangles, ellipses, and text tools.
+2. The `strokeWidth` property allows you to adjust the thickness of the teaching aid. This property can affect the color of pencils, rectangles, ellipses, and text tools.
 
-## 获取当前教具
+## Get current teaching aids
+
 ```objectivec
 [whiteRoom getMemberStateWithResult:^(WhiteMemberState *state) {
     NSLog(@"%@", [state jsonString]);
 }];
 ```
 
-## 订阅白板状态
-参见 WhiteRoomCallbackDelegate
+## Subscribe to the whiteboard status
 
-* 回调API列表：
+See WhiteRoomCallbackDelegate
+
+* Callback API list:
 
 ```objectivec
 @protocol WhiteRoomCallbackDelegate <NSObject>
-/** 白板网络连接状态回调 */
+/** Whiteboard network connection status callback */
 - (void)firePhaseChanged:(WhiteRoomPhase)phase;
-/** 白板当前任意RoomState属性变量变化时，回调 */
+/** Callback when any whiteboard RoomValue property variable changes */
 - (void)fireRoomStateChanged:(WhiteRoomState *)magixPhase;
 - (void)fireBeingAbleToCommitChange:(BOOL)isAbleToCommit;
-/** 白板失去连接回调，附带原因 */
+/** Whiteboard loses connection callback, with reason */
 - (void)fireDisconnectWithError:(NSString *)error;
-/** 用户被远程服务器踢出房间，附带原因 */
+/** The user is kicked out of the room by the remote server with the reason */
 - (void)fireKickedWithReason:(NSString *)reason;
-/** 用户错误事件捕获 */
+/** User error event capture */
 - (void)fireCatchErrorWhenAppendFrame:(NSUInteger)userId error:(NSString *)error;
 
 @end
 ```
 
-* 何时传入delegate？
+* When is the delegate passed?
 
-在调用以下API生成SDK时，传入的 `callbacks` 参数，需要实现以上protocol。即可在事件发生时，接受回调。
+When calling the following API to generate the SDK, the incoming `callbacks` parameter needs to implement the above protocol. You can accept callbacks when an event occurs.
 
 ```objectivec
 - (void)joinRoomWithRoomUuid:(NSString *)roomUuid roomToken:(NSString *)roomToken callbacks:(id<WhiteRoomCallbackDelegate>)callbacks completionHandler:(void (^) (BOOL success, WhiteRoom *room, NSError *error))completionHander;
 ```
 
-注意：<strong>调用 </strong><strong><code>WhiteRoom</code></strong><strong> API设置房间状态，也会触发事件回调。</strong>
+__Note: Calling the `WhiteRoom` API to set the room state also triggers an event callback.__
 
-# PPT与翻页
-参考 WhitePptPage 和 WhiteGlobalState
+# PPT and page turning
 
-## 插入PPT
-White SDK 还支持插入 PPT。插入的 PPT 将变成带有 PPT 内容的页面。我们需要先将 PPT 文件或 PDF 文件的每一页单独转化成一组图片，并将这组图片在互联网上发布（例如上传到某个云存储仓库中，并获取每一张图片的可访问的 URL）。
+Reference WhitePptPage and WhiteGlobalState
+
+## Insert PPT
+
+The White SDK also supports plugging in PPT. The inserted PPT will become a page with PPT content. We need to convert each page of the PPT file or PDF file into a set of images separately, and publish the set of images on the Internet (for example, upload to a cloud storage repository and get the accessible URL for each image).
 
 ```objectivec
 WhitePptPage *pptPage = [[WhitePptPage alloc] init];
 pptPage.src = @"https://www.xxx.com/1.png";
 pptPage.width = 600;
 pptPage.height = 600;
-//始终是数组
+// Always an array
 [self.room pushPptPages:@[pptPage]];
 ```
 
-*插入的PPT默认会在并非立刻显示，而是会自动新建多个白板页面，但是仍然保留在当前页，可以通过翻页API进行切换* 
+*The inserted PPT will not be displayed immediately, but will automatically create multiple whiteboard pages, but it will remain on the current page and can be switched through the paging API.* 
 
-## 获取 PPT
-获取 PPT 会返回各个 PPT 图片的网址
+## Get PPT
+
+Getting a PPT returns the URL of each PPT images.
 
 ```objectivec
 [self.room getPptImagesWithResult:^(NSArray<NSString *> *pptPages) {
@@ -120,75 +126,84 @@ pptPage.height = 600;
 }];
 ```
 
-## 翻页
-参考 WhiteGlobalState
-PPT插入后，White SDK 会创建多个页面（默认仍然停留在当前页），并允许在其中进行切换。
-在白板初次创建时，只有一个空白页面。我们可以通过如下方法来插入、删除、切换页面。
+## Page turning
 
-__注意，globalState 是整个房间所有人共用的。通过修改 globalState 的 currentSceneIndex 属性来翻页，将导致整个房间的所有人切换到该页。__ 
+Reference `WhiteGlobalState`
+
+After the PPT is inserted, the White SDK creates multiple pages (the default is still on the current page) and allows switching between them.
+
+When the whiteboard is first created, there is only one blank page. We can insert, delete, and switch pages by the following methods.
+
+__Note that the globalState is shared by the entire room owner. Turning pages by modifying the currentState's currentSceneIndex property will cause everyone in the entire room to switch to that page.__ 
 
 ```objectivec
-//切换页面
+// Switch page
 WhiteGlobalState *state = [[WhiteGlobalState alloc] init];
 state.currentSceneIndex = [magixPhase.pptImages count] - 1;
 [self.room setGlobalState:state];
 
-//在index 1处，插入一个新的空白页
+// At index 1, insert a new blank page
 [self.room insertNewPage:1];
-//移除index 1的页面
+// Remove index 1 page
 [self.room removePage:1]
 ```
 
-# 主播模式
-参考 WhiteBroadcastState。
-White SDK 提供的白板是向四方无限延伸的。同时也允许用户通过鼠标滚轮、手势等方式移动白板。因此，即便是同一块白板的同一页，不同用户的屏幕上可能看到的内容是不一样的。
+# Anchor mode
 
-为此，我们引入「主播模式」这个概念。主播模式将房间内的某一个人设为主播，他/她屏幕上看到的内容即是其他所有人看到的内容。当主播进行视角的放缩、移动时，其他人的屏幕也会自动进行放缩、移动。
+See WhiteBroadcastState.
 
-主播模式中，主播就好像摄像机，其他人就好像电视机。主播看到的东西会被同步到其他人的电视机上。
+The whiteboard provided by the White SDK is infinitely extended to the four sides. It also allows the user to move the whiteboard by means of a mouse wheel, gesture, and the like. Therefore, even on the same page of the same whiteboard, the content that may be seen on different users' screens is different.
 
-## 修改主播模式
+To this end, we introduce the concept of "host mode". The anchor mode sets an individual in the room as the anchor, and what he/she sees on the screen is what everyone else sees. When the anchor zooms and moves the angle of view, other people's screens will automatically zoom and move.
 
-可以通过生成 `WhiteBroadcast` 类，设置 `viewMode` 枚举属性，传递给 WhiteRoom，来修改主播模式。
-具体代码参考
+In the anchor mode, the anchor is like a video camera, and everyone else is like a TV. What the anchor sees will be synced to other people's TVs.
+
+## Modify anchor mode
+
+You can modify the anchor mode by generating the `WhiteBroadcast` class, setting the `viewMode` enumeration property, and passing it to WhiteRoom.
+
+Specific code reference
+
 ```objectivec
 typedef NS_ENUM(NSInteger, WhiteViewMode) {
-    // 自由模式
-    // 你可以自由放缩、移动视角。
-    // 即便房间里有主播，主播也无法影响你的视角。
+    // Free mode
+    // You are free to zoom and move your perspective.
+    // Even if there is an anchor in the room, the anchor can't affect your perspective.
     WhiteViewModeFreedom,
-    // 追随模式
-    // 你将追随主播的视角。主播在看哪里，你就会跟着看哪里。
-    // 在这种模式中如果你放缩、移动视角，将自动切回 freedom模式。
+    // Follow mode
+    // You will follow the perspective of the anchor. Where the anchor is watching, you will follow where to look.
+    // In this mode, if you zoom in and move the angle of view, it will automatically switch back to freedom mode.
     WhiteViewModeFollower,
-    // 主播模式
-    // 房间内其他人的视角模式会被自动修改成 follower，并且强制观看你的视角。
-    // 如果房间内存在另一个主播，该主播的视角模式也会被强制改成 follower。
-    // 就好像你抢了他/她的主播位置一样。
+    // Anchor mode.
+    // The perspective mode of others in the room is automatically modified to follower and forcing to view your perspective.
+    // If there is another anchor in the room, the perspective mode of the anchor will also be forced to change to follower.
+    // It's as if you grabbed his/her anchor location.
     WhiteViewModeBroadcaster,
 };
 
-//修改视角模式
+// Modify perspective mode
 WhiteBroadcastState *state = [[WhiteBroadcastState alloc] init];
 [self.room setViewMode:state];
 ```
 
-## 获取当前视角状态
+## Get current view state
+
 ```objectivec
 [self.room getBroadcastStateWithResult:^(WhiteBroadcastState *state) {
     NSLog(@"%@", [state jsonString]);
 }];
 ```
 
-# 视角中心
-同一个房间的不同用户各自的屏幕尺寸可能不一致，这将导致他们的白板都有各自不同的尺寸。实际上，房间的其他用户会将白板的中心对准主播的白板中心（注意主播和其他用户的屏幕尺寸不一定相同）。
+# Perspective center
 
-我们需要通过如下方法设置白板的尺寸，以便主播能同步它的视角中心。
+The different screen sizes of different users in the same room may be inconsistent, which will result in their whiteboards having different sizes. In fact, other users in the room will align the center of the whiteboard with the center of the anchor's whiteboard (note that the screen size of the anchor and other users are not necessarily the same).
+
+We need to set the size of the whiteboard as follows so that the anchor can synchronize its view center.
 
 ```objectivec
 [room setViewSizeWithWidth:100 height:100];
 ```
 
-尺寸应该和白板在产品中的实际尺寸相同（一般而言就是浏览器页面或者应用屏幕的尺寸）。如果用户调整了窗口大小导致白板尺寸改变。应该重新调用该方法刷新尺寸。
+The size should be the same as the actual size of the whiteboard in the product (generally the size of the browser page or application screen). If the user resizes the window, the whiteboard size changes. This method should be recalled to refresh the size.
 
 

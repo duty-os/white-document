@@ -1,23 +1,26 @@
-# 通过 Android Studio 进行开发
+# Develop Tool
 
-# 创建项目
+We assume that you develop with Android Studio
 
-使用 Android Studio 创建一个新的项目的时候，它的目录结构如下：
+# Create project
+
+When using Android Studio to create a new project, its directory structure is as follows:
+
 ```plain
 .
-├── app                 // 应用源代码
+├── app                 // Application source code
     ├── ...
-    ├── build.gradle    // 应用 Gradle 构建脚本
+    ├── build.gradle    // Apply Gradle build script
     ├── ...
-├── build.gradle        // 项目 Gradle 构建脚本
-├── YOUR-APP-NAME.iml   // YOUR-APP-NAME 为你的应用名称
+├── build.gradle        // Project Gradle build script
+├── YOUR-APP-NAME.iml   // YOUR-APP-NAME is your app name
 ├── gradle
-└── settings.gradle首先打开根目录下的 build.gradle 进行如下标准配置：
+└── settings.gradle First open the build.gradle in the root directory to perform the following standard configuration:
 ```
 
-# 配置 build.gradle
+# Configuring build.gradle
 
-首先打开根目录下的 build.gradle 进行如下标准配置：
+First open the build.gradle in the root directory to perform the following standard configuration:
 
 ```plain
 allprojects {
@@ -28,7 +31,7 @@ allprojects {
 }
 ```
 
-然后打开 app 目录下的 build.gradle 进行如下配置：
+Then open the build.gradle in the app directory and configure it as follows:
 
 ```plain
 dependencies {
@@ -36,9 +39,9 @@ dependencies {
 }
 ```
 
-* 这时你会看到 Android Studio 在编辑器的顶部有一行提示 
+* At this point you will see that Android Studio has a line at the top of the editor.
 
 `gradle files have changed since last project sync. a project sync may be necessary for the IDE to work properly` 
   
-* 点击 `Sync Now` 按钮后提示变为 `Gradle project sync in process...` ，稍等一段时间（依你的网络环境而定）后提示消失，恭喜你 White Android SDK 集成完毕！
+* After clicking the `Sync Now` button, the prompt changes to `Gradle project sync in process...`. After a while (depending on your network environment), the prompt disappears. Congratulations on the integration of the White Android SDK!
 

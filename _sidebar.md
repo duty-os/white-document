@@ -5,7 +5,7 @@
 * 入门介绍
 
   * [项目简介](introduction.md)
-  * [javascript 快速开始](js_quickstart.md)
+  * [JavaScript 快速开始](js_quickstart.md)
   * [iOS 快速开始](iOS_quickstart.md)
   * [Android 快速开始](Android_quickstart.md)
 

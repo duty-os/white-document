@@ -1,6 +1,6 @@
 # 概念详解
 
-本章将介绍 White 的相关概念，了解这些概念将有助于更加合理地使用 White 提供的功能和服务，从而帮助你开发出更加完美的网站和应用。我们假设你已经在[《快速开始》](https://www.yuque.com/herewhite/sdk/quick_start)章节中自己动手，构建起了自己的第一个白板应用。假如你还没有阅读[《快速开始》](https://www.yuque.com/herewhite/sdk/quick_start)，强烈建议你在阅读和实践之后，再开始阅读本章节。
+本章将介绍 White 的相关概念，了解这些概念将有助于更加合理地使用 White 提供的功能和服务，从而帮助你开发出更加完美的网站和应用。我们假设你已经在[《快速开始》](./js_quickstart.md)章节中自己动手，构建起了自己的第一个白板应用。假如你还没有阅读[《快速开始》](./js_quickstart.md)，强烈建议你在阅读和实践之后，再开始阅读本章节。
 
 # 客户身份凭证 Mini Token
 
@@ -8,14 +8,11 @@ White 同时为许许多多客户提供服务，每一个客户通过持有独�
 
 你可以在 [console.herewhite.com](https://console.herewhite.com) 注册自己的企业账号。
 
-
-
-![屏幕快照 2018-08-17 15.22.47.png | left | 747x724](https://cdn.nlark.com/yuque/0/2018/png/103701/1534490655547-6e0a49b6-4811-4219-a157-fa40f7546bcb.png "")
+![屏幕快照 2018-08-17 15.22.47.png | left | 747x724](./_images/console_login.jpg)
 
 在「设置」中，可以获取帐号的 Mini Token。
 
-
-![屏幕快照 2018-08-17 15.25.13.png | center | 747x394](https://cdn.nlark.com/yuque/0/2018/png/103701/1534490808533-1f83bcb9-d151-400d-95c0-7e1d3deed54a.png "")
+![屏幕快照 2018-08-17 15.25.13.png | center | 747x394](./_images/consle_key.jpg)
 
 __注意：Mini Token 是 White 和你的业务服务器通讯的凭证，请勿以任何形式对外泄漏。__
 
@@ -38,6 +35,5 @@ White 的服务核心是房间。一个白板对应一个房间，一个房间�
 
 # 时序图
 
-<div id="wgezvu" data-type="puml" data-display="block" data-align="center" data-src="https://cdn.nlark.com/__puml/1703448d1402b83c5e72086a4918ac52.svg" data-width="479" data-height="237" data-text="%40startuml%0A%0Aautonumber%0A%0A%E5%AE%A2%E6%88%B7%E7%AB%AF%20-%3E%20%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%3A%20%E5%88%9B%E5%BB%BA%E7%99%BD%E6%9D%BF%0A%0A%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%20-%3E%20White%3A%20%E5%88%9B%E5%BB%BA%E7%99%BD%E6%9D%BF%EF%BC%88createRoom%EF%BC%89%0A%0AWhite%20--%3E%20%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%3A%20%E8%BF%94%E5%9B%9ERoomToken%E5%92%8Cuuid%0A%0A%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%20-%3E%20%E4%B8%9A%E5%8A%A1%E6%95%B0%E5%BA%93%3A%20%E8%AE%B0%E5%BD%95%E7%99%BD%E6%9D%BFuuid%0A%0A%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%20--%3E%20%E5%AE%A2%E6%88%B7%E7%AB%AF%3A%20%E8%BF%94%E5%9B%9ERoomToken%E5%92%8Cuuid%0A%0A%E5%AE%A2%E6%88%B7%E7%AB%AF%20-%3E%20%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%3A%20%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%EF%BC%88joinRoom%EF%BC%89%0A%0A%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%20-%3E%20White%3A%20%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%0A%0A%40enduml"><img src="https://cdn.nlark.com/__puml/1703448d1402b83c5e72086a4918ac52.svg" width="479"/></div>
-
+![屏幕快照 2018-08-17 15.25.13.png | center | 747x394](./_images/white_desgin.svg)
 

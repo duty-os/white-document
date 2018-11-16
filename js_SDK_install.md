@@ -27,7 +27,8 @@ yarn add white-web-sdk
 ```
 
 # 在 JavaScript 项目中使用
-在[《JavaScript 进阶教程》](https://www.yuque.com/herewhite/sdk/advanced_generality_js)中，我们提到，第一步应该构造出 `whiteWebSdk` 对象。如果我们使用 npm 或 yarn 安装了 `'white-web-sdk'` ，可以使用如下代码构造出它。
+
+在[《JavaScript 进阶教程》](./concept.md)中，我们提到，第一步应该构造出 `whiteWebSdk` 对象。如果我们使用 npm 或 yarn 安装了 `'white-web-sdk'` ，可以使用如下代码构造出它。
 ```javascript
 var WhiteWebSdk = require('white-web-sdk').WhiteWebSdk;
 var whiteWebSdk = new WhiteWebSdk();

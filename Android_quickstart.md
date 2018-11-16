@@ -77,7 +77,7 @@ public class DemoAPI {
 
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
-    // 获取 Token 请参考 https://www.yuque.com/herewhite/sdk/quickstart#f3nvan
+    // 获取 Token 请参考 https://developer.herewhite.com/#/concept
     public static final String TOKEN = "WHITEcGFydG5lcl9pZD1DYzlFNTJhTVFhUU5TYmlHNWJjbkpmVThTNGlNVXlJVUNwdFAmc2lnPTE3Y2ZiYzg0ZGM5N2FkNDAxZmY1MTM0ODMxYTdhZTE2ZGQ3MTdmZjI6YWRtaW5JZD00JnJvbGU9bWluaSZleHBpcmVfdGltZT0xNTY2MDQwNjk4JmFrPUNjOUU1MmFNUWFRTlNiaUc1YmNuSmZVOFM0aU1VeUlVQ3B0UCZjcmVhdGVfdGltZT0xNTM0NDgzNzQ2Jm5vbmNlPTE1MzQ0ODM3NDYzMzYwMA";
     private OkHttpClient client = new OkHttpClient();
     private Gson gson = new Gson();
@@ -143,7 +143,7 @@ dependencies {
 
 # 添加主要逻辑
 
-前面的准备工作完成后，我们修改 MainActivity.java 尝试渲染出白板并完成本教程。现在打开 MainActivity.java ，在 MainActivity.java 的初始化方法 `onCreate`  中通过 Open API 创建一个白板并获取他的 uuid 和 roomToken 后就可以通过 `WhiteSdk` 的 `joinRoom` 连接并加入白板（Demo 中使用 DemoAPI.java 中的 createRoom 来创建白板和获取 uuid 和 roomToken，这种方式是不安全的，正确做法参考：[最佳实践](https://www.yuque.com/herewhite/sdk/advanced_generality)）。
+前面的准备工作完成后，我们修改 MainActivity.java 尝试渲染出白板并完成本教程。现在打开 MainActivity.java ，在 MainActivity.java 的初始化方法 `onCreate`  中通过 Open API 创建一个白板并获取他的 uuid 和 roomToken 后就可以通过 `WhiteSdk` 的 `joinRoom` 连接并加入白板（Demo 中使用 DemoAPI.java 中的 createRoom 来创建白板和获取 uuid 和 roomToken，这种方式是不安全的，正确做法参考：[最佳实践](./concept.md)）。
 
 ```java
 final Gson gson = new Gson();
@@ -194,14 +194,14 @@ private void joinRoom(WhiteBroadView whiteBroadView, String uuid, String roomTok
 
 * 创建 WhiteSDK 对象。
 * 为 WhiteSDK 添加监听器，这些监听器可以实时获取白板运行期间的状态和信息，SDK 会在状态改变后通知监听器。
-* 使用 WhiteSDK `joinRoom` 加入并连接白板，该方法可以传入 Promise 对象，如果成功连接会回调 `then` 方法，并回传给你 Room 对象。Room 对象带有更改白板行为的 API，用来帮助你构建自己的业务场景，详细开发指南参考：[Android 客户端开发指南](https://www.yuque.com/herewhite/sdk/android_client_user_guide)。
+* 使用 WhiteSDK `joinRoom` 加入并连接白板，该方法可以传入 Promise 对象，如果成功连接会回调 `then` 方法，并回传给你 Room 对象。Room 对象带有更改白板行为的 API，用来帮助你构建自己的业务场景。
 
 # 体验 demo
 
 在 Android Studio中， 右键点击 MainActivity.java ，在选出的菜单中选择 `Run MainActivity` 就可以在模拟器中运行 Demo 了。
 
 
-![屏幕快照 2018-08-19 下午12.50.24.png | left | 166x296](https://cdn.nlark.com/yuque/0/2018/png/102615/1534654267108-1a16f744-076c-4f1e-a0fe-f378c693148a.png "")
+![屏幕快照 2018-08-19 下午12.50.24.png | left | 166x296](https://cdn.nlark.com/yuque/0/2018/png/102615/1534654267108-1a16f744-076c-4f1e-a0fe-f378c693148a.png)
 
 
 最终完成的工程在[ tutorial.zip](https://document.herewhite.com/tutorial/demo/android/tutorial.zip)

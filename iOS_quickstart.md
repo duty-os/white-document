@@ -47,7 +47,7 @@ demo中，我们暂时只考虑创建房间。
 ```objectivec
 - (void)creatNewRoomRequestWithResult:(void (^) (BOOL success, id response))result;
 {
-    // self.token 为字符串，具体的获取，请参考 https://www.yuque.com/herewhite/sdk/quickstart#f3nvan
+    // self.token 为字符串，具体的获取，请参考 https://developer.herewhite.com/#/concept
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://cloudcapiv3.herewhite.com/room?token=%@", self.sdkToken]]];
     NSMutableURLRequest *modifyRequest = [request mutableCopy];
     [modifyRequest setHTTPMethod:@"POST"];
@@ -133,7 +133,7 @@ demo中，我们暂时只考虑创建房间。
  
 好了，到这里，等待顶部导航栏变为 "我的白板" 。这时候，我们就成功添加了一个白板应用。在模拟器中，在模拟中，按住鼠标，随意涂抹，就能看到笔画啦。
 
-![image.png | left | 488x850](https://cdn.nlark.com/yuque/0/2018/png/102623/1534672728702-8c1d95f6-12cd-48ce-aec2-729b0a0de0e1.png "")
+![image.png | left | 488x850](./_images/iOS_screen.png)
 
 # Demo 代码获取
 

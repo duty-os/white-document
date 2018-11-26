@@ -25,7 +25,7 @@ yarn add white-react-sdk
 ```
 
 # 构造 whiteWebSdk 对象
-<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">在</span></span>[《JavaScript 进阶教程》](https://www.yuque.com/herewhite/sdk/advanced_generality_js)<span data-type="color" style="color:rgb(38, 38, 38)">中，我们提到，第一步应该构造出 </span><span data-type="color" style="color:rgb(38, 38, 38)"><code>whiteWebSdk</code></span><span data-type="color" style="color:rgb(38, 38, 38)"> 对象。</span>
+<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">在</span></span>[《JavaScript 进阶教程》](./concept.md)<span data-type="color" style="color:rgb(38, 38, 38)">中，我们提到，第一步应该构造出 </span><span data-type="color" style="color:rgb(38, 38, 38)"><code>whiteWebSdk</code></span><span data-type="color" style="color:rgb(38, 38, 38)"> 对象。</span>
 ```javascript
 import {WhiteWebSdk} from 'white-web-sdk';
 const whiteWebSdk = new WhiteWebSdk();

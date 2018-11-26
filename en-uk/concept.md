@@ -8,11 +8,11 @@ White also serves a wide range of clients, each of whom holds a unique Mini Toke
 
 You can be at [console.herewhite.com](https://console.herewhite.com) register your own business account.
 
-![屏幕快照 2018-08-17 15.22.47.png | left | 747x724](https://cdn.nlark.com/yuque/0/2018/png/103701/1534490655547-6e0a49b6-4811-4219-a157-fa40f7546bcb.png "")
+![屏幕快照 2018-08-17 15.22.47.png | left | 747x724](../_images/console_login.jpg)
 
 In Settings, you can get the Mini Token for your account.
 
-![屏幕快照 2018-08-17 15.25.13.png | center | 747x394](https://cdn.nlark.com/yuque/0/2018/png/103701/1534490808533-1f83bcb9-d151-400d-95c0-7e1d3deed54a.png "")
+![屏幕快照 2018-08-17 15.25.13.png | center | 747x394](../_images/consle_key.jpg)
 
 __Note: Mini Token is the credential for White to communicate with your business server. Do not leak in any form.__
 
@@ -38,6 +38,5 @@ Since `roomToken` must be obtained with Mini Token, the client cannot forge `roo
 
 # Timing diagram
 
-<div id="wgezvu" data-type="puml" data-display="block" data-align="center" data-src="https://cdn.nlark.com/__puml/1703448d1402b83c5e72086a4918ac52.svg" data-width="479" data-height="237" data-text="%40startuml%0A%0Aautonumber%0A%0A%E5%AE%A2%E6%88%B7%E7%AB%AF%20-%3E%20%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%3A%20%E5%88%9B%E5%BB%BA%E7%99%BD%E6%9D%BF%0A%0A%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%20-%3E%20White%3A%20%E5%88%9B%E5%BB%BA%E7%99%BD%E6%9D%BF%EF%BC%88createRoom%EF%BC%89%0A%0AWhite%20--%3E%20%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%3A%20%E8%BF%94%E5%9B%9ERoomToken%E5%92%8Cuuid%0A%0A%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%20-%3E%20%E4%B8%9A%E5%8A%A1%E6%95%B0%E5%BA%93%3A%20%E8%AE%B0%E5%BD%95%E7%99%BD%E6%9D%BFuuid%0A%0A%E4%B8%9A%E5%8A%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%20--%3E%20%E5%AE%A2%E6%88%B7%E7%AB%AF%3A%20%E8%BF%94%E5%9B%9ERoomToken%E5%92%8Cuuid%0A%0A%E5%AE%A2%E6%88%B7%E7%AB%AF%20-%3E%20%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%3A%20%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%EF%BC%88joinRoom%EF%BC%89%0A%0A%E5%AE%A2%E6%88%B7%E7%AB%AFSDK%20-%3E%20White%3A%20%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%0A%0A%40enduml"><img src="https://cdn.nlark.com/__puml/1703448d1402b83c5e72086a4918ac52.svg" width="479"/></div>
-
+![屏幕快照 2018-08-17 15.25.13.png | center | 747x394](../_images/en-uk/white_desgin.svg)
 

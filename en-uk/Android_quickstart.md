@@ -77,7 +77,7 @@ public class DemoAPI {
 
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
-    // Get `Token` please refer to https://www.yuque.com/herewhite/sdk/quickstart#f3nvan
+    // Get `Token` please refer to https://developer.herewhite.com/#/concept
     public static final String TOKEN = "WHITEcGFydG5lcl9pZD1DYzlFNTJhTVFhUU5TYmlHNWJjbkpmVThTNGlNVXlJVUNwdFAmc2lnPTE3Y2ZiYzg0ZGM5N2FkNDAxZmY1MTM0ODMxYTdhZTE2ZGQ3MTdmZjI6YWRtaW5JZD00JnJvbGU9bWluaSZleHBpcmVfdGltZT0xNTY2MDQwNjk4JmFrPUNjOUU1MmFNUWFRTlNiaUc1YmNuSmZVOFM0aU1VeUlVQ3B0UCZjcmVhdGVfdGltZT0xNTM0NDgzNzQ2Jm5vbmNlPTE1MzQ0ODM3NDYzMzYwMA";
     private OkHttpClient client = new OkHttpClient();
     private Gson gson = new Gson();
@@ -143,7 +143,7 @@ dependencies {
 
 # Add primary logic
 
-After the previous preparations are complete, we modify MainActivity.java to try to render the whiteboard and complete the tutorial. Now open MainActivity.java, create a whiteboard through the Open API in the initialization method `onCreate` of MainActivity.java and get its uuid and roomToken. Then you can connect and join the whiteboard through ``joinRoom` of `WhiteSdk` (use DemoAPI in Demo) CreateRoom in .java to create whiteboards and get uuid and roomToken is not safe, refer to: [Best Practices](https://www.yuque.com/herewhite/sdk/advanced_generality)）。
+After the previous preparations are complete, we modify MainActivity.java to try to render the whiteboard and complete the tutorial. Now open MainActivity.java, create a whiteboard through the Open API in the initialization method `onCreate` of MainActivity.java and get its uuid and roomToken. Then you can connect and join the whiteboard through ``joinRoom` of `WhiteSdk` (use DemoAPI in Demo) CreateRoom in .java to create whiteboards and get uuid and roomToken is not safe, refer to: [Best Practices](./concept.md)）。
 
 ```java
 final Gson gson = new Gson();
@@ -194,7 +194,7 @@ private void joinRoom(WhiteBroadView whiteBroadView, String uuid, String roomTok
 
 * Create a WhiteSDK object.
 * Add listeners to the WhiteSDK that get real-time status and information during the whiteboard's run, and the SDK notifies the listener after the state changes.
-* Use WhiteSDK `joinRoom` to join and connect to the whiteboard. This method can pass in the Promise object. If the connection is successful, the `then` method will be called back and passed back to your Room object. The Room object has an API for changing the behavior of the whiteboard to help you build your own business scenario. Detailed development guide reference: [Android Client Development Guide](https://www.yuque.com/herewhite/sdk/android_client_user_guide)。
+* Use WhiteSDK `joinRoom` to join and connect to the whiteboard. This method can pass in the Promise object. If the connection is successful, the `then` method will be called back and passed back to your Room object. The Room object has an API for changing the behavior of the whiteboard to help you build your own business scenario. 
 
 # Experience demo
 

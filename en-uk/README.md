@@ -10,7 +10,7 @@ We made a detailed product introduction on the official website, allowing users 
 
 [Click to view official website](https://www.herewhite.com)
 
-![demo-2.png](../_images/loading_page.jpg "")
+![demo-2.png](../_images/en-uk/landing_page.jpg)
 
 ### White web app
 
@@ -20,7 +20,7 @@ We offer the White App out of the box. The White App covers mainstream platforms
 
 [Click to use white web version](https://usapp.herewhite.com)
 
-![demo-2.png](../_images/web_app.jpg "")
+![demo-2.png](../_images/en-uk/web_app.png)
 
 ### White console
 
@@ -30,4 +30,4 @@ We offer a highly available whiteboard cloud service White Service. White Servic
 
 [Click to view the console](https://console.herewhite.com)
 
-![demo-2.png](../_images/console_page.jpg "")
+![demo-2.png](../_images/en-uk/console_page.jpg)

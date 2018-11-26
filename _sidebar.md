@@ -23,7 +23,7 @@
 
 * 使用指南
 
-  * [Javascript 使用指南](js_detail_api.md)
+  * [JavaScript 使用指南](js_detail_api.md)
   * [Android 使用指南](Android_detail_api.md)
   * [iOS 使用指南](iOS_detail_api.md)
   * [Server 使用指南](server_detail_api.md)

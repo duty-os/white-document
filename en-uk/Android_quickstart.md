@@ -33,7 +33,7 @@ Whether it is downloading the project template we provide or the project created
 ```
 # Install SDK
 
-* First you need to refer to [Android SDK 安装](Android_SDK_install.md) documentation for White SDK installation
+* First you need to refer to [Android SDK Installation](Android_SDK_install.md) documentation for White SDK installation
 
 # Add UI code
 

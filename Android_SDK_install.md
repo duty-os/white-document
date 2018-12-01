@@ -32,13 +32,13 @@ allprojects {
 
 ```plain
 dependencies {
-    compile 'com.github.duty-os:white-sdk-android:1.3.0'
+    compile 'com.github.duty-os:white-sdk-android:1.3.11'
 }
 ```
 
 * 这时你会看到 Android Studio 在编辑器的顶部有一行提示 
 
 `gradle files have changed since last project sync. a project sync may be necessary for the IDE to work properly` 
-  
+
 * 点击 `Sync Now` 按钮后提示变为 `Gradle project sync in process...` ，稍等一段时间（依你的网络环境而定）后提示消失，恭喜你 White Android SDK 集成完毕！
 

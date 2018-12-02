@@ -120,7 +120,7 @@ https://cloudcapiv3.herewhite.com
           <div data-type="p">/room/close?token=token</div>
         </td>
         <td rowspan="1" colSpan="1">
-          <div data-type="p">DELETE</div>
+          <div data-type="p">POST</div>
         </td>
         <td rowspan="1" colSpan="1">
           <div data-type="p">{</div>

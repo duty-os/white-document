@@ -206,3 +206,19 @@ WhiteBroadcastState *state = [[WhiteBroadcastState alloc] init];
   - payload 为字典类型
 
 - addMagixEventListener 和 removeMagixEventListener 用来增加和删除消息监听器，eventName 为消息类型名称。
+
+
+# 面板操作开关
+
+你可以通过 `[room disableOperations:YES]` 来禁止用户操作白板。
+
+你可以通过 `[room disableOperations:NO]` 来恢复用户操作白板的能力。
+
+
+# 缩放
+
+一方面通过手势可以放缩白板（iOS 和 Android 上使用双指手势、mac os 使用双指手势、windows 使用鼠标中键的滚轮），另一方面也可以通过 `zoomChange` 来缩放白板。
+
+```Objective-C
+[room zoomChange:10];
+```

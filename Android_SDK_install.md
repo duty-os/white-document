@@ -32,7 +32,7 @@ allprojects {
 
 ```plain
 dependencies {
-    compile 'com.github.duty-os:white-sdk-android:1.3.11'
+    compile 'com.github.duty-os:white-sdk-android:1.3.12'
 }
 ```
 

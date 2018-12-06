@@ -303,6 +303,35 @@ public class MemberInformation {
 
 
 
+# 白板生命周期
+
+joinRoom 的回调函数不仅可以监听白板的行为状态，还可以监听白板的生命周期状态和异常原因，具体使用如下
+
+```java
+whiteSdk.addRoomCallbacks(new AbstractRoomCallbacks() {
+    @Override
+    public void onPhaseChanged(RoomPhase phase) {
+        // 白板发生状态改变, 具体状态如下:
+        // "connecting",
+    	// "connected",
+    	// "reconnecting",
+    	// "disconnecting",
+    	// "disconnected",
+    }
+    @Override
+    public void onDisconnectWithError(Exception e) {
+        // 出现连接失败后的具体错误
+    }
+
+    @Override
+    public void onKickedWithReason(String reason) {
+        // 被踢出房间的原因
+    }
+});
+```
+
+
+
 # 自定义消息
 
 可以使用自定义消息来满足类似 IM 、弹幕、点赞等场景。

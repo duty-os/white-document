@@ -113,6 +113,32 @@ type BroadcastState = {
     broadcasterId?: number;
 };
 ```
+# 白板生命周期
+
+joinRoom 的回调函数不仅可以监听白板的行为状态，还可以监听白板的生命周期状态和异常原因，具体使用如下
+
+```javascript
+var callbacks = {
+    onPhaseChanged: phase => {
+		// 白板发生状态改变, 具体状态如下:
+        // "connecting",
+    	// "connected",
+    	// "reconnecting",
+    	// "disconnecting",
+    	// "disconnected",
+    },
+    onDisconnectWithError: error => {
+        // 出现连接失败后的具体错误
+    },
+    onKickedWithReason: reason => {
+        // 被踢出房间的原因
+    },
+};
+room.joinRoom({uuid: uuid, roomToken: roomToken}, callbacks);
+```
+
+
+
 # 切换教具
 
 white-web-sdk 提供多种教具，我们可以通过修改 `memberState` 来切换当前的教具。例如，将当前教具切换成「铅笔」工具可以使用如下代码。

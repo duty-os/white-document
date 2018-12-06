@@ -88,6 +88,21 @@
       ]
     }
   </script>
+  <script>
+      !function () {
+          var lang = navigator.language || navigator.userLanguage;//常规浏览器语言和IE浏览器
+          lang = lang.substr(0, 2);//截取lang前2位字符
+          if(lang == 'zh'){
+              if (location.indexOf("#") === -1 ) {
+                  window.location.replace(`${location}#/`);
+              } else {
+                  window.location.replace(`${location}`);
+              }
+          } else {
+              window.location.replace(`${location}#/en-uk/`);
+          }
+      }()
+  </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>

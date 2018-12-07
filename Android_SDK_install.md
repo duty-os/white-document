@@ -42,3 +42,18 @@ dependencies {
 
 * 点击 `Sync Now` 按钮后提示变为 `Gradle project sync in process...` ，稍等一段时间（依你的网络环境而定）后提示消失，恭喜你 White Android SDK 集成完毕！
 
+# Proguard 配置
+
+```
+# SDK model
+-keep class com.herewhite.** { *; }
+-keepattributes  *JavascriptInterface*
+-keepattributes Signature 
+# Gson specific classes 
+-keep class sun.misc.Unsafe { *; } 
+-keep class com.google.gson.stream.** { *; } 
+# Application classes that will be serialized/deserialized over Gson 
+-keep class com.google.gson.examples.android.model.** { *; }
+-keep class com.google.gson.** { *;}
+```
+

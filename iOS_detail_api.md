@@ -67,7 +67,7 @@ memberState.currentApplianceName = AppliancePencil;
 
 * 回调API列表：
 
-```objectivec
+```objective-C
 @protocol WhiteRoomCallbackDelegate <NSObject>
 /** 白板网络连接状态回调 */
 - (void)firePhaseChanged:(WhiteRoomPhase)phase;
@@ -191,7 +191,28 @@ WhiteBroadcastState *state = [[WhiteBroadcastState alloc] init];
 
 尺寸应该和白板在产品中的实际尺寸相同（一般而言就是浏览器页面或者应用屏幕的尺寸）。如果用户调整了窗口大小导致白板尺寸改变。应该重新调用该方法刷新尺寸。
 
-## 自定义消息
+# 白板生命周期
+
+在加入房间方法 `- (void)joinRoomWithRoomUuid:(NSString *)roomUuid roomToken:(NSString *)roomToken callbacks:(id<WhiteRoomCallbackDelegate>)callbacks completionHandler:(void (^) (BOOL success, WhiteRoom *room, NSError *error))completionHander;` 传入的 callbacks 参数，实现 `WhiteRoomCallbackDelegate` 后，会在白板状态发生变化时，会收到以下两个回调。
+
+```Objective-C
+@protocol WhiteRoomCallbackDelegate <NSObject>
+/** 白板网络连接状态回调 */
+- (void)firePhaseChanged:(WhiteRoomPhase)phase;
+
+typedef NS_ENUM(NSInteger, WhiteRoomPhase) {
+    WhiteRoomPhaseConnecting,           //正在连接
+    WhiteRoomPhaseConnected,            //连接成功
+    WhiteRoomPhaseReconnecting,         //正在尝试重新连接
+    WhiteRoomPhaseDisconnecting,        //正在中断连接
+    WhiteRoomPhaseDisconnected,         //已断开连接
+};
+
+/** 用户被远程服务器踢出房间，附带原因 */
+- (void)fireKickedWithReason:(NSString *)reason;
+```
+
+# 自定义消息
 
 可以使用自定义消息来满足类似 IM 、弹幕、点赞等场景。
 

@@ -12,8 +12,8 @@ First, you need to create a folder on your desktop as a workspace. We will then 
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/1.3.0.css">
-        <script src="https://sdk.herewhite.com/white-web-sdk/1.3.0.js"></script>
+        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/1.3.1.css">
+        <script src="https://sdk.herewhite.com/white-web-sdk/1.3.1.js"></script>
         <script src="index.js"></script>
     </head>
     <body>
@@ -26,8 +26,8 @@ First, you need to create a folder on your desktop as a workspace. We will then 
 
 This page references 3 JavaScript resource files.
 
-* [https://sdk.herewhite.com/white-web-sdk/1.3.0.css](https://sdk.herewhite.com/white-web-sdk/1.3.0.css): White style file.
-* [https://sdk.herewhite.com/white-web-sdk/1.3.0.js](https://sdk.herewhite.com/white-web-sdk/1.3.0.js): White SDK file.
+* [https://sdk.herewhite.com/white-web-sdk/1.3.1.css](https://sdk.herewhite.com/white-web-sdk/1.3.1.css): White style file.
+* [https://sdk.herewhite.com/white-web-sdk/1.3.1.js](https://sdk.herewhite.com/white-web-sdk/1.3.1.js): White SDK file.
 * `index.js` : This is the js file that implements our business logic.
 
 # Create a whiteboard

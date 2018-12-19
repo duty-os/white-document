@@ -355,3 +355,11 @@ room.removeMagixEventListener("SendGift", onRecevieGift);
 你可以通过 `room.disableOperations = true` 来禁止用户操作白板。
 
 你可以通过 `room.disableOperations = false` 来恢复用户操作白板的能力。
+
+# 缩放
+
+一方面通过手势可以放缩白板，另一方面也可以通过调用 `zoomChange` 来缩放白板。
+
+```javascript
+room.zoomChange(10)
+```

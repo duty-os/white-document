@@ -105,8 +105,8 @@ memberState.currentApplianceName = AppliancePencil;
 
 1. 首先创建 `WhiteImageInformation` 类，配置图片，宽高，以及中心点位置，设置 uuid，确保 uuid 唯一即可。
 1. 调用 `insertImage:` 方法，传入 `WhiteImageInformation` 实例。白板此时就先生成一个占位框。
-1. 图片通过其他方式上传，或者获取图片地址后，再调用
-`completeImageUploadWithUuid: src:` 方法，uuid 参数为 `insertImage:` 方法传入的 uuid，src 为图片实际地址。
+1. 图片通过其他方式上传或者直接获取图片地址后，调用
+`completeImageUploadWithUuid: src:` 方法，uuid 参数为 `insertImage:` 方法传入的 uuid，src 为图片网络地址。
 
 # PPT与翻页
 

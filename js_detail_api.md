@@ -210,6 +210,26 @@ room.setGlobalState({
 
 注意，globalState 是整个房间所有人共用的。通过修改 globalState 的 currentSceneIndex 属性来翻页，将导致整个房间的所有人切换到该页。
 
+# 插入图片
+
+white-web-sdk 支持向当前白板页面中插入图片，首先调用 `方法1` ，传递 uuid，以及图片位置（大小，中心位置）信息。uuid 是一个任意字符串，保证在每次调用时，使用不同值即可。
+然后通过服务器，或者本地上传至云存储仓库中，获取到要插入图片信息的网络地址，在调用 `方法2`, 传入图片网络地址。
+
+```JavaScript
+// 方法1 插入图片占位信息
+room.insertImage({
+                    uuid: uuid,
+                    centerX: x,
+                    centerY: y,
+                    width: imageFile.width,
+                    height: imageFile.height,
+                });
+// 方法2 传入图片占位 uuid，以及图片网络地址。
+room.completeImageUpload(uuid, imageUrl)
+```
+
+# 翻页与 PPT
+
 white-web-sdk 还支持插入 PPT。插入的 PPT 将变成带有 PPT 内容的页面。我们需要先将 PPT 文件或 PDF 文件的每一页单独转化成一组图片，并将这组图片在互联网上发布（例如上传到某个云存储仓库中，并获取每一张图片的可访问的 URL）。
 
 然后，将这组 URL 通过如下方法插入。
@@ -223,6 +243,14 @@ room.pushPptPages([
 ```
 
 这个方法将在当前也后面插入 3 个带有 PPT 内容的新页面。
+
+### 插入PPT 与插入图片 的区别
+
+区别| 插入PPT | 插入图片
+---------|----------|---------
+ 调用后结果 | 会自动新建多个白板页面，但是仍然保留在当前页（所以无明显区别），需要通过翻页API进行切换 | 产生一个占位界面，插入真是图片，需要调用 `completeImageUploadWithUuid:src` ,传入占位界面的 uuid，以及图片的网络地址 |
+ 移动 | 无法移动，所以不需要位置信息 | 可以移动，所以插入时，需要提供图片大小以及位置信息
+ 与白板页面关系 | 插入 ppt 的同时，白板就新建了一个页面，这个页面的背景就是 PPT 图片 | 是当前白板页面的一部分，同一个页面可以加入多张图片
 
 # 跟随演讲者的视角
 

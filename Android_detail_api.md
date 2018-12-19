@@ -67,6 +67,20 @@ room.getMemberState(new Promise<MemberState>() {
 ```
 调色盘能影响铅笔、矩形、椭圆、文字工具的效果。
 
+# 插入图片
+
+相关 API：
+
+```Java
+public void insertImage(ImageInformation imageInfo);
+public void completeImageUpload(String uuid, String url);
+```
+
+1. 首先创建 `ImageInformation` 类，配置图片，宽高，以及中心点位置，设置 uuid，确保 uuid 唯一即可。
+1. 调用 `insertImage:` 方法，传入 `ImageInformation` 实例。白板此时就先生成一个占位框。
+1. 图片通过其他方式上传或者通过其他方式直接获取到图片的网络，在获取图片地址后，调用
+`completeImageUpload` 方法，uuid 参数为 `insertImage:` 方法传入的 uuid，src 为实际图片网络地址。
+
 # 翻页与 PPT
 
 White SDK 允许多个页面并在其中进行切换。在白板初次创建时，只有一个空白页面。我们可以通过如下方法来插入/删除页面。
@@ -101,6 +115,14 @@ room.pushPptPages(new PptPage[]{
 ```
 
 这个方法将在当前页之后插入 3 个带有 PPT 内容的新页面。
+
+### 插入PPT 与插入图片 的区别
+
+区别| 插入PPT | 插入图片
+---------|----------|---------
+ 调用后结果 | 会自动新建多个白板页面，但是仍然保留在当前页（所以无明显区别），需要通过翻页API进行切换 | 产生一个占位界面，插入真是图片，需要调用 `completeImageUploadWithUuid:src` ,传入占位界面的 uuid，以及图片的网络地址 |
+ 移动 | 无法移动，所以不需要位置信息 | 可以移动，所以插入时，需要提供图片大小以及位置信息
+ 与白板页面关系 | 插入 ppt 的同时，白板就新建了一个页面，这个页面的背景就是 PPT 图片 | 是当前白板页面的一部分，同一个页面可以加入多张图片
 
 # 主播模式
 
@@ -368,7 +390,6 @@ public class AkkoEvent {
 你可以通过 `room.disableOperations(true)` 来禁止用户操作白板。
 
 你可以通过 `room.disableOperations(false)` 来恢复用户操作白板的能力。
-
 
 
 # 缩放

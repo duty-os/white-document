@@ -153,7 +153,7 @@ state.currentSceneIndex = [magixPhase.pptImages count] - 1;
 [self.room removePage:1]
 ```
 
-### 插入PPT 与插入图片 的区别
+## 插入PPT 与插入图片 的区别
 
 区别| 插入PPT | 插入图片
 ---------|----------|---------

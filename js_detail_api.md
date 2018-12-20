@@ -197,6 +197,8 @@ room.insertNewPage(index: number);
 room.removePage(index: number);
 ```
 
+# PPT 换页和加页
+
 我们可以通过修改 globalState 来做到翻页效果。
 
 ```javascript

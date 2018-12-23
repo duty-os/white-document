@@ -260,8 +260,12 @@ typedef NS_ENUM(NSInteger, WhiteRoomPhase) {
 
 # 缩放
 
-一方面通过手势可以放缩白板（iOS 和 Android 上使用双指手势、mac os 使用双指手势、windows 使用鼠标中键的滚轮），另一方面也可以通过 `zoomChange` 来缩放白板。
+一方面通过手势可以放缩白板（iOS上使用双指swipe手势、模拟器中按住 option + 鼠标进行模拟），另一方面也可以通过 `zoomChange` 来缩放白板。
 
 ```Objective-C
 [room zoomChange:10];
 ```
+
+# 白板移动
+
+白板支持双指手势，双指进行平移，即可移动白板（模拟器中可以通过 shift + option + 鼠标，来模式该手势）。

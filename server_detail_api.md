@@ -13,132 +13,66 @@ https://cloudcapiv3.herewhite.com
 
 ## 白板管理
 
-<div class="bi-table">
-  <table>
-    <colgroup>
-      <col width="291px" />
-      <col width="112px" />
-      <col width="177px" />
-      <col width="168px" />
-    </colgroup>
-    <tbody>
-      <tr height="34px">
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">URL</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">HTTP Method</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">HTTP Body</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">功能</div>
-        </td>
-      </tr>
-      <tr height="34px">
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">/room?token=token</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">POST</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">{</div>
-          <div data-type="p"> &quot;name&quot;:&quot;111&quot;,</div>
-          <div data-type="p"> &quot;limit&quot;:100</div>
-          <div data-type="p">}</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">创建白板：</div>
-          <ul data-type="unordered-list">
-            <li data-type="list-item" data-list-type="unordered-list">
-              <div data-type="p">Body 中的 name 用于指定白板的名称，limit 用于限制白板人数（目前软限制）</div>
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr height="34px">
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">/room?offset=0&amp;limit=100&amp;token=token</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">GET</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p"></div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">获取白板列表：</div>
-          <ul data-type="unordered-list">
-            <li data-type="list-item" data-list-type="unordered-list">
-              <div data-type="p">URL 中的 offset 指从第几块白板开始查找，从 0 开始，limit 指获取多少块白板的信息，用于翻页功能。</div>
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr height="34px">
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">/room/id?uuid=uuid&amp;token=token</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">GET</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p"></div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">获取某个白板信息：</div>
-          <ul data-type="unordered-list">
-            <li data-type="list-item" data-list-type="unordered-list">
-              <div data-type="p">URL 中的 uuid 指要获取白板的 uuid ，用于全局确定一块白板</div>
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr height="34px">
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">/room/join?uuid=uuid&amp;token=token</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">POST</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p"></div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">参与指定白板：</div>
-          <ul data-type="unordered-list">
-            <li data-type="list-item" data-list-type="unordered-list">
-              <div data-type="p">URL 中的 uuid 指要获取白板的 uuid ，用于全局确定一块白板</div>
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr height="34px">
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">/room/close?token=token</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">POST</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">{</div>
-          <div data-type="p"> &quot;uuid&quot;:uuid</div>
-          <div data-type="p">}</div>
-        </td>
-        <td rowspan="1" colSpan="1">
-          <div data-type="p">删除白板：</div>
-          <ul data-type="unordered-list">
-            <li data-type="list-item" data-list-type="unordered-list">
-              <div data-type="p">Body 中的 uuid 指要获取白板的 uuid ，用于全局确定一块白板</div>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+功能 |URL | HTTP Method | HTTP Body | 请求信息 | 返回备注 |
+----|----|-------------|-----------|----|----|
+创建白板 | `/room?token={{token}}` | POST | {"name":"111","limit":100} | name: 白板的名称,limit: 白板上限人数（目前软限制）| response 见表格底部折叠区 |
+获取白板列表 | `/room?offset={{offset}}&limit=100&token={{token}}` | GET | 无 | {offset} : 第几块白板开始查找。<br>limit: 每次获取白板的个数 | 暂无 |
+获取白板详细信息 | `/room/id?uuid={{uuid}}&token={{token}}` | GET | 无 | uuid: 白板 uuid ，用于全局确定一块白板 | response 见表格底部折叠区 |
+参与指定白板 | `/room/join?uuid={{uuid}}&token={{token}}` | POST | 无 | uuid : 白板 uuid | 由于部分历史原因，此 API 变量内容在 url 中，而不是 body 中 |
+删除白板 | `/room/close?token={{token}}` | POST | {"uuid":uuid} | uuid : 白板 uuid | 暂无 |
+获取白板封面 | `/room/close?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"scene": 1<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>scene : 截取页面的 index；<br>（该值为可选，如果不传，则返回白板当前页面。） | 正常请求返回一张图片，需要自行保存；当传入scene超出范围时，会返回文本信息，提示超出页面范围 |
+
+<details><summary>创建白板 response</summary>
+
+```JSON
+{
+    "code": 200,
+    "msg": {
+        "room": {
+            "id": 650,
+            "name": "console-room",
+            "limit": 100,
+            "teamId": 1,
+            "adminId": 1,
+            "mode": "persistent",
+            "template": "meeting",
+            "region": "cn",
+            "uuid": "此处为房间 uuid",
+            "updatedAt": "2019-01-15T09:12:05.974Z",
+            "createdAt": "2019-01-15T09:12:05.974Z"
+        },
+        "hare": "{\"uuid\":\"uuid\",\"teamId\":\"1\",\"mode\":\"persistent\",\"region\":\"cn\",\"isBan\":false,\"beginTimestamp\":1547543526200,\"endTimestamp\":1547543526200,\"endFrameId\":0,\"usersMaxCount\":100,\"survivalDuration\":30000,\"chunkFramesCount\":700,\"snapshotIdInterval\":80}",
+        "roomToken": "此处为房间 roomToken",
+        "code": 201
+    }
+}
+```
+</details>
+<details><summary>获取白板详细信息response</summary>
+
+```JSON
+{
+    "code": 200,
+    "msg": {
+        "id": 11600,
+        "teamId": 1,
+        "adminId": 1,
+        "uuid": "此处为uuid",
+        "name": "未命名",
+        "limit": 10,
+        "current": 0,
+        "enable": true,
+        "playable": false,
+        "videoready": false,
+        "mode": null,
+        "region": "cn",
+        "template": null,
+        "createdAt": "2018-08-20T14:57:13.000Z",
+        "updatedAt": "2018-08-26T05:56:36.000Z"
+    }
+}
+```
+</details>
 
 ### 请求格式
 <span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">对于 POST 和 PUT 请求，请求的主体必须是 JSON 格式，而且 HTTP header 的 Content-Type 需要设置为 </span></span>`application/json`

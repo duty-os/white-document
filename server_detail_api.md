@@ -20,7 +20,7 @@ https://cloudcapiv3.herewhite.com
 获取白板详细信息 | `/room/id?uuid={{uuid}}&token={{token}}` | GET | 无 | uuid: 白板 uuid ，用于全局确定一块白板 | response 见表格底部折叠区 |
 参与指定白板 | `/room/join?uuid={{uuid}}&token={{token}}` | POST | 无 | uuid : 白板 uuid | 由于部分历史原因，此 API 变量内容在 url 中，而不是 body 中 |
 删除白板 | `/room/close?token={{token}}` | POST | {"uuid":uuid} | uuid : 白板 uuid | 暂无 |
-获取白板封面 | `/room/close?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"scene": 1<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>scene : 截取页面的 index；<br>（该值为可选，如果不传，则返回白板当前页面。） | 正常请求返回一张图片，需要自行保存；当传入scene超出范围时，会返回文本信息，提示超出页面范围 |
+获取白板封面 | `/handle/room/snapshot?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"scene": 1<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>scene : 截取页面的 index；<br>（该值为可选，如果不传，则返回白板当前页面。） | 正常请求返回一张图片，需要自行保存；当传入scene超出范围时，会返回文本信息，提示超出页面范围 |
 
 <details><summary>创建白板 response</summary>
 
@@ -120,5 +120,5 @@ RTC 供应商一般也会有房间（room）或频道（channel）的概念。Wh
 
 ## Postman 配置文件
 如你也像我们一样使用 Postman 调试 API，恭喜这里有份 Postman 文件。可以导入（import）进你的 Postman 来协作调试。
-[download: White Open API.postman_collection.json](https://www.yuque.com/attachments/yuque/0/2018/json/102615/1534413105738-be02202c-dae7-451a-af5d-e195a7a59139.json "size:3760")
+[White Open API.postman_collection.json](https://sdk.herewhite.com/postman/White%20Open%20API.postman_collection.json)
 *请替换其中的 token 为注册后得到的 token。*

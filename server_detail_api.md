@@ -15,7 +15,7 @@ https://cloudcapiv3.herewhite.com
 
 功能 |URL | HTTP Method | HTTP Body | 请求信息 | 返回备注 |
 ----|----|-------------|-----------|----|----|
-创建白板 | `/room?token={{token}}` | POST | {"name":"111","limit":100} | name: 白板的名称,limit: 白板上限人数（目前软限制）| response 见表格底部折叠区 |
+创建白板 | `/room?token={{token}}` | POST | {<br>"name":"111",<br>"limit":100<br>} | name: 白板的名称,limit: 白板上限人数（目前软限制）| response 见表格底部折叠区 |
 获取白板列表 | `/room?offset={{offset}}&limit=100&token={{token}}` | GET | 无 | {offset} : 第几块白板开始查找。<br>limit: 每次获取白板的个数 | 暂无 |
 获取白板详细信息 | `/room/id?uuid={{uuid}}&token={{token}}` | GET | 无 | uuid: 白板 uuid ，用于全局确定一块白板 | response 见表格底部折叠区 |
 参与指定白板 | `/room/join?uuid={{uuid}}&token={{token}}` | POST | 无 | uuid : 白板 uuid | 由于部分历史原因，此 API 变量内容在 url 中，而不是 body 中 |
@@ -120,5 +120,5 @@ RTC 供应商一般也会有房间（room）或频道（channel）的概念。Wh
 
 ## Postman 配置文件
 如你也像我们一样使用 Postman 调试 API，恭喜这里有份 Postman 文件。可以导入（import）进你的 Postman 来协作调试。
-[download: White Open API.postman_collection.json](https://sdk.herewhite.com/postman/White%20Open%20API.postman_collection.json)
+[download: White Open API.postman_collection.json](https://sdk.herewhite.com/postman/White%20Open%20API.postman_collection.json  "size:5980")
 *请替换其中的 token 为注册后得到的 token。*

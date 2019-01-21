@@ -124,6 +124,20 @@ room.pushPptPages(new PptPage[]{
  移动 | 无法移动，所以不需要位置信息 | 可以移动，所以插入时，需要提供图片大小以及位置信息
  与白板页面关系 | 插入 ppt 的同时，白板就新建了一个页面，这个页面的背景就是 PPT 图片 | 是当前白板页面的一部分，同一个页面可以加入多张图片
 
+# 图片替换
+
+图片替换功能，需要在初始化时使用新的初始化 API。 传入实现 `UrlInterrupter` Interface 的类即可。
+传入参数为图片原始地址，返回修改后的图片地址即可。
+
+```Java
+public WhiteSdk(WhiteBroadView bridge, Context context, WhiteSdkConfiguration whiteSdkConfiguration, UrlInterrupter urlInterrupter) {
+```
+
+* 注意点：
+
+1. 该 API 会在渲染时，被频繁调用。如果没有需求，就不需要使用该方法。
+1. 该方法会同时对 ppt插入以及图片插入API起效。
+
 # 主播模式
 
 ## 跟随主播的视角

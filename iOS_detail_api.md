@@ -81,6 +81,10 @@ memberState.currentApplianceName = AppliancePencil;
 /** 用户错误事件捕获 */
 - (void)fireCatchErrorWhenAppendFrame:(NSUInteger)userId error:(NSString *)error;
 
+@optional
+/** 图片拦截替换API，会拦截 PPT 和图片插入url，如果没有替换需求，最好不要实现。 */
+- (NSString *)urlInterrupter:(NSString *)url;
+
 @end
 ```
 
@@ -160,6 +164,12 @@ state.currentSceneIndex = [magixPhase.pptImages count] - 1;
  调用后结果 | 会自动新建多个白板页面，但是仍然保留在当前页（所以无明显区别），需要通过翻页API进行切换 | 产生一个占位界面，插入真是图片，需要调用 `completeImageUploadWithUuid:src` ,传入占位界面的 uuid，以及图片的网络地址 |
  移动 | 无法移动，所以不需要位置信息 | 可以移动，所以插入时，需要提供图片大小以及位置信息
  与白板页面关系 | 插入 ppt 的同时，白板就新建了一个页面，这个页面的背景就是 PPT 图片 | 是当前白板页面的一部分，同一个页面可以加入多张图片
+
+# 图片网址替换
+
+部分情况下，我们需要对某个图片进行签名，以保证图片只在内部使用。 此 API `- (NSString *)urlInterrupter:(NSString *)url;` 可以在图片实际插入白板前进行拦截，修改最后实际插入的图片地址。并且对 ppt 图片和普通插入图片都有效。
+
+该方法为 `WhiteRoomCallbackDelegate` 协议中的一个申明方法，属于被动调用。如果没有需求，最好就不要实现。
 
 # 主播模式
 参考 WhiteBroadcastState。

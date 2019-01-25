@@ -391,3 +391,37 @@ room.removeMagixEventListener("SendGift", onRecevieGift);
 ```javascript
 room.zoomChange(10)
 ```
+
+# 外部输入设备 API
+
+**注意点**
+
+1. 该 API 并不稳定，有特殊需求的用户，可以使用该系列 API，目前不保证向后兼容。**
+1. 调用该 API 前，需要将白板设置为只读模式（`room.disableOperations = true`）
+1. 该 API 适用于于画笔教具，无法用于选择教具；其他教具无法保证效果。
+
+部分情况下，看下会有，调用者自行传入触碰事件的需求。这里提供以下方法，允许将触碰事件转换为鼠标移动事件。
+
+```Javascript
+//等同于按下鼠标事件
+externalDeviceEventDown(event: RoomMouseEvent): void;
+//等同于鼠标移动事件
+externalDeviceEventMove(event: RoomMouseEvent): void;
+//等同于鼠标抬起事件
+externalDeviceEventUp(event: RoomMouseEvent): void;
+//等同于鼠标离开操作，可以认为类似鼠标抬起事件
+externalDeviceEventLeave(event: RoomMouseEvent): void;
+```
+
+通过以上 API，sdk 本身会将用户传入的事件，转换为内部鼠标移动事件。
+
+```typescript
+export type RoomMouseEvent = {
+    x: number;
+    y: number;
+    targetsMap: TargetsMap;
+};
+```
+
+x，y 坐标原点为白板页面左上角。白板的宽高设置最好与外部设备一致。
+targetsMap 直接传入 `{}` 即可。

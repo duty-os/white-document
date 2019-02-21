@@ -28,8 +28,6 @@ https://cloudcapiv3.herewhite.com
 <details><summary>创建白板 response</summary>
 
 
-
-
 ```JSON
 {
     "code": 200,

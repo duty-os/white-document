@@ -22,6 +22,7 @@ https://cloudcapiv3.herewhite.com
 删除白板 | `/room/close?token={{token}}` | POST | {"uuid":uuid} | uuid : 白板 uuid | 暂无 
 获取白板封面 | `/handle/room/snapshot?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"scene": 1<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>scene : 截取页面的 index；<br>（该值为可选，如果不传，则返回白板当前页面。） | 正常请求返回一张图片，需要自行保存；当传入scene超出范围时，会返回文本信息，提示超出页面范围 
 禁用和恢复白板 | ```/banRoom?token={{token}}``` | POST | {<br/>  "ban": false,<br/>"uuid": uuid <br/>} |uuid: 白板 uuid；ban 是否禁用，true 为禁用，false 为恢复|
+获取白板当前页数 | ```/room/scenes/count?roomuuid={{roomuuid}}&token={{token}}``` | GET | 无 ||返回白板当前页数
 <details><summary>创建白板 response</summary>
 
 ```JSON

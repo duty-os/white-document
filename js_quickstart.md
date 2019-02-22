@@ -11,8 +11,8 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/1.3.1.css">
-        <script src="https://sdk.herewhite.com/white-web-sdk/1.3.1.js"></script>
+        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/1.3.7.css">
+        <script src="https://sdk.herewhite.com/white-web-sdk/1.3.7.js"></script>
         <script src="index.js"></script>
     </head>
     <body>
@@ -25,8 +25,8 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 
 该页面引用了 3 个 JavaScript 资源文件。
 
-* [https://sdk.herewhite.com/white-web-sdk/1.3.1.css](https://sdk.herewhite.com/white-web-sdk/1.3.1.css)：White 的样式文件。
-* [https://sdk.herewhite.com/white-web-sdk/1.3.1.js](https://sdk.herewhite.com/white-web-sdk/1.3.1.js)： White 的 SDK 文件。
+* [https://sdk.herewhite.com/white-web-sdk/1.3.7.css](https://sdk.herewhite.com/white-web-sdk/1.3.7.css)：White 的样式文件。
+* [https://sdk.herewhite.com/white-web-sdk/1.3.7.js](https://sdk.herewhite.com/white-web-sdk/1.3.7.js)： White 的 SDK 文件。
 * `index.js` ：这是实现我们业务逻辑的 js 文件。
 
 # 创建白板
@@ -44,7 +44,7 @@ var requestInit = {
         "content-type": "application/json",
     },
     body: JSON.stringify({
-        name: 'my whiteboard',
+        name: '我的第一个 White 房间',
         limit: 100, // 房间人数限制
     }),
 };
@@ -83,5 +83,5 @@ fetch(url, requestInit)
 
 # 相关代码
 
-你可以在 [Github](https://github.com/duty-os/white-demo-web/tree/master/quickStart) 上下载这章的所有代码。
+你可以在 [Github](https://github.com/duty-os/white-demo-web/tree/master/quickStart/1.0) 上下载这章的所有代码。
 

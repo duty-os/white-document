@@ -6,12 +6,12 @@
 
 <span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">首先打开你的终端，然后进入到你的项目文件夹中。请确保此时文件夹中包含了 </span></span>`package.json`<span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> 这个文件。如果你使用 npm，输入如下命令。</span></span>
 ```bash
-npm install white-react-sdk --save
+npm install white-react-sdk@^1.0 --save
 ```
 
 <span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">如果你使用 yarn，输入如下命令。</span></span>
 ```bash
-yarn add white-react-sdk
+yarn add white-react-sdk@^1.0
 ```
 
 # TypeScript 的配置

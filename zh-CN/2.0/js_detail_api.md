@@ -15,21 +15,23 @@ white-web-sdk 还提供多种工具，如选择器、铅笔、文字、圆形工
 
 * __GlobalState__：全房间的状态，自房间创建其就存在。所有人可见，所有人可修改。
 * __MemberState__：成员状态。每个房间成员都有独立的一份实例，成员加入房间时自动创建，成员离开房间时自动释放。成员只能获取、监听、修改自己的 MemberState。
+* **SceneState**：场景状态，和场景切换相关。
 * __BroadcastState__：视角状态，和主播模式、跟随模式相关。
 
-这 3 个状态都是一个 key-value 对象。
+这 4 个状态都是一个 key-value 对象。
 
 你可以通过如下方式获取它们。
 
 ```javascript
 var globalState = room.state.globalState;
 var memberState = room.state.memberState;
+var sceneState = room.state.sceneState;
 var broadcastState = room.state.broadcastState;
 ```
 
 其中 room 对象需要通过调用 `joinRoom` 方法获取，在之前的篇章中有说明，在此不再赘述。
 
-这 2 个状态可能被动改变，比如 GlobalState 可能被房间其他成员修改。因此，你需要监听它们的变化。具体做法是，在调用 `joinRoom` 时带上回调函数。
+这 2 个状态可能被动改变，比如 GlobalState 和 SceneState 可能被房间其他成员修改。因此，你需要监听它们的变化。具体做法是，在调用 `joinRoom` 时带上回调函数。
 
 ```javascript
 var callbacks = {
@@ -41,6 +43,10 @@ var callbacks = {
         if (modifyState.memberState) {
             // memberState 改变了
             var newMemberState = modifyState.memberState;
+        }
+        if (modifyState.sceneState) {
+            // sceneState 改变了
+            var newSceneState = modifyState.sceneState;
         }
         if (modifyState.broadcastState) {
             // broadcastState 改变了
@@ -56,16 +62,16 @@ room.joinRoom({uuid: uuid, roomToken: roomToken}, callbacks);
 ```javascript
 room.setGlobalState({...});
 room.setMemberState({...});
+room.setSceneState({...});
 ```
 
-你不需要在参数中传入修改后的完整 GlobalState 或 MemberState，只需要填入你希望更新的 key-value 对即可。如果你修改了 GlobalState，整个房间的人都会收到你的修改结果。
+你不需要在参数中传入修改后的完整 GlobalState、 MemberState、SceneState，只需要填入你希望更新的 key-value 对即可。如果你修改了 GlobalState 或 SceneState，整个房间的人都会收到你的修改结果。
 
 # GlobalState
 
 ```typescript
 type GlobalState = {
-    // 当前场景索引，修改它会切换场景
-    currentSceneIndex: number;
+    // 当前为空，在以后的版本中可能会添加
 };
 ```
 
@@ -95,6 +101,43 @@ type MemberState = {
     // 文字的字号
     textSize: number;
 };
+```
+
+# SceneState
+
+```typescript
+type SceneState = {
+    
+    // 当前场景路径
+    scenePath: string;
+    
+    // 当前场景所在组的其他场景
+    scenes: ReadonlyArray<Scene>;
+    
+    // 当前场景在所在组的索引
+    index: number;
+}
+type Scene = {
+    // 场景名
+    name: string;
+    
+    // 场景中包含的组件数目
+    componentsCount: number;
+    
+    // 场景的 PPT 背景页
+    // 如果是白板页，则为 undefined
+    ppt?: {
+        
+        // PPT 页对应的资源路径
+        src: string;
+        
+        // PPT 页的宽
+        width: number;
+        
+        // PPT 页的高
+        height: number;
+	};
+}
 ```
 
 # BroadcastState
@@ -186,29 +229,26 @@ room.state.memberState.strokeColor
 
 调色盘能影响铅笔、矩形、椭圆、文字工具的效果。
 
+# 刷新白板的尺寸
 
-white-web-sdk 允许多个页面。在房间初次创建时，只有一个空白页面。我们可以通过如下方法来插入/删除页面。
+当白板所在的 ``<div>`` 尺寸发生变化时（通常是窗口大小改变，或业务逻辑需要改变布局），**必须**通过如下方法通知 SDK。
 
-```javascript
-// 插入新页面在指定 index
-room.insertNewPage(index: number);
-
-// 删除 index 位置的页面
-room.removePage(index: number);
+```typescript
+room.refreshViewSize();
 ```
 
-我们可以通过修改 globalState 来做到翻页效果。
+在一般实践中，当浏览器窗口大小发生改变时，往往会改变白板所在 ``<div>`` 的尺寸。这时，需要使用如下代码保证业务逻辑能响应窗口改变事件。
 
-```javascript
-// 翻到第 4 页
-var index = 3;
+```typescript
+function onWindowResize() {
+    room.refreshViewSize();
+}
+// 房间刚完成初始化时调用
+window.addEventListener("resize", onWindowResize);
 
-room.setGlobalState({
-    currentSceneIndex: index,
-});
+// 房间销毁后调用
+window.removeEventListener("resize", onWindowResize);
 ```
-
-注意，globalState 是整个房间所有人共用的。通过修改 globalState 的 currentSceneIndex 属性来翻页，将导致整个房间的所有人切换到该页。
 
 # 插入图片
 
@@ -228,23 +268,7 @@ room.insertImage({
 room.completeImageUpload(uuid, imageUrl)
 ```
 
-# 翻页与 PPT
-
-white-web-sdk 还支持插入 PPT。插入的 PPT 将变成带有 PPT 内容的页面。我们需要先将 PPT 文件或 PDF 文件的每一页单独转化成一组图片，并将这组图片在互联网上发布（例如上传到某个云存储仓库中，并获取每一张图片的可访问的 URL）。
-
-然后，将这组 URL 通过如下方法插入。
-
-```javascript
-room.pushPptPages([
-    {src: "http://website.com/image-001.png", width: 1024, height: 1024},
-    {src: "http://website.com/image-002.png", width: 1024, height: 1024},
-    {src: "http://website.com/image-003.png", width: 1024, height: 1024},
-]);
-```
-
-这个方法将在当前也后面插入 3 个带有 PPT 内容的新页面。
-
-## 插入PPT 与插入图片 的区别
+# 插入PPT 与插入图片的区别
 
 区别| 插入PPT | 插入图片
 ---------|----------|---------

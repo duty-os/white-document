@@ -9,7 +9,7 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 
 # 添加依赖
 
-* 首先，你需要参考 [iOS SDK安装](iOS_SDK_install.md) ，在 Podfile 中，添加 White-iOS-SDK 的依赖。使用 `pod install` 安装White-iOS-SDK。
+* 首先，你需要参考 [iOS SDK安装](ios-sdk-install.md) ，在 Podfile 中，添加 White-iOS-SDK 的依赖。使用 `pod install` 安装White-iOS-SDK。
 
 
 

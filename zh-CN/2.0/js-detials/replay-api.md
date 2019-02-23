@@ -16,7 +16,7 @@
 
 > 如果创建房间时没有 ``mode`` 字段，房间将默认以「持久化」模式创建。
 
-```typescript
+```javascript
 var mode = 'transitory'; // 临时房间模式
 var mode = 'persistent'; // 持久化房间模式
 var mode = 'historied'; // 可回放房间模式

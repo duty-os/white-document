@@ -27,5 +27,3 @@
   * [Android 使用指南](/zh-CN/v2/android-detail-api.md)
   * [iOS 使用指南](/zh-CN/v2/ios-detail-api.md)
   * [Server 使用指南](/zh-CN/v2/server-detail-api.md)
-
-iOS-

@@ -22,6 +22,7 @@
   * [场景管理](js-detials/scenes-api.md)
   * [回放](js-detials/replay-api.md)
   * [自定义事件与外部输入设备](js-detials/events.md)
+  * [从 v1.0 迁移 到 v2.0](js-detials/migrate-from-v1.md)
 * 使用指南
   * [Android 使用指南](android-detail-api.md)
   * [iOS 使用指南](ios-detail-api.md)

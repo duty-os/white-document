@@ -20,6 +20,7 @@
 * JavaScript 使用指南
   * [状态管理](js_detials/state_api.md)
   * [场景管理](js_detials/scenes_api.md)
+  * [回放](js_detials/replay_api.md)
   * [自定义事件与外部输入设备](js_detials/events.md)
 * 使用指南
 

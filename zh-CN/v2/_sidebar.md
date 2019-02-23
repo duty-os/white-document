@@ -1,6 +1,6 @@
 * 更新日志
 
-  * [white-sdk V1](zh-CN/v2/releaseNote.md)
+  * [white-sdk v2](zh-CN/v2/release-node.md)
 * 入门介绍
 
   * [项目简介](zh-CN/v2/introduction.md)

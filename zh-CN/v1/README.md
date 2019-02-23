@@ -10,7 +10,7 @@
 
 [点击查看官网](https://www.herewhite.com)
 
-![demo-2.png](../_images/loading_page.jpg "")
+![demo-2.png](./_images/loading_page.jpg "")
 
 ### white web app
 
@@ -20,7 +20,7 @@
 
 [点击使用 white 网页版](https://app.herewhite.com)
 
-![demo-2.png](../_images/web_app.jpg "")
+![demo-2.png](./_images/web_app.jpg "")
 
 ### white 控制台
 
@@ -30,4 +30,4 @@
 
 [点击查看控制台](https://console.herewhite.com)
 
-![demo-2.png](../_images/console_page.jpg "")
+![demo-2.png](./_images/console_page.jpg "")

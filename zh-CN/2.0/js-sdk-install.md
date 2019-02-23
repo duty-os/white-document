@@ -5,13 +5,13 @@ White 的 Web 端 SDK 已经发布到了 npmjs.com。如果你的项目使用 np
 首先打开你的终端，然后进入到你的项目文件夹中。请确保此时文件夹中包含了 `package.json` 这个文件。如果你使用 npm，输入如下命令。
 
 ```bash
-npm install white-web-sdk@^1.0 --save
+npm install white-web-sdk --save
 ```
 
 如果你使用 yarn，输入如下命令。
 
 ```bash
-yarn add white-web-sdk@^1.0
+yarn add white-web-sdk
 ```
 
 # 通过 CDN 安装
@@ -20,8 +20,8 @@ yarn add white-web-sdk@^1.0
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/1.3.7.css">
-        <script src="https://sdk.herewhite.com/white-web-sdk/1.3.7.js"></script>
+        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.css">
+        <script src="https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.js"></script>
     </head>
     <body>
         <div id="whiteboard" style="width: 100%; height: 100vh;"></div>

@@ -33,7 +33,7 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 ```
 # 安装 SDK
 
-* 首先你需要参考 [Android SDK 安装](Android_SDK_install.md)文档，进行 White SDK 安装。
+* 首先你需要参考 [Android SDK 安装](android-sdk-install.md)文档，进行 White SDK 安装。
 
 # 添加 UI 代码
 

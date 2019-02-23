@@ -9,7 +9,7 @@ white-web-sdk 还提供多种工具，如选择器、铅笔、文字、圆形工
 
 本章将解决这 2 个问题。
 
-# 白板状态
+## 白板状态
 
 当你加入一个房间后，你可以获取和修改的房间状态有如下 3 个。
 
@@ -67,7 +67,7 @@ room.setSceneState({...});
 
 你不需要在参数中传入修改后的完整 GlobalState、 MemberState、SceneState，只需要填入你希望更新的 key-value 对即可。如果你修改了 GlobalState 或 SceneState，整个房间的人都会收到你的修改结果。
 
-# GlobalState
+### GlobalState
 
 ```typescript
 type GlobalState = {
@@ -75,7 +75,7 @@ type GlobalState = {
 };
 ```
 
-# MemberState
+### MemberState
 
 ```typescript
 type MemberState = {
@@ -103,7 +103,7 @@ type MemberState = {
 };
 ```
 
-# SceneState
+### SceneState
 
 ```typescript
 type SceneState = {
@@ -140,7 +140,7 @@ type Scene = {
 }
 ```
 
-# BroadcastState
+### BroadcastState
 
 ```typescript
 type BroadcastState = {
@@ -156,7 +156,7 @@ type BroadcastState = {
     broadcasterId?: number;
 };
 ```
-# 白板生命周期
+## 白板生命周期
 
 joinRoom 的回调函数不仅可以监听白板的行为状态，还可以监听白板的生命周期状态和异常原因，具体使用如下
 
@@ -180,9 +180,7 @@ var callbacks = {
 room.joinRoom({uuid: uuid, roomToken: roomToken}, callbacks);
 ```
 
-
-
-# 切换教具
+## 切换教具
 
 white-web-sdk 提供多种教具，我们可以通过修改 `memberState` 来切换当前的教具。例如，将当前教具切换成「铅笔」工具可以使用如下代码。
 
@@ -209,7 +207,7 @@ white-web-sdk 提供如下教具。
 | 橡皮 | eraser | 删除轨迹 |
 | 文字 | text | 编辑、输入文字 |
 
-# 调色盘
+## 调色盘
 
 通过如下代码可以修改调色盘的颜色。
 
@@ -229,7 +227,7 @@ room.state.memberState.strokeColor
 
 调色盘能影响铅笔、矩形、椭圆、文字工具的效果。
 
-# 刷新白板的尺寸
+## 刷新白板的尺寸
 
 当白板所在的 ``<div>`` 尺寸发生变化时（通常是窗口大小改变，或业务逻辑需要改变布局），**必须**通过如下方法通知 SDK。
 
@@ -250,7 +248,7 @@ window.addEventListener("resize", onWindowResize);
 window.removeEventListener("resize", onWindowResize);
 ```
 
-# 插入图片
+## 插入图片
 
 white-web-sdk 支持向当前白板页面中插入图片，首先调用 `方法1` ，传递 uuid，以及图片位置（大小，中心位置）信息。uuid 是一个任意字符串，保证在每次调用时，使用不同值即可。
 然后通过服务器，或者本地上传至云存储仓库中，获取到要插入图片信息的网络地址，在调用 `方法2`, 传入图片网络地址。
@@ -268,15 +266,7 @@ room.insertImage({
 room.completeImageUpload(uuid, imageUrl)
 ```
 
-# 插入PPT 与插入图片的区别
-
-区别| 插入PPT | 插入图片
----------|----------|---------
- 调用后结果 | 会自动新建多个白板页面，但是仍然保留在当前页（所以无明显区别），需要通过翻页API进行切换 | 产生一个占位界面，插入真是图片，需要调用 `completeImageUploadWithUuid:src` ,传入占位界面的 uuid，以及图片的网络地址 |
- 移动 | 无法移动，所以不需要位置信息 | 可以移动，所以插入时，需要提供图片大小以及位置信息
- 与白板页面关系 | 插入 ppt 的同时，白板就新建了一个页面，这个页面的背景就是 PPT 图片 | 是当前白板页面的一部分，同一个页面可以加入多张图片
-
-# 跟随演讲者的视角
+## 跟随演讲者的视角
 
 white-web-sdk 提供的白板是向四方无限延生的。同时也允许用户通过鼠标滚轮、手势等方式移动白板。因此，即便是同一块白板的同一页，不同用户的屏幕上可能看到的内容是不一样的。
 
@@ -327,7 +317,7 @@ export type BroadcastState = {
 };
 ```
 
-# 视角中心
+## 视角中心
 
 同一个房间的不同用户各自的屏幕尺寸可能不一致，这将导致他们的白板都有各自不同的尺寸。实际上，房间的其他用户会将白板的中心对准演讲者的白板中心（注意演讲者和其他用户的屏幕尺寸不一定相同）。
 
@@ -339,113 +329,16 @@ room.setViewSize(1024, 768);
 
 尺寸应该和白板在网页中的实际尺寸相同（一般而言就是浏览器页面的尺寸）。如果用户调整了窗口大小导致白板尺寸改变。应该重新调用该方法刷新尺寸。
 
-# 自定义事件
-
-房间内的任何成员都可以通过如下方法广播自定义事件。
-
-```javascript
-room.dispatchMagixEvent(event, payload);
-```
-
-其中 ``event`` 是事件名，必须是字符串，用于标示该事件的类型。``payload`` 是该事件附带的数据，房间内接收到该事件的同时，可以读取到。``payload`` 可以是任意 JavaScript 的 primitive 类型，以及不带嵌套结构的 plain object 或仅包含 plain object 的数组结构。
-
-例如，如下形式的**发送事件**调用是合法的。
-
-```javascript
-room.dispatchMagixEvent("SendGift", {
-    senderName: "ZhangJie",
-    receiverName: "Lili",
-    giftType: "Lamborghini",
-    imageIds: [1273, 2653, 23, 17283],
-    timestamp: 1541820428865,
-});
-```
-
-如果你希望监听房间内其他人发的事件，可以通过如下方式添加事件监听器。
-
-```javascript
-room.addMagixEventListener(event, callback);
-```
-
-其中 ``event`` 是事件名，必须是字符串。``callback`` 是一个回调函数，当房间内接收到事件时会被回调。我们可以通过如下形式注册事件监听器。
-
-```javascript
-function onRecevieGift(eventObject) {
-    console.log(eventObject.event); // 事件名称
-    console.log(eventObject.payload); // 事件 payload
-}
-room.addMagixEventListener("SendGift", onRecevieGift);
-```
-
-当之前的那一段**发送事件**调用后，控制台将会打印出如下内容。
-
-```json
-SendGift
-{
-    "senderName": "ZhangJie",
-    "receiverName": "Lili",
-    "giftType": "Lamborghini",
-    "imageIds": [1273, 2653, 23, 17283],
-    "timestamp": 1541820428865,
-},
-```
-
-此外，你还可以注销事件监听器。
-
-```javascript
-room.removeMagixEventListener(event, callback);
-```
-
-例如，你可以通过如下代码注销刚才注册的事件监听器。
-
-```javascript
-room.removeMagixEventListener("SendGift", onRecevieGift);
-```
-
-# 面板操作开关
+## 面板操作开关
 
 你可以通过 `room.disableOperations = true` 来禁止用户操作白板。
 
 你可以通过 `room.disableOperations = false` 来恢复用户操作白板的能力。
 
-# 缩放
+## 缩放
 
 一方面通过手势可以放缩白板，另一方面也可以通过调用 `zoomChange` 来缩放白板。
 
 ```javascript
 room.zoomChange(10)
 ```
-
-# 外部输入设备 API
-
-**注意点**
-
-1. 该 API 并不稳定，有特殊需求的用户，可以使用该系列 API，目前不保证向后兼容。**
-1. 调用该 API 前，需要将白板设置为只读模式（`room.disableOperations = true`）
-1. 该 API 适用于于画笔教具，无法用于选择教具；其他教具无法保证效果。
-
-部分情况下，看下会有，调用者自行传入触碰事件的需求。这里提供以下方法，允许将触碰事件转换为鼠标移动事件。
-
-```Javascript
-//等同于按下鼠标事件
-externalDeviceEventDown(event: RoomMouseEvent): void;
-//等同于鼠标移动事件
-externalDeviceEventMove(event: RoomMouseEvent): void;
-//等同于鼠标抬起事件
-externalDeviceEventUp(event: RoomMouseEvent): void;
-//等同于鼠标离开操作，可以认为类似鼠标抬起事件
-externalDeviceEventLeave(event: RoomMouseEvent): void;
-```
-
-通过以上 API，sdk 本身会将用户传入的事件，转换为内部鼠标移动事件。
-
-```typescript
-export type RoomMouseEvent = {
-    x: number;
-    y: number;
-    targetsMap: TargetsMap;
-};
-```
-
-x，y 坐标原点为白板页面左上角。白板的宽高设置最好与外部设备一致。
-targetsMap 直接传入 `{}` 即可。

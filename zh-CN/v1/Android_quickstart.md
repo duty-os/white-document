@@ -143,7 +143,7 @@ dependencies {
 
 # 添加主要逻辑
 
-前面的准备工作完成后，我们修改 MainActivity.java 尝试渲染出白板并完成本教程。现在打开 MainActivity.java ，在 MainActivity.java 的初始化方法 `onCreate`  中通过 Open API 创建一个白板并获取他的 uuid 和 roomToken 后就可以通过 `WhiteSdk` 的 `joinRoom` 连接并加入白板（Demo 中使用 DemoAPI.java 中的 createRoom 来创建白板和获取 uuid 和 roomToken，这种方式是不安全的，正确做法参考：[最佳实践](./concept.md)）。
+前面的准备工作完成后，我们修改 MainActivity.java 尝试渲染出白板并完成本教程。现在打开 MainActivity.java ，在 MainActivity.java 的初始化方法 `onCreate`  中通过 Open API 创建一个白板并获取他的 uuid 和 roomToken 后就可以通过 `WhiteSdk` 的 `joinRoom` 连接并加入白板（Demo 中使用 DemoAPI.java 中的 createRoom 来创建白板和获取 uuid 和 roomToken，这种方式是不安全的，正确做法参考：[最佳实践](../../concept.md)）。
 
 ```java
 final Gson gson = new Gson();

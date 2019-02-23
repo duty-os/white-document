@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <title>White</title>
-  <link rel="icon" href="_media/favicon.ico">
+  <link rel="icon" href="../../_media/favicon.ico">
   <meta name="google-site-verification" content="6t0LoIeFksrjF4c9sqUEsVXiQNxLp2hgoqo0KryT-sE" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="keywords" content="doc,docs,documentation,gitbook,creator,generator,github,jekyll,github-pages">
   <meta name="description" content="A magical documentation generator.">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <!--<link rel="stylesheet" href="./style/vue.css" title="vue">-->
-  <link rel="stylesheet" href="./css/vue.css" title="vue">
+  <link rel="stylesheet" href="../../css/vue.css" title="vue">
   <!--<link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/dark.css" title="dark" disabled>-->
   <!--<link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/buble.css" title="buble" disabled>-->
   <!--<link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/pure.css" title="pure" disabled>-->
@@ -42,17 +42,18 @@
       },
       auto2top: true,
       executeScript: true,
-      loadSidebar: true,
-      loadNavbar: true,
+      loadSidebar: './zh-CN/v2/_sidebar.md',
+      loadNavbar: './zh-CN/v2/_navbar.md',
       mergeNavbar: true,
       maxLevel: 4,
       subMaxLevel: 2,
       themeColor: '#005BF6',
       name: 'White',
       logo: '/_media/icon.svg',
+      homepage: './zh-CN/v2/README.md',
+      // basePath: '/zh-CN/v2/',
       search: {
         noData: {
-          '/de-de/': 'Keine Ergebnisse!',
           '/zh-cn/': '没有结果!',
           '/': 'No results!'
         },

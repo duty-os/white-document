@@ -231,13 +231,13 @@ room.state.memberState.strokeColor
 
 当白板所在的 ``<div>`` 尺寸发生变化时（通常是窗口大小改变，或业务逻辑需要改变布局），**必须**通过如下方法通知 SDK。
 
-```typescript
+```javascript
 room.refreshViewSize();
 ```
 
 在一般实践中，当浏览器窗口大小发生改变时，往往会改变白板所在 ``<div>`` 的尺寸。这时，需要使用如下代码保证业务逻辑能响应窗口改变事件。
 
-```typescript
+```javascript
 function onWindowResize() {
     room.refreshViewSize();
 }
@@ -276,7 +276,7 @@ white-web-sdk 提供的白板是向四方无限延生的。同时也允许用户
 
 可以通过如下方法修改当前视角的模式。
 
-```typescript
+```javascript
 // 演讲者模式
 // 房间内其他人的视角模式会被自动修改成 follower，并且强制观看你的视角。
 // 如果房间内存在另一个演讲者，该演讲者的视角模式也会被强制改成 follower。
@@ -296,7 +296,7 @@ room.setViewMode("follower");
 
 我们也可以通过如下方法获取当前视角的状态。
 
-```typescript
+```javascript
 room.state.broadcastState
 ```
 

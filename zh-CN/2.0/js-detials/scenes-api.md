@@ -36,7 +36,7 @@ white-web-sdk 提供多场景管理，以便实现诸如 PPT 分页、插入多�
 
 你可以通过如下代码切换当前场景。
 
-```typescript
+```javascript
 // 其中，room 是你通过 whiteWebSdk.joinRoom(...) 获取的房间对象
 // 该方法的参数为你象切换到的场景路径
 room.setScenePath("/physics/relativity-theory");
@@ -52,13 +52,13 @@ room.setScenePath("/physics/relativity-theory");
 
 你可以通过如下代码查看房间的场景状态。
 
-```typescript
+```javascript
 room.state.sceneState;
 ```
 
 在上一小节中，我们通过 ``room.setScenePath("/physics/relativity-theory")`` 切换了当前场景。如果该方法调用成功，``room.state.sceneState`` 将返回如下值。
 
-```typescript
+```javascript
 {
     scenePath: "/physics/relativity-theory",
     scenes: [{
@@ -85,13 +85,13 @@ room.state.sceneState;
 
 我们可以通过调用如下方法。传入场景路径，来删除特定场景。
 
-```typescript
+```javascript
 room.removeScenes("/physics/relativity-theory");
 ```
 
 也可以通过传入场景组路径来删除某个场景组下的所有场景。
 
-```typescript
+```javascript
 room.removeScenes("/english");
 ```
 
@@ -103,7 +103,7 @@ room.removeScenes("/english");
 
 你也可以通过直接删除根场景组，来清空整个房间的所有场景。
 
-```typescript
+```javascript
 room.removeScenes("/");
 ```
 
@@ -115,7 +115,7 @@ room.removeScenes("/");
 
 你可以通过如下方法插入一个场景。
 
-```typescript
+```javascript
 room.putScenes("/math", [{name: "geometry"}]);
 ```
 
@@ -123,7 +123,7 @@ room.putScenes("/math", [{name: "geometry"}]);
 
 你也可以不填写 ``name`` 。
 
-```typescript
+```javascript
 room.putScenes("/math", [{name: undefined}]);
 ```
 
@@ -131,7 +131,7 @@ room.putScenes("/math", [{name: undefined}]);
 
 你可以通过如下代码在特定场景组下一次行插入一组场景。
 
-```typescript
+```javascript
 var scenesArray = [
     {name: "algebra"},
     {name: "matrix"},
@@ -151,7 +151,7 @@ room.putScenes("/math", [{name: undefined}]);
 
 我们发现，场景组内场景的排列顺序就是我们插入的顺序。这意味着我们每次插入的场景都会自动排在场景组的末尾。如果我们希望将场景插入到特定位置，可以通过如下代码实现。
 
-```typescript
+```javascript
 var index = 1;
 room.putScenes("/math", [{name: "I-am-the-second"}], index);
 ```
@@ -170,7 +170,7 @@ room.putScenes("/math", [{name: "I-am-the-second"}], index);
 
 你可以通过如下代码将一个场景移动到另外一个场景组。
 
-```typescript
+```javascript
 room.moveScene("/math/geometry", "/graphics/geometry");
 ```
 
@@ -186,7 +186,7 @@ room.moveScene("/math/geometry", "/graphics/geometry");
 
 你可以通过如下代码给一个场景重命名。
 
-```typescript
+```javascript
 room.moveScene("/math/arithmetic", "/graphics/SuanShu");
 ```
 
@@ -200,7 +200,7 @@ room.moveScene("/math/arithmetic", "/graphics/SuanShu");
 
 你也可以通过如下代码调整场景的排列顺序。
 
-```typescript
+```javascript
 var = 0;
 room.moveScene("/math/SuanShu", "/graphics/SuanShu", index);
 ```
@@ -217,7 +217,7 @@ room.moveScene("/math/SuanShu", "/graphics/SuanShu", index);
 
 同一个路径在房间中可以唯一定位场景。这意味着场景的路径是排他的。你无法让两个场景拥有相同的路径。假设房间内已经存在如下场景 /math/algebra。当你使用如下场景插入一个新的空白场景时。
 
-```typescript
+```javascript
 room.putScenes("/math", [{name: "algebra"}]);
 ```
 
@@ -225,7 +225,7 @@ room.putScenes("/math", [{name: "algebra"}]);
 
 房间内，场景的路径不可以与场景组的路径相同。例如，房间内已经存在如下场景 /math/algebra。当你使用如下场景插入一个新的空白场景时。
 
-```typescript
+```javascript
 room.putScenes("/", [{name: "math"}]);
 ```
 
@@ -233,7 +233,7 @@ room.putScenes("/", [{name: "math"}]);
 
 如果你一定要插入一个路径为 /math 的场景，你必须先使用如下代码删除 /math 场景组下的所有场景，以确保房间内不再存在 /math 的场景组才行。
 
-```typescript
+```javascript
 room.removeScenes("/math");
 ```
 
@@ -243,7 +243,7 @@ room.removeScenes("/math");
 
 然后，你可以在房间里插入一组场景，让场景与这一组 PPT 的图片的 URL 一一对应。将场景的背景设置成它对应的图片 URL。这一步骤你可以通过如下代码一步到位。
 
-```typescript
+```javascript
 room.putScenes("/ppt", [
     {ppt: "https://cloud-oss.com/ppt/1.png"},
     {ppt: "https://cloud-oss.com/ppt/2.png"},
@@ -256,7 +256,7 @@ room.putScenes("/ppt", [
 
 你可以通过如下方法获取当前 PPT 文件的所有页的列表。
 
-```typescript
+```javascript
 room.state.sceneState.scenes;
 ```
 

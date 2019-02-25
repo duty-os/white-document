@@ -198,21 +198,6 @@ room.moveScene("/math/arithmetic", "/graphics/SuanShu");
 - /graphics/geometry
 - /init
 
-你也可以通过如下代码调整场景的排列顺序。
-
-```javascript
-var = 0;
-room.moveScene("/math/SuanShu", "/graphics/SuanShu", index);
-```
-
-- **/math/SuanShu**
-- /math/I-am-the-second
-- /math/e626435392ad484b96b57204e5699ea0
-- /math/algebra
-- /math/matrix
-- /graphics/geometry
-- /init
-
 ## 路径的唯一性
 
 同一个路径在房间中可以唯一定位场景。这意味着场景的路径是排他的。你无法让两个场景拥有相同的路径。假设房间内已经存在如下场景 /math/algebra。当你使用如下场景插入一个新的空白场景时。
@@ -242,13 +227,14 @@ room.removeScenes("/math");
 如果你希望通过白板来演示 PPT，可以以如下思路设计业务。首先，你需要通过某种服务将 PPT 文件转化成一组图片，并将这一组图片存在云端。这时，你能拿到一组图片的 URL。
 
 然后，你可以在房间里插入一组场景，让场景与这一组 PPT 的图片的 URL 一一对应。将场景的背景设置成它对应的图片 URL。这一步骤你可以通过如下代码一步到位。
+ppt内对应的字段与v1版本一致。
 
 ```javascript
 room.putScenes("/ppt", [
-    {ppt: "https://cloud-oss.com/ppt/1.png"},
-    {ppt: "https://cloud-oss.com/ppt/2.png"},
-    {ppt: "https://cloud-oss.com/ppt/3.png"},
-    {ppt: "https://cloud-oss.com/ppt/4.png"},
+    {ppt: {src: "https://cloud-oss.com/ppt/1.png", width: 1024, height: 768}},
+    {ppt: {src: "https://cloud-oss.com/ppt/2.png", width: 1024, height: 768}},
+    {ppt: {src: "https://cloud-oss.com/ppt/3.png", width: 1024, height: 768}},
+    {ppt: {src: "https://cloud-oss.com/ppt/4.png", width: 1024, height: 768}},
 ]);
 ```
 

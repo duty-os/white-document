@@ -80,7 +80,7 @@ https://cloudcapiv3.herewhite.com
 ### 请求格式
 <span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">对于 POST 和 PUT 请求，请求的主体必须是 JSON 格式，而且 HTTP header 的 Content-Type 需要设置为 </span></span>`application/json`
 
-<span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">用户验证通过通过 URL 参数中的 token 进行验证，token 来源参考：</span></span>[快速开始](./js-quickstart.md)
+<span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">用户验证通过通过 URL 参数中的 token 进行验证，token 来源参考：</span></span>[快速开始](/zh-CN/v2/js-quickstart.md)
 
 ### 响应格式
 对于所有的请求，响应格式都是一个 JSON 对象。

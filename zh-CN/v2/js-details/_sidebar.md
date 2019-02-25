@@ -18,11 +18,11 @@
   * [接入流程与概念详解](/zh-CN/v2/concept.md)
   * [实践流程](/zh-CN/v2/process.md)
 * JavaScript 使用指南
-  * [状态管理](/zh-CN/v2/js-detials/state-api.md)
-  * [场景管理](/zh-CN/v2/js-detials/scenes-api.md)
-  * [回放](/zh-CN/v2/js-detials/replay-api.md)
-  * [自定义事件与外部输入设备](/zh-CN/v2/js-detials/events.md)
-  * [从 v1.0 迁移 到 v2.0](/zh-CN/v2/js-detials/migrate-from-v1.md)
+  * [状态管理](/zh-CN/v2/js-details/state-api.md)
+  * [场景管理](/zh-CN/v2/js-details/scenes-api.md)
+  * [回放](/zh-CN/v2/js-details/replay-api.md)
+  * [自定义事件与外部输入设备](/zh-CN/v2/js-details/events.md)
+  * [从 v1.0 迁移 到 v2.0](/zh-CN/v2/js-details/migrate-from-v1.md)
 * 使用指南
   * [Android 使用指南](/zh-CN/v2/android-detail-api.md)
   * [iOS 使用指南](/zh-CN/v2/ios-detail-api.md)

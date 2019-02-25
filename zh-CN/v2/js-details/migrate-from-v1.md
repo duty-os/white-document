@@ -53,7 +53,7 @@ var scenes = room.state.scenes; // scenes is undefined
 var scenes = room.state.sceneState.scenes;
 ```
 
-## Scene 的结构变了。
+## Scene 的结构变了
 
 你在之前可能会读取 Scene 的 ``key`` 字段，以满足自己的业务需求。但发现 ``key`` 永远是 ``undefined``。
 

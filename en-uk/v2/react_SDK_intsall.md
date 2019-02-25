@@ -30,7 +30,7 @@ If you use TypeScript as your development language, you will need to do addition
 
 # Construct a whiteWebSdk object
 
-In the [《JavaScript guide》](js_detail_api.md), we mentioned that the first step should be to construct the `whiteWebSdk` object.
+In the [《JavaScript guide》](/en-uk/v2/js_detail_api.md), we mentioned that the first step should be to construct the `whiteWebSdk` object.
 
 ```javascript
 import {WhiteWebSdk} from 'white-web-sdk';

@@ -8,7 +8,7 @@ Hi, Dear developer, welcome to the Whiteboard. This tutorial will guide you thro
 
 # Add dependency
 
-* First of all, you need to refer to [iOS SDK install](iOS_SDK_install.md), in the Podfile, add the dependency of White-iOS-SDK. Install White-iOS-SDK with `pod install`.
+* First of all, you need to refer to [iOS SDK install](/en-uk/v2/iOS_SDK_install.md), in the Podfile, add the dependency of White-iOS-SDK. Install White-iOS-SDK with `pod install`.
 
 
 

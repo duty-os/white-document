@@ -32,7 +32,7 @@ yarn add white-web-sdk
 
 # Used in a JavaScript project
 
-In [《JavaScript advanced tutorial》](./js_detail_api.md), we mentioned that the first step should be to construct the `whiteWebSdk` object. If we installed `'white-web-sdk'` with npm or yarn , we can construct it using the following code.
+In [《JavaScript advanced tutorial》](/en-uk/v1/js_detail_api.md), we mentioned that the first step should be to construct the `whiteWebSdk` object. If we installed `'white-web-sdk'` with npm or yarn , we can construct it using the following code.
 
 ```javascript
 var WhiteWebSdk = require('white-web-sdk').WhiteWebSdk;

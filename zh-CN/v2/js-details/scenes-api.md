@@ -198,21 +198,6 @@ room.moveScene("/math/arithmetic", "/graphics/SuanShu");
 - /graphics/geometry
 - /init
 
-你也可以通过如下代码调整场景的排列顺序。
-
-```javascript
-var = 0;
-room.moveScene("/math/SuanShu", "/graphics/SuanShu", index);
-```
-
-- **/math/SuanShu**
-- /math/I-am-the-second
-- /math/e626435392ad484b96b57204e5699ea0
-- /math/algebra
-- /math/matrix
-- /graphics/geometry
-- /init
-
 ## 路径的唯一性
 
 同一个路径在房间中可以唯一定位场景。这意味着场景的路径是排他的。你无法让两个场景拥有相同的路径。假设房间内已经存在如下场景 /math/algebra。当你使用如下场景插入一个新的空白场景时。

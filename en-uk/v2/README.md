@@ -2,7 +2,7 @@
 
 > White is a real-time interactive whiteboard supported by all platforms, which can be used in online education, conference, remote collaboration, design review, PPT presentation and other scenarios.
 
-Read [Introduction](introduction.md) learn more。
+Read [Introduction](/en-uk/v2/introduction.md) learn more。
 
 ### White Official website
 

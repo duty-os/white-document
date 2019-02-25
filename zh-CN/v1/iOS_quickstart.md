@@ -9,7 +9,7 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 
 # 添加依赖
 
-* 首先，你需要参考 [iOS SDK安装](iOS_SDK_install.md) ，在 Podfile 中，添加 White-iOS-SDK 的依赖。使用 `pod install` 安装White-iOS-SDK。
+* 首先，你需要参考 [iOS SDK安装](/zh-CN/v1/iOS_SDK_install.md) ，在 Podfile 中，添加 White-iOS-SDK 的依赖。使用 `pod install` 安装White-iOS-SDK。
 
 
 
@@ -41,7 +41,7 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 
 demo中，我们暂时只考虑创建房间。
 
-为了确保安全性，我们推荐您参考 [最佳实践](concept.md) ，通过后端进行获取 `RoomToken` 。
+为了确保安全性，我们推荐您参考 [最佳实践](/zh-CN/v1/concept.md) ，通过后端进行获取 `RoomToken` 。
 在Demo中，我们在使用 iOS 官方 API 请求 OpenAPI 获取`RoomUUID` 和 `RoomToken` 。
 
 ```objectivec

@@ -33,7 +33,7 @@ Whether it is downloading the project template we provide or the project created
 ```
 # Install SDK
 
-* First you need to refer to [Android SDK Installation](Android_SDK_install.md) documentation for White SDK installation
+* First you need to refer to [Android SDK Installation](/en-uk/v1/Android_SDK_install.md) documentation for White SDK installation
 
 # Add UI code
 
@@ -143,7 +143,7 @@ dependencies {
 
 # Add primary logic
 
-After the previous preparations are complete, we modify MainActivity.java to try to render the whiteboard and complete the tutorial. Now open MainActivity.java, create a whiteboard through the Open API in the initialization method `onCreate` of MainActivity.java and get its uuid and roomToken. Then you can connect and join the whiteboard through ``joinRoom` of `WhiteSdk` (use DemoAPI in Demo) CreateRoom in .java to create whiteboards and get uuid and roomToken is not safe, refer to: [Best Practices](concept.md)）。
+After the previous preparations are complete, we modify MainActivity.java to try to render the whiteboard and complete the tutorial. Now open MainActivity.java, create a whiteboard through the Open API in the initialization method `onCreate` of MainActivity.java and get its uuid and roomToken. Then you can connect and join the whiteboard through ``joinRoom` of `WhiteSdk` (use DemoAPI in Demo) CreateRoom in .java to create whiteboards and get uuid and roomToken is not safe, refer to: [Best Practices](/en-uk/v1/concept.md)）。
 
 ```java
 final Gson gson = new Gson();

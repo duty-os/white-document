@@ -147,7 +147,7 @@ https://cloudcapiv3.herewhite.com
 
 For POST and PUT requests, the body of the request must be in JSON format, and the Content-Type of the HTTP header needs to be set to `application/json`.
 
-User authentication is verified by passing tokens in the URL parameter, token source reference: [快速开始](../js_quickstart.md)
+User authentication is verified by passing tokens in the URL parameter, token source reference: [quick start](/en-uk/v1/js_quickstart.md).
 
 ### Response format
 

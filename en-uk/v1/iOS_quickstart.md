@@ -8,7 +8,7 @@ Hi, Dear developer, welcome to the Whiteboard. This tutorial will guide you thro
 
 # Add dependency
 
-* First of all, you need to refer to [iOS SDK install](iOS_SDK_install.md), in the Podfile, add the dependency of White-iOS-SDK. Install White-iOS-SDK with `pod install`.
+* First of all, you need to refer to [iOS SDK install](/en-uk/v2/iOS_SDK_install.md), in the Podfile, add the dependency of White-iOS-SDK. Install White-iOS-SDK with `pod install`.
 
 
 
@@ -40,7 +40,7 @@ There are two situations:
 
 In the demo, we are only considering creating a room for the time being.
 
-To ensure safety, we recommend you to refer to [Best Practices](concept.md), get `RoomToken` through the backend.
+To ensure safety, we recommend you to refer to [Best Practices](/en-uk/v1/concept.md), get `RoomToken` through the backend.
 
 In Demo, we are using the iOS official API to request OpenAPI to get `RoomUUID` and `RoomToken`.
 

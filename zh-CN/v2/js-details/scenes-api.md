@@ -38,7 +38,7 @@ white-web-sdk 提供多场景管理，以便实现诸如 PPT 分页、插入多�
 
 ```javascript
 // 其中，room 是你通过 whiteWebSdk.joinRoom(...) 获取的房间对象
-// 该方法的参数为你象切换到的场景路径
+// 该方法的参数为你想切换到的场景路径
 room.setScenePath("/physics/relativity-theory");
 ```
 

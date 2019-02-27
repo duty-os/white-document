@@ -2,7 +2,7 @@
 
 ## API 请求域名
 ```plain
-https://cloudcapiv3.herewhite.com
+https://cloudcapiv4.herewhite.com
 ```
 
 ## API 版本
@@ -10,6 +10,7 @@ https://cloudcapiv3.herewhite.com
 | 版本 | 内容 |
 | :--- | :--- |
 | 1.0 | 公测版本 |
+| 2.0 | beta 测试版本|
 
 ## 白板管理
 

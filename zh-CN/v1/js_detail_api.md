@@ -186,6 +186,7 @@ room.state.memberState.strokeColor
 
 调色盘能影响铅笔、矩形、椭圆、文字工具的效果。
 
+## 翻页
 
 white-web-sdk 允许多个页面。在房间初次创建时，只有一个空白页面。我们可以通过如下方法来插入/删除页面。
 

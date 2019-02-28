@@ -1,5 +1,4 @@
 * Change Log
-
   * [white-sdk V1](/en-uk/v1/releaseNote.md)
 
 * Introduction

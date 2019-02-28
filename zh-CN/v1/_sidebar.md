@@ -1,3 +1,6 @@
+* 其他版本入口
+  * [white-sdk v2 开发文档](/zh-CN/v2/README.md)
+
 * 更新日志
 
   * [white-sdk V1](/zh-CN/v1/releaseNote.md)

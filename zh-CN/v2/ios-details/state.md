@@ -173,9 +173,17 @@ memberState.currentApplianceName = AppliancePencil;
 
 # 图片网址替换
 
-部分情况下，我们需要对某个图片进行签名，以保证图片只在内部使用。 此 API `- (NSString *)urlInterrupter:(NSString *)url;` 可以在图片实际插入白板前进行拦截，修改最后实际插入的图片地址。该方法对 ppt 图片和普通插入图片都有效。
+部分情况下，我们需要对某个图片进行签名，以保证图片只在内部使用。 此 API `- (NSString *)urlInterrupter:(NSString *)url;` 可以在图片实际插入白板前进行拦截，修改最后实际插入的图片地址。该方法对 ppt 图片和普通插入图片都有效。并且在互动与回放时，都有效。（在v2版本中，我们将其移动到了 `WhiteCommonCallbackDelegate` 中）。
 
-该方法为 `WhiteRoomCallbackDelegate` 协议中的一个申明方法，属于被动调用。如果没有需求，最好就不要实现。
+该方法为 `WhiteCommonCallbackDelegate` 协议中的一个申明方法，属于被动调用。
+如需启用，请在初始化 SDK 时，将 `WhiteSdkConfiguration` 的 `enableInterrupterAPI` 属性，设置为 YES。
+并在初始化时，使用一下方法传入实现了该 protocol 的实例 
+
+```Objective-C
+- (instancetype)initWithWhiteBoardView:(WhiteBoardView *)boardView config:(WhiteSdkConfiguration *)config commonCallbackDelegate:(nullable id<WhiteCommonCallbackDelegate>)callback
+```
+
+或者在想要使用时，调用 `whiteSDK` 的 `setCommonCallbackDelegate:` 方法，设置。
 
 # 切换视角模式 —— 主播，观众，自由
 

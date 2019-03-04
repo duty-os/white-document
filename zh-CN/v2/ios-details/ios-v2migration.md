@@ -115,3 +115,16 @@ v2.0 注意内容：
 现在插入页面 API，增加了插入时，自定义内容（ppt）的接口。所以插入页面 API 和插入 PPT API，现在已经合并成了同一个 API。
 
 *我们现在提供新API支持移动，重命名白板页面*
+
+## 图片替换 API
+
+由于图片替换 API，同时对互动房间与回放生效，所以我们不再将其放在 `WhiteRoomCallbackDelegate` 中，而是转而放在 `WhiteCommonCallbackDelgate` 中。
+
+如需启用，请在初始化 SDK 时，将 `WhiteSdkConfiguration` 的 `enableInterrupterAPI` 属性，设置为 YES。
+并在初始化时，使用一下方法传入实现了该 protocol 的实例 
+
+```Objective-C
+- (instancetype)initWithWhiteBoardView:(WhiteBoardView *)boardView config:(WhiteSdkConfiguration *)config commonCallbackDelegate:(nullable id<WhiteCommonCallbackDelegate>)callback
+```
+
+或者在想要使用时，调用 `whiteSDK` 的 `setCommonCallbackDelegate:` 方法，设置。

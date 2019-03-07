@@ -46,7 +46,7 @@ demo中，我们暂时只考虑创建房间。
 - (void)creatNewRoomRequestWithResult:(void (^) (BOOL success, id response))result;
 {
     // self.token 为字符串，具体的获取，请参考 https://developer.herewhite.com/#/concept
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://cloudcapiv3.herewhite.com/room?token=%@", self.sdkToken]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://cloudcapiv4.herewhite.com/room?token=%@", self.sdkToken]]];
     NSMutableURLRequest *modifyRequest = [request mutableCopy];
     [modifyRequest setHTTPMethod:@"POST"];
     [modifyRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

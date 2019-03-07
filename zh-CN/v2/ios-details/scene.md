@@ -116,7 +116,7 @@ WhiteScene 管理了一个白板页面，其中包含了 name，并且接管了�
 
 ```Objective-C
 @interface WhiteRoom : NSObject
-- (void)setScencePath:(NSString *)path;
+- (void)setScenePath:(NSString *)path;
 ```
 
 * 示例代码

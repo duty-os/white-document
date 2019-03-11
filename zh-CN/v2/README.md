@@ -2,7 +2,7 @@
 
 > white 是一款全平台支持的实时互动白板，可以用于在线教育、会议、远程协作、设计审查、PPT 演示等场景。
 
-查看 [项目简介](introduction.md) 了解详情。
+查看 [项目简介](/zh-CN/v2/introduction.md) 了解详情。
 
 ### white 官方网站
 

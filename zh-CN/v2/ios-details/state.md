@@ -1,20 +1,66 @@
-# 订阅白板状态
+# 订阅白板状态变化
 
-通过订阅白板状态，你可以得知当前白板的以下状态变化：
+当白板状态发生变化时，sdk 会通过回调创建时传入的 delegate 实例。
 
-1. 白板网络连接状态变化
-1. 白板 RoomState 属性中发生的值变化。（教具，视角，等都在该类中，后续增加的功能状态，一般也都集中在这里）
-1. 白板失去连接（附带错误信息）
-1. 当前用户被远程服务器踢出房间，以及原因。
-1. 操作错误信息，由于存在于服务器通信的关系，部分 API 操作，可能无法理解返回错误信息，一般都会将错误放入此处。
-1. 图片加载事件。（该 API 比较特殊，其他 API 都只是单纯的接收，该 API可修改白板将要加载的图片地址）
+v2版本将事件回调拆分成了三种。v1版本中的图片替换功能，由于在 Room 以及 Player 中，都会被调用，所以剥离到了通用回调中。
 
-## 回调API列表：
+## 1. 通用回调
+
+在创建 WhiteSDK 时，直接传入实现了对应协议的实例，后续有需要时，就会回调。
+
+```Objective-C
+@interface WhiteSDK : NSObject
+- (instancetype)initWithWhiteBoardView:(WhiteBoardView *)boardView config:(WhiteSdkConfiguration *)config commonCallbackDelegate:(nullable id<WhiteCommonCallbackDelegate>)callback;
+@end
+```
+
+```Objective-C
+
+@protocol WhiteCommonCallbackDelegate <NSObject>
+
+@optional
+
+/**
+ 当sdk出现未捕获的全局错误时，会在此处对抛出 NSError 对象
+ */
+- (void)throwError:(NSError *)error;
+
+/*
+ 启用改功能，需要在初始化 SDK 时，在 WhiteSDKConfig 设置 enableInterrupterAPI 为 YES; 初始化后，无法更改。
+ 之后，在调用插入图片API/插入scene 时，会回调该 API，允许拦截修改最后传入的图片地址。
+ 在回放中，也会持续调用。
+ */
+- (NSString *)urlInterrupter:(NSString *)url;
+
+@end
+
+```
+
+### 修改回调
+
+可以通过 WhiteSDK 下述方法进行修改
+
+```Objective-C
+@interface WhiteSDK : NSObject
+
+/** 为空，则移除原来的 CommonCallbacks */
+- (void)setCommonCallbackDelegate:(nullable id<WhiteCommonCallbackDelegate>)callbackDelegate;
+
+@end
+```
+
+## 2. 房间状态回调
+
+在加入房间时，使用 
+
+`- (void)joinRoomWithRoomUuid:(NSString *)roomUuid roomToken:(NSString *)roomToken callbacks:(nullable id<WhiteRoomCallbackDelegate>)callbacks completionHandler:(void (^) (BOOL success, WhiteRoom * _Nullable room, NSError * _Nullable error))completionHandler;
+` API，传入实现 WhiteRoomCallbackDelegate 的实例类。
+
+*传入 nil 时，不会修改当 roomCallback 回调，也不会移除之前设置的实例*
 
 ```Objective-C
 
 //WhiteRoomCallbacks.h 文件
-
 @protocol WhiteRoomCallbackDelegate <NSObject>
 
 @optional
@@ -25,6 +71,7 @@
 /**
  白板中RoomState属性，发生变化时，会触发该回调。
  注意：主动设置的 RoomState，不会触发该回调。
+ 目前有个别 state 内容，主动调用时，也会触发。后续版本会修复这个问题。
  @param modifyState 发生变化的 RoomState 内容
  */
 - (void)fireRoomStateChanged:(WhiteRoomState *)modifyState;
@@ -41,230 +88,57 @@
 - (void)fireCatchErrorWhenAppendFrame:(NSUInteger)userId error:(NSString *)error;
 
 /**
- 白板自定义事件回调，可以参考自定义需求-自定义事件文档
+ 白板自定义事件回调，
+ 自定义事件参考文档，或者 RoomTests 代码
  */
 - (void)fireMagixEvent:(WhiteEvent *)event;
 
 /*
- 调用插入图片API时，可以通过此方法，对使用插入图片API(completeImageUploadWithUuid:src:) 中，传入的 src 进行修改。
- 该方法会被频繁调用，执行应尽可能快返回；如果没有对应需求，最好不要实现该方法。
- 如果需要该 API，最好使用最新的 SDK 初始化方法初始化 WhiteSDK。
+ 该 API 迁移至 WhiteCommonCallback
  */
-- (NSString *)urlInterrupter:(NSString *)url;
+//- (NSString *)urlInterrupter:(NSString *)url;
 
 @end
 ```
 
-## 何时传入delegate？
+## 3. 回放状态回调
 
-在调用以下API生成SDK时，传入 `callbacks` 参数。在事件发生时，SDK 会调用以上 API。
+v2版本中，我们增加了2.0版本的回调状态，以便得知回放时，房间的状态变化。
+在创建 Player 时，一起传入即可。
 
 ```Objective-C
-
 @interface WhiteSDK : NSObject
-- (instancetype)initWithBoardView:(WhiteBoardView *)boardView config:(WhiteSdkConfiguration *)config callbackDelegate:(id<WhiteRoomCallbackDelegate>)callbackDelegate;
+
+- (void)createReplayerWithConfig:(WhitePlayerConfig *)config callbacks:(nullable id<WhitePlayerEventDelegate>)eventCallbacks completionHandler:(void (^) (BOOL success, WhitePlayer * _Nullable player, NSError * _Nullable error))completionHandler;
+@end
 ```
-
-# 教具
-
-SDK 提供多种工具，如选择器、铅笔、文字、圆形工具、矩形工具。同时还提供图片展示工具和 PPT 工具。这些功能的展现形式，关系到具体网页应用本身的交互设计、视觉风格。考虑到这一点，白板上没有直接提供这些 UI 组件。你需要通过程序调用的方式，来让白板使用这些功能。
 
 ```Objective-C
 
-//WhiteMemberState.h 文件
+//WhitePlayerEvent.h 文件
+@protocol WhitePlayerEventDelegate <NSObject>
 
-typedef NSString * WhiteApplianceNameKey;
+@optional
 
-extern WhiteApplianceNameKey const AppliancePencil;
-extern WhiteApplianceNameKey const ApplianceSelector;
-extern WhiteApplianceNameKey const ApplianceText;
-extern WhiteApplianceNameKey const ApplianceEllipse;
-extern WhiteApplianceNameKey const ApplianceRectangle;
-extern WhiteApplianceNameKey const ApplianceEraser;
+/** 播放状态切换回调 */
+- (void)phaseChanged:(WhitePlayerPhase)phase;
+/** 首帧加载回调 */
+- (void)loadFirstFrame;
+/** 分片切换回调，需要了解分片机制。目前无实际用途 */
+- (void)sliceChanged:(NSString *)slice;
+/** 播放中，状态出现变化的回调 */
+- (void)playerStateChanged:(WhitePlayerState *)modifyState;
+/** 出错暂停 */
+- (void)stoppedWithError:(NSError *)error;
+/** 进度时间变化 */
+- (void)scheduleTimeChanged:(NSTimeInterval)time;
+/** 添加帧出错 */
+- (void)errorWhenAppendFrame:(NSError *)error;
+/** 渲染时，出错 */
+- (void)errorWhenRender:(NSError *)error;
+/** 用户头像信息变化 */
+- (void)cursorViewsUpdate:(WhiteUpdateCursor *)updateCursor;
 
-@interface WhiteMemberState : WhiteObject
-/** 教具，初始教具为pencil，无默认值 */
-@property (nonatomic, copy) WhiteApplianceNameKey currentApplianceName;
-/** 传入格式为[@(0-255),@(0-255),@(0-255)]的RGB */
-@property (nonatomic, copy) NSArray<NSNumber *> *strokeColor;
-/** 画笔粗细 */
-@property (nonatomic, strong) NSNumber *strokeWidth;
-@property (nonatomic, strong) NSNumber *textSize;
 @end
 
 ```
-
-## 教具列表
-
-| 名称 | Objective-C 常量 | 描述 |
-| :--- | :--- | :--- |
-| 选择 | ApplianceSelector | 选择、移动、放缩 |
-| 铅笔 | AppliancePencil | 画出带颜色的轨迹 |
-| 矩形 | ApplianceRectangle | 画出矩形 |
-| 椭圆 | ApplianceEllipse | 画出正圆或椭圆 |
-| 橡皮 | ApplianceEraser | 删除轨迹 |
-| 文字 | ApplianceEraser | 编辑、输入文字 |
-
-## 切换教具
-
-White SDK 提供多种教具，我们可以通过生成 `WhiteMemberState` 实例，来设置当前的教具。
-
-* 例子：我们将当前教具设置为「铅笔」工具：
-
-```Objective-C
-WhiteMemberState *memberState = [[WhiteMemberState alloc] init];
-//白板初始状态时，教具默认为画笔pencil。
-memberState.currentApplianceName = AppliancePencil;
-[whiteRoom setMemberState:memberState];
-```
-
-## 设置教具颜色，粗细
-
-`WhiteMemberState` 还有其他属性:
-
-```Objective-C
-@interface WhiteMemberState : WhiteObject
-/** 传入格式为[@(0-255),@(0-255),@(0-255)]的RGB */
-@property (nonatomic, copy) NSArray<NSNumber *> *strokeColor;
-/** 画笔粗细 */
-@property (nonatomic, strong) NSNumber *strokeWidth;
-```
-
-1. `strokeColor` 属性，可以调整教具的颜色。该属性，能够影响铅笔、矩形、椭圆、文字工具颜色。
-2. `strokeWidth` 属性，可以调整教具粗细。该属性，能够影响铅笔、矩形、椭圆、文字工具颜色。
-
-## 获取当前教具
-```Objective-C
-[whiteRoom getMemberStateWithResult:^(WhiteMemberState *state) {
-    NSLog(@"%@", [state jsonString]);
-}];
-```
-
-# 插入图片
-
-```Objective-C
-/**
- 1. 先使用 insertImage API，插入占位图
- */
-- (void)insertImage:(WhiteImageInformation *)imageInfo;
-
-/**
- 2. 再通过 completeImageUploadWithUuid:src: 替换内容
- 替换占位图中的内容
-
- @param uuid insertImage API 中，imageInfo 传入的图片 uuid
- @param src 图片的网络地址
- */
-- (void)completeImageUploadWithUuid:(NSString *)uuid src:(NSString *)src;
-```
-
-1. 首先创建 `WhiteImageInformation` 类，配置图片，宽高，以及中心点位置，设置 uuid，确保 uuid 唯一即可。
-1. 调用 `insertImage:` 方法，传入 `WhiteImageInformation` 实例。白板此时就先生成一个占位框。
-1. 图片通过其他方式上传或者直接获取图片地址后，调用
-`completeImageUploadWithUuid: src:` 方法，uuid 参数为 `insertImage:` 方法传入的 uuid，src 为图片网络地址。
-
-## 插入PPT 与插入图片 的区别
-
-区别| 插入PPT | 插入图片
----------|----------|---------
- 调用后结果 | 会自动新建多个白板页面，但是仍然保留在当前页（所以无明显区别），需要通过翻页API进行切换 | 产生一个占位界面，插入真是图片，需要调用 `completeImageUploadWithUuid:src` ,传入占位界面的 uuid，以及图片的网络地址 |
- 移动 | 无法移动，所以不需要位置信息 | 可以移动，所以插入时，需要提供图片大小以及位置信息
- 与白板页面关系 | 插入 ppt 的同时，白板就新建了一个页面，这个页面的背景就是 PPT 图片 | 是当前白板页面的一部分，同一个页面可以加入多张图片
-
-# 图片网址替换
-
-部分情况下，我们需要对某个图片进行签名，以保证图片只在内部使用。 此 API `- (NSString *)urlInterrupter:(NSString *)url;` 可以在图片实际插入白板前进行拦截，修改最后实际插入的图片地址。该方法对 ppt 图片和普通插入图片都有效。并且在互动与回放时，都有效。（在v2版本中，我们将其移动到了 `WhiteCommonCallbackDelegate` 中）。
-
-该方法为 `WhiteCommonCallbackDelegate` 协议中的一个申明方法，属于被动调用。
-如需启用，请在初始化 SDK 时，将 `WhiteSdkConfiguration` 的 `enableInterrupterAPI` 属性，设置为 YES。
-并在初始化时，使用一下方法传入实现了该 protocol 的实例 
-
-```Objective-C
-- (instancetype)initWithWhiteBoardView:(WhiteBoardView *)boardView config:(WhiteSdkConfiguration *)config commonCallbackDelegate:(nullable id<WhiteCommonCallbackDelegate>)callback
-```
-
-或者在想要使用时，调用 `whiteSDK` 的 `setCommonCallbackDelegate:` 方法，设置。
-
-# 切换视角模式 —— 主播，观众，自由
-
-White SDK 提供的白板是向四方无限延伸的。同时也允许用户通过鼠标滚轮、手势等方式移动白板。因此，即便是同一块白板的同一页，不同用户的屏幕上可能看到的内容是不一样的。
-
-为此，我们引入「主播模式」这个概念。主播模式将房间内的某一个人设为主播，他/她屏幕上看到的内容即是其他所有人看到的内容。当主播进行视角的放缩、移动时，其他人的屏幕也会自动进行放缩、移动。
-
-主播模式中，主播就好像摄像机，其他人就好像电视机。主播看到的东西会被同步到其他人的电视机上。
-
-## 视角枚举
-
-```Objective-C
-typedef NS_ENUM(NSInteger, WhiteViewMode) {
-    // 自由模式
-    // 用户可以自由放缩、移动视角。
-    // 即便房间里有主播，主播也无法影响用户的视角。
-    WhiteViewModeFreedom,
-    // 追随模式
-    // 用户将追随主播的视角。主播在看哪里，用户就会跟着看哪里。
-    // 在这种模式中，如果用户进行缩放、移动视角操作，将自动切回 freedom模式。
-    WhiteViewModeFollower,
-    // 主播模式
-    // 房间内其他人的视角模式会被自动修改成 follower，并且强制观看该用户的视角。
-    // 如果房间内存在另一个主播，该主播的视角模式也会被强制改成 follower。
-    WhiteViewModeBroadcaster,
-};
-
-//以下类，只有在 fireRoomStateChanged: 回调事件中，才会使用。
-@interface WhiteBroadcastState : WhiteObject
-@property (nonatomic, assign) WhiteViewMode viewMode;
-@property (nonatomic, assign) NSInteger broadcasterId;
-@property (nonatomic, strong) WhiteMemberInformation *broadcasterInformation;
-@end
-
-```
-
-## 设置视角模式
-
-* 例子：设置当前用户为主播视角
-
-```
-//只需要传入枚举值即可
-[whiteRoom setViewMode:WhiteViewModeBroadcaster];
-```
-
-## 获取当前视角状态
-
-```Objective-C
-[self.room getBroadcastStateWithResult:^(WhiteBroadcastState *state) {
-    NSLog(@"%@", [state jsonString]);
-}];
-```
-
-# 视角中心
-
-同一个房间的不同用户各自的屏幕尺寸可能不一致，这将导致他们的白板都有各自不同的尺寸。实际上，房间的其他用户会将白板的中心对准主播的白板中心（注意主播和其他用户的屏幕尺寸不一定相同）。
-
-我们需要通过如下方法设置白板的尺寸，以便主播能同步它的视角中心。
-
-```Objective-C
-[room setViewSizeWithWidth:100 height:100];
-```
-
-尺寸应该和白板在产品中的实际尺寸相同（一般而言就是浏览器页面或者应用屏幕的尺寸）。如果用户调整了窗口大小导致白板尺寸改变。应该重新调用该方法刷新尺寸。
-
-# 只读
-
-```Objective-C
-/** 进入只读模式，不响应用户任何手势 */
-- (void)disableOperations:(BOOL)readonly;
-```
-
-# 缩放
-
-用户可以通过手势（iOS上使用双指swipe手势、模拟器中按住 option + 鼠标进行模拟）对白板进行缩放操作。
-另一方面，开发者也可以通过 `zoomChange` 来进行缩放。
-
-```Objective-C
-[room zoomChange:10];
-```
-
-# 移动
-
-白板支持双指手势，双指进行平移，即可移动白板（模拟器中可以通过 shift + option + 鼠标，来模式该手势）。

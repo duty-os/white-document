@@ -31,8 +31,9 @@ target 'iOSDemo' do
 end
 ```
 
-<span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">然后在项目根目录执行 </span></span>`pod install`<span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> </span></span>命令，执行成功后，SDK 就集成到项目中了。
-<em>如果长时间没有拉取过pod 仓库，可能出现无法找到我们的repo的情况，此时建议先使用 </em><code><em>pod repo update</em></code><em> 更新pod仓库。</em>
+然后在项目根目录执行 `pod install` 命令，执行成功后，SDK 就集成到项目中了。
+
+*如果长时间没有拉取过pod 仓库，可能出现无法找到我们的repo的情况，此时建议先使用* `pod repo update` 更新pod仓库。
 
 # SDK 支持情况：
 

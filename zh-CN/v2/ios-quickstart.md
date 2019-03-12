@@ -153,7 +153,7 @@
 
 ![image.png | left | 488x850](./_images/iOS_screen.png)
 
-# Demo 代码获取
+# 代码获取
 
-- [white-iOS-Demo](https://github.com/duty-os/white-demo-ios) 
+**本文档中，所有内容都可以 [Pod 示例项目](https://github.com/duty-os/white-sdk-ios-release/tree/v2.x) 的 Example 项目中查看。**
 

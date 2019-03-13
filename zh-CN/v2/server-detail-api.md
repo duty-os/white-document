@@ -63,10 +63,9 @@ https://cloudcapiv4.herewhite.com
 
 功能 |URL | HTTP Method | HTTP Body | 请求信息 | 返回备注 
 ----|----|-------------|-----------|----|----
-获取白板详细信息 | `/room/id?uuid={{uuid}}&token={{token}}` | GET | 无 | uuid: 白板 uuid ，用于全局确定一块白板 | response 见表格底部折叠区 
-参与指定白板 | `/room/join?uuid={{uuid}}&token={{token}}` | POST | 无 | uuid : 白板 uuid | 由于部分历史原因，此 API 变量内容在 url 中，而不是 body 中 
+
 删除白板 | `/room/close?token={{token}}` | POST | {"uuid":uuid} | uuid : 白板 uuid | 暂无 
-获取白板封面 | `/handle/room/snapshot?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"scene": 1<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>scene : 截取页面的 index；<br>（该值为可选，如果不传，则返回白板当前页面。） | 正常请求返回一张图片，需要自行保存；当传入scene超出范围时，会返回文本信息，提示超出页面范围 
+获取白板封面 | `/handle/room/snapshot?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"scene": 1<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>scene : 截取页面的 index；<br>（该值为可选，如果不传，则返回白板当前页面。） | 正常请求返回一张图片，需要自行保存；当传入scene超出范围时，会返回文本信息，提示超出页面范围 
 获取范围内的白板封面 | `/handle/room/snapshot/range?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"start": 0,<br>"end": 0<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>start : 截取页面的开始 index；<br>end : 截取页面的结束 index；<br> | 返回范围内的所有图片的存储信息（需要在 console 配置存储驱动，请联系客户支持团队）
 禁用和恢复白板 | ```/banRoom?token={{token}}``` | POST | {<br/>  "ban": false,<br/>"uuid": uuid <br/>} |uuid: 白板 uuid；ban 是否禁用，true 为禁用，false 为恢复|
 获取白板当前页数 | ```/room/scenes/count?roomuuid={{roomuuid}}&token={{token}}``` | GET | 无 | 返回白板当前页数
@@ -123,7 +122,7 @@ mode | string | **v2版本参数**；房间类型：`transitory`,`persistent`,`h
             "createdAt": "2019-01-15T09:12:05.974Z"
         },
         "hare": "{\"uuid\":\"uuid\",\"teamId\":\"1\",\"mode\":\"persistent\",\"region\":\"cn\",\"isBan\":false,\"beginTimestamp\":1547543526200,\"endTimestamp\":1547543526200,\"endFrameId\":0,\"usersMaxCount\":100,\"survivalDuration\":30000,\"chunkFramesCount\":700,\"snapshotIdInterval\":80}",
-        "roomToken": "此处为房间 roomToken",
+        "roomToken": "此处为房间 roomToken",
         "code": 201
     }
 }
@@ -140,7 +139,7 @@ mode | string | **v2版本参数**；房间类型：`transitory`,`persistent`,`h
 字段 | 类型 | 描述 |
 --  | -- | -- |
 offset | number | 第几块白板开始查找(从1开始计数) |
-limit | number | 每次获取白板的个数 |
+limit | number | 每次获取白板的个数 |
 
 
 ## 获取白板详细信息

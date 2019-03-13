@@ -51,7 +51,8 @@ https://cloudcapiv4.herewhite.com
 }
 ```
 
-<span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">当一个请求失败时响应的主体仍然是一个 JSON 对象，但是总是会包含 </span></span>`code`<span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> </span></span>和 `msg`<span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)"> </span></span>这两个字段，你可以用它们来进行调试，举个例子：
+当一个请求失败时响应的主体仍然是一个 JSON 对象，但是总是会包含 `code` 和 `msg`这两个字段，你可以用它们来进行调试，举个例子：
+
 ```json
 {
   "code": 112,
@@ -63,7 +64,6 @@ https://cloudcapiv4.herewhite.com
 
 功能 |URL | HTTP Method | HTTP Body | 请求信息 | 返回备注 
 ----|----|-------------|-----------|----|----
-
 删除白板 | `/room/close?token={{token}}` | POST | {"uuid":uuid} | uuid : 白板 uuid | 暂无 
 获取白板封面 | `/handle/room/snapshot?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"scene": 1<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>scene : 截取页面的 index；<br>（该值为可选，如果不传，则返回白板当前页面。） | 正常请求返回一张图片，需要自行保存；当传入scene超出范围时，会返回文本信息，提示超出页面范围 
 获取范围内的白板封面 | `/handle/room/snapshot/range?token={{token}}` | POST | {<br>"width": 600,<br>"height": 800,<br>"uuid": uuid,<br>"start": 0,<br>"end": 0<br>} | uuid: 白板 uuid；width,height 为截取白板的宽高；<br>start : 截取页面的开始 index；<br>end : 截取页面的结束 index；<br> | 返回范围内的所有图片的存储信息（需要在 console 配置存储驱动，请联系客户支持团队）

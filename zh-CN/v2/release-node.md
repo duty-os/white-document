@@ -1,5 +1,10 @@
 # 发版记录
 
+### white-web-sdk 2.0.0-beta.5
+
+- 支持 Android 的音频回放
+- 支持 Chrome 等主流浏览器的音频回放
+
 ### white-web-sdk 2.0.0-beta.4
 
 > 更新时间：2019-02-26

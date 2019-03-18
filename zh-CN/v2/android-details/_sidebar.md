@@ -35,6 +35,13 @@
     * [自定义事件与外部输入设备](/zh-CN/v2/ios-details/events.md)
     * [从 v1.0 迁移 到 v2.0](/zh-CN/v2/ios-details/v2migration.md)
 
+* Android 使用指南
+    * [状态管理](/zh-CN/v2/android-details/state.md)
+    * [场景管理](/zh-CN/v2/android-details/scene.md)
+    * [功能](zh-CN/v2/android-details/feature.md)
+    * [回放](zh-CN/v2/android-details/replay.md)
+    * [自定义事件](/zh-CN/v2/android-details/events.md)
+    * [从 v1.0 迁移 到 v2.0](/zh-CN/v2/android-details/v2migration.md)
+
 * 使用指南
-  * [Android 使用指南](/zh-CN/v2/android-detail-api.md)
   * [Server 使用指南](/zh-CN/v2/server-detail-api.md)

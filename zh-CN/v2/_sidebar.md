@@ -30,6 +30,8 @@
 * iOS 使用指南
     * [状态管理](/zh-CN/v2/ios-details/state.md)
     * [场景管理](/zh-CN/v2/ios-details/scene.md)
+    * [功能](zh-CN/v2/ios-details/feature.md)
+    * [回放](zh-CN/v2/ios-details/replay.md)
     * [自定义事件与外部输入设备](/zh-CN/v2/ios-details/events.md)
     * [从 v1.0 迁移 到 v2.0](/zh-CN/v2/ios-details/ios-v2migration.md)
 

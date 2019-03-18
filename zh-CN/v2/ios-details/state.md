@@ -1,6 +1,61 @@
+# 获取白板状态
+
+## 1. 房间状态
+
+```Objective-C
+@interface WhiteRoom : NSObject
+
+/** 获取当前房间 GlobalState */
+- (void)getGlobalStateWithResult:(void (^) (WhiteGlobalState *state))result;
+/** 获取当前房间 WhiteMemberState:教具 */
+- (void)getMemberStateWithResult:(void (^) (WhiteMemberState *state))result;
+/** 获取当前房间 WhiteRoomMember：房间成员信息 */
+- (void)getRoomMembersWithResult:(void (^) (NSArray<WhiteRoomMember *> *roomMembers))result;
+/** 获取当前缩放比例 */
+- (void)getZoomScaleWithResult:(void (^) (CGFloat scale))result;
+/** 获取当前视角状态 */
+- (void)getBroadcastStateWithResult:(void (^) (WhiteBroadcastState *state))result;
+/** 获取当前房间状态，包含 globalState，教具，房间成员信息，缩放，SceneState，用户视角状态 */
+- (void)getRoomStateWithResult:(void (^) (WhiteRoomState *state))result;
+
+
+/**
+ 获取所有 ppt 图片，回调内容为所有 ppt 图片的地址。
+ @param result 如果当前页面，没有插入过 PPT，则该页面会返回一个空字符串
+ */
+- (void)getPptImagesWithResult:(void (^) (NSArray<NSString *> *pptPages))result DEPRECATED_MSG_ATTRIBUTE("使用 getScenesWithResult:");
+
+@end
+```
+
+## 2. Player 状态
+
+```Objective-C
+@interface WhitePlayer : NSObject
+
+/**
+ 目前：初始状态为 WhitePlayerPhaseWaitingFirstFrame
+
+ 当 WhitePlayerPhaseWaitingFirstFrame 时，调用 getPlayerStateWithResult 返回值可能为空。
+ */
+- (void)getPhaseWithResult:(void (^)(WhitePlayerPhase phase))result;
+
+/**
+ 当 phase 状态为 WhitePlayerPhaseWaitingFirstFrame
+ 回调得到的数据是空的
+ */
+- (void)getPlayerStateWithResult:(void (^)(WhitePlayerState * _Nullable state))result;
+
+/** 获取播放器信息（当前时长，总市场，开始 UTC 时间戳） */
+- (void)getPlayerTimeInfoWithResult:(void (^)(WhitePlayerTimeInfo *info))result;
+
+
+@end
+```
+
 # 订阅白板状态变化
 
-当白板状态发生变化时，sdk 会通过回调创建时传入的 delegate 实例。
+当白板状态发生变化时，sdk 会回调创建时传入的 delegate 实例。
 
 v2版本将事件回调拆分成了三种。v1版本中的图片替换功能，由于在 Room 以及 Player 中，都会被调用，所以剥离到了通用回调中。
 
@@ -36,7 +91,7 @@ v2版本将事件回调拆分成了三种。v1版本中的图片替换功能，�
 
 ```
 
-### 修改回调
+### 修改通用回调
 
 可以通过 WhiteSDK 下述方法进行修改
 
@@ -101,7 +156,7 @@ v2版本将事件回调拆分成了三种。v1版本中的图片替换功能，�
 @end
 ```
 
-## 3. 回放状态回调
+## 3. Player 状态回调
 
 v2版本中，我们增加了2.0版本的回调状态，以便得知回放时，房间的状态变化。
 在创建 Player 时，一起传入即可。

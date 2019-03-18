@@ -185,20 +185,3 @@ index 为scenes 中第一个场景所在的位置，如果想放在最末尾，�
  */
 - (void)removeScenes:(NSString *)dirOrPath;
 ```
-
-```Objective-C
-@interface WhiteRoom : NSObject
-
-/**
-
- 当有
- /ppt/page0
- /ppt/page1
- 传入 "/ppt/page0" 时，则只删除对应页面。
- 传入 "/ppt" 时，会将两个页面一起移除。
-
- @param dirOrPath 页面具体路径，或者为页面组路径
- */
-- (void)removeScenes:(NSString *)dirOrPath;
-@end
-```

@@ -40,69 +40,60 @@
 
 ## 相关类
 
-首先，我们需要知道场景类： `WhiteScene` 和 `WhitePptPage` 类。
+首先，我们需要知道场景类： `SceneState` 和 `PptPage` 类。
 
 >请注意：SDK中的类，都是配置数据，用于向白板传递数据用，并不持有任何白板实例*
 
-### WhitePptPage 类
+### PptPage 类
 
-WhitePptPage 类，是 ppt 相关的配置信息。在创建 WhiteScene 类时传入，再通过插入场景 API时，生成带背景图片的白板页面。
+PptPage 类，是 ppt 相关的配置信息。在创建 WhiteScene 类时传入，再通过插入场景 API时，生成带背景图片的白板页面。
 
-```
-@interface WhitePptPage : WhiteObject
-
-//图片地址
-@property (nonatomic, copy) NSString *src;
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat height;
-
-@end
+```Java
+public PptPage(String src, Double width, Double height)
 ```
 
 图片中心为白板页面的中心点。
 
-### WhiteScene 类
+### Scene 类
 
-```Objective-C
-@interface WhiteScene : WhiteObject
-
-- (instancetype)init;
-- (instancetype)initWithName:(nullable NSString *)name ppt:(nullable WhitePptPage *)ppt;
-
-@property (nonatomic, copy, readonly) NSString *name;
-//可以通过该属性是否为0，来判断该页面是否有内容。（该数字不计算 ppt，只有 ppt 时，也是0）。
-@property (nonatomic, assign, readonly) NSInteger componentsCount;
-@property (nonatomic, strong, readonly, nullable) WhitePptPage *ppt;
-@end
+```Java
+public Scene(String name, PptPage ppt)
 ```
 
 WhiteScene 管理了一个白板页面，其中包含了 name，并且接管了原来的 ppt 内容。
 白板页面只有在创建时，才接受 ppt 参数。
 
-### WhiteSceneState 类
+### SceneState 类
 
-```Objective-C
-@interface WhiteSceneState : WhiteObject
-//当前场景组的所有场景
-@property (nonatomic, nonnull, strong, readonly) WhiteScene *scenes;
-//当前场景组目录
-@property (nonatomic, nonnull, strong, readonly) NSString *scenePath;
-//当前场景，在 scenes 数组中的索引位置。
-@property (nonatomic, assign, readonly) NSInteger index;
-@end
+```Java
+public class SceneState {
+
+    //当前场景目录下，所有的页面
+    public Scene[] getScenes() {
+        return scenes;
+    }
+
+    //当前场景路径
+    public String getScenePath() {
+        return scenePath;
+    }
+
+    //当前场景在 Path 中的索引
+    public int getIndex() {
+        return index;
+    }
+}
 ```
 
 该类描述了当前场景目录的状态。
 
 ## 获取当前场景信息
 
-```Objective-C
-@interface WhiteRoom : NSObject
+```Java
 //获取当前场景状态
-- (void)getSceneStateWithResult:(void (^) (WhiteSceneState *state))result;
-
+public void getSceneState(final Promise<SceneState> promise)
 /** 获取当前目录下，所有页面的信息 */
-- (void)getScenesWithResult:(void (^) (NSArray<WhiteScene *> *scenes))result;
+public void getScenes(final Promise<Scene[]> promise) 
 
 @end
 ```
@@ -114,15 +105,14 @@ WhiteScene 管理了一个白板页面，其中包含了 name，并且接管了�
 
 当前场景用来代表该房间此时此刻大家所看到的房间。当你新建一个新房间时，当前场景会被默认设置成 ``/init`` 。这是一个默认创建的空白场景。
 
-```Objective-C
-@interface WhiteRoom : NSObject
-- (void)setScenePath:(NSString *)path;
+```Java
+public void setScenePath(String path)
 ```
 
 * 示例代码
 
-```Objective-C
-[whiteRoom setScenePath:@"/physics/relativity-theory"];
+```Java
+room.setScenePath:"/physics/relativity-theory";
 ```
 
 当切换 API 没有反应，并且在 `- (void)fireCatchErrorWhenAppendFrame:(NSUInteger)userId error:(NSString *)error;` 回调中报错，有可能是以下情况：
@@ -133,9 +123,7 @@ WhiteScene 管理了一个白板页面，其中包含了 name，并且接管了�
 
 ## 插入新场景
 
-```Objective-C
-@interface WhiteRoom : NSObject
-
+```Java
 /**
  插入，或许新建多个页面
 
@@ -143,8 +131,7 @@ WhiteScene 管理了一个白板页面，其中包含了 name，并且接管了�
  @param scenes WhiteScence 实例；在生成 WhiteScence 时，可以同时配置 ppt
  @param index 选择在页面组，插入的位置。index 即为新 scence 的 index 位置。如果想要放在最末尾，可以传入 NSUIntegerMax。
  */
-- (void)putScenes:(NSString *)dir scenes:(NSArray<WhiteScene *> *)scenes index:(NSUInteger)index;
-@end
+public void putScenes(String dir, Scene[] scenes, int index)
 ```
 
 插入场景 API，接受三个参数。
@@ -155,14 +142,14 @@ index 为scenes 中第一个场景所在的位置，如果想放在最末尾，�
 
 ## 重名、移动场景
 
-```Objective-C
+```Java
 /**
  移动/重命名页面
 
  @param source 想要移动的页面的绝对路径
  @param target 目标路径。如果是文件夹，则将 source 移入；否则，移动的同时重命名。
  */
-- (void)moveScene:(NSString *)source target:(NSString *)target;
+public void moveScene(String source, String target)
 @end
 ```
 
@@ -170,8 +157,7 @@ index 为scenes 中第一个场景所在的位置，如果想放在最末尾，�
 
 ## 删除场景
 
-```Objective-C
-@interface WhiteRoom : NSObject
+```Java
 
 /**
 
@@ -183,5 +169,5 @@ index 为scenes 中第一个场景所在的位置，如果想放在最末尾，�
 
  @param dirOrPath 页面具体路径，或者为页面组路径
  */
-- (void)removeScenes:(NSString *)dirOrPath;
+public void removeScenes(String dirOrPath)
 ```

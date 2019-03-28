@@ -129,7 +129,7 @@ room.setScenePath:"/physics/relativity-theory";
 
  @param dir scene 页面组名称，相当于目录
  @param scenes WhiteScence 实例；在生成 WhiteScence 时，可以同时配置 ppt
- @param index 选择在页面组，插入的位置。index 即为新 scence 的 index 位置。如果想要放在最末尾，可以传入 NSUIntegerMax。
+ @param index 选择在页面组，插入的位置。index 即为新 scence 的 index 位置。如果想要放在最末尾，可以传入 Integer.MAX_VALUE。
  */
 public void putScenes(String dir, Scene[] scenes, int index)
 ```

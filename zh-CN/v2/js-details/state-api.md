@@ -342,3 +342,114 @@ room.setViewSize(1024, 768);
 ```javascript
 room.zoomChange(10)
 ```
+
+## 显示用户鼠标信息
+
+* 在 `2.0.0-beta6` 中，新增了传递用户鼠标/手势信息的功能。
+
+### 传入用户信息
+
+在调用 sdk `joinRoom` API 时，额外传入 `userPayload` 字段。其中 userId 应为唯一值，否则，同一个 userid，先加入房间的用户会被后来的用户踢出房间。
+具体字段为下面配置:
+
+```Typescript
+export type UserPayload = {
+    //id 为遗留值，直接填0即可
+    readonly id: number;
+    readonly nickName: string;
+    readonly avatar?: string;
+    readonly userId: string;
+};
+```
+
+### 读取用户信息
+
+该信息会保存在 `room.state.roomMembers` 中， roomMembers 为数组，其中元素为以下格式。
+
+```Typescript
+export type RoomMember = {
+    readonly memberId: number;
+    readonly isRtcConnected: boolean;
+    readonly information?: MemberInformation;
+};
+```
+
+传入的 UserPayload 会对应转换在 `RoomMember` 的 `information` 字段中。memberId 则是 sdk 服务器，根据用户加入顺序分配的一个递增数字。
+
+### 更新用户头像信息
+
+当用户进行移动时，sdk 会回调创建 sdk 时，传入的 `onCursorViewsUpdate` 方法。
+
+```Typescript
+export type CursorUpdateDescription = {
+    appearSet: CursorView[];
+    disappearSet: CursorView[];
+    updateSet: CursorView[];
+};
+
+export type CursorView = {
+    readonly memberId: number;
+    readonly x: number;
+    readonly y: number;
+};
+
+```
+
+该回调方法会返回一个 `CursorUpdateDescription` 结构。里面的用户信息，分为三种，分别为：出现的用户信息集合，消息的用户信息集合，更新的用户信息集合。
+
+每个用户信息的具体内容，都在 `CursorView` ，可以根据 `memberId` 从 `room.state.roomMembers` 查找到对应的用户信息。
+
+`x,y` 则是，该用户在白板上的位置。该坐标点的坐标原点，为白板左上角。x，y 则为用户坐标点距离白板左上角的位置。对应的，白板右下角坐标点，x，y 数值，即为白板的宽高。
+
+推荐实现思路：在白板 div 之上，盖一层同样大小的 div，将 用户头像放在该 div 上。
+
+以下为可以使用的 less 文件
+
+```less
+//覆盖在白板之上的 div
+.user-cursor-layout {
+
+  pointer-events: none;
+
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  > * {
+    position: absolute;
+  }
+}
+
+//用户头像
+.user-cursor-inner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+//用户图片
+.user-cursor-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  margin: 2px;
+}
+
+.user-cursor-tool {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #FFFFFF;
+  box-sizing: border-box;
+  margin-top: -14px;
+  margin-left: 16px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```

@@ -228,3 +228,42 @@ typedef NS_ENUM(NSInteger, WhiteViewMode) {
 # 移动
 
 白板支持双指手势，双指进行平移，即可移动白板（模拟器中可以通过 shift + option + 鼠标，来模式该手势）。
+
+# 用户头像显示
+
+* 2.0.2 版本，新增功能
+
+## 1. 初始化
+
+在初始化 SDK 时，设置 WhiteSdkConfiguration 中的 userCursor 参数。
+
+```Objective-C
+
+@interface WhiteSdkConfiguartion ： WhiteObject
+
+/** 显示操作用户头像(需要在加入房间时，配置用户信息) */
+@property (nonatomic, assign) BOOL userCursor;
+
+@end
+```
+
+## 2. 加入房间
+
+通过以下 API ，传入用户信息
+
+```Objective-C
+@interface WhiteSDK : NSObject
+//加入房间
+- (void)joinRoomWithConfig:(WhiteRoomConfig *)config callbacks:(nullable id<WhiteRoomCallbackDelegate>)callbacks completionHandler:(void (^) (BOOL success, WhiteRoom * _Nullable room, NSError * _Nullable error))completionHandler;
+@end
+```
+
+```Objective-C
+@interface WhiteRoomConfig : WhiteObject
+//初始化房间参数
+- (instancetype)initWithUuid:(NSString *)uuid roomToken:(NSString *)roomToken memberInfo:(WhiteMemberInformation * _Nullable)memberInfo;
+@end
+```
+
+在初始化房间参数时，传入 `WhiteMemberInformation` 实例即可。如果配置用户头像信息地址（推荐使用 https 地址，否则需要开启 iOS ATS 功能，允许 http 链接），如果不配置，则会显示 SDK 的默认占位符。
+注意： **当加入的用户 userId 一致时，后加入的用户，会将前面加入的用户踢出房间**。

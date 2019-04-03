@@ -249,21 +249,23 @@ typedef NS_ENUM(NSInteger, WhiteViewMode) {
 
 ## 2. 加入房间
 
-通过以下 API ，传入用户信息
+通过以下 API ，在加入房间的时候，就传入用户信息
 
 ```Objective-C
 @interface WhiteSDK : NSObject
-//加入房间
+//加入房间API
 - (void)joinRoomWithConfig:(WhiteRoomConfig *)config callbacks:(nullable id<WhiteRoomCallbackDelegate>)callbacks completionHandler:(void (^) (BOOL success, WhiteRoom * _Nullable room, NSError * _Nullable error))completionHandler;
 @end
 ```
 
+
 ```Objective-C
 @interface WhiteRoomConfig : WhiteObject
-//初始化房间参数
+//初始化房间参数，传入用户信息
 - (instancetype)initWithUuid:(NSString *)uuid roomToken:(NSString *)roomToken memberInfo:(WhiteMemberInformation * _Nullable)memberInfo;
 @end
 ```
 
-在初始化房间参数时，传入 `WhiteMemberInformation` 实例即可。如果配置用户头像信息地址（推荐使用 https 地址，否则需要开启 iOS ATS 功能，允许 http 链接），如果不配置，则会显示 SDK 的默认占位符。
+在初始化房间参数 `WhiteRoomConfig` 时，传入 `WhiteMemberInformation` 实例。
+如果配置用户头像信息地址（推荐使用 https 地址，否则需要开启 iOS ATS 功能，允许 http 链接），如果不配置，则会显示 SDK 的默认占位符。
 注意： **当加入的用户 userId 一致时，后加入的用户，会将前面加入的用户踢出房间**。

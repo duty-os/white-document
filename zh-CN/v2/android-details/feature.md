@@ -234,3 +234,32 @@ room.setViewSize(100, 100);
 ```java
 room.zoomChange(10);
 ```
+
+# 用户头像显示
+
+* 2.0.0-beta7 版本新增功能
+
+## 1. 初始化
+
+在初始化 SDK 时，设置 WhiteSdkConfiguration 中的 userCursor 参数。
+
+```Java
+WhiteSdkConfiguration sdkConfiguration = new WhiteSdkConfiguration(DeviceType.touch, 10, 0.1, true);
+sdkConfiguration.setUserCursor(true);
+```
+
+## 2. 加入房间
+
+`RoomParams` 增加了 `memberInfo` 属性，可以初始化传入或初始化后设置。
+像之前一样调用加入房间方法即可。
+
+```Java
+// 初始化 MemberInformation 实例，传入 userId 属性。
+MemberInformation info = new MemberInformation("313131");
+// 设置想显示的头像
+info.setAvatar("https://white-pan.oss-cn-shanghai.aliyuncs.com/40/image/mask.jpg");
+
+RoomParams roomParams = new RoomParams("uuid", "roomToken", info);
+```
+
+MemberInformation 的 userId 属性，会被用来检测用户登录状态， **当加入的用户 userId 一致时，后加入的用户，会将前面加入的用户踢出房间**。

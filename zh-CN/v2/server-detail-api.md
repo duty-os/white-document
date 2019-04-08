@@ -244,7 +244,7 @@ end | number | 截取页面的结束 index |
 
 #### v2.0 版本
 
-`POST /handle/room/rooms/snapshots?roomToken={{roomtoken}}`
+`POST /handle/rooms/snapshots?roomToken={{roomtoken}}`
 
 * body 参数
 

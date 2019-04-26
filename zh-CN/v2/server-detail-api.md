@@ -345,9 +345,9 @@ targetFolder | string | 文档转换后保存结果的目标文件夹 |
         "task": {
             "convertStatus": "Finished",  // 转换状态
             "reason": "",   // 失败后消息
-            "totalPageSize": 4, // 文档总页数
-            "convertedPageSize": 4, // 文档已经转换完成页数
-            "convertedPercentage": 100, // 文档转换完成百分比
+            "totalPageSize": 3, // 文档总页数
+            "convertedPageSize": 3, // 文档已经转换完成页数
+            "convertedPercentage": 67, // 文档转换完成百分比
             "staticConversionFileList": [   // 转换结果信息
                 {
                     "width": 2338,  // 当页宽度，单位为像素
@@ -369,9 +369,9 @@ targetFolder | string | 文档转换后保存结果的目标文件夹 |
     }
 }
 ```
-返回结果说明：
+接口说明：
 
-- 转换状态 convertStatus 的枚举值为  
+- 返回转换状态 convertStatus 的枚举值为  
     - Waiting（任务排队中）
     - Converting（任务进行中）
     - NotFound（未找到查询任务）

@@ -269,3 +269,25 @@ typedef NS_ENUM(NSInteger, WhiteViewMode) {
 在初始化房间参数 `WhiteRoomConfig` 时，传入 `WhiteMemberInformation` 实例。
 如果配置用户头像信息地址（推荐使用 https 地址，否则需要开启 iOS ATS 功能，允许 http 链接），如果不配置，则会显示 SDK 的默认占位符。
 注意： **当加入的用户 userId 一致时，后加入的用户，会将前面加入的用户踢出房间**。
+
+
+# 主动延时
+
+*1.x 不提供该 API， `2.0.3` 新增API。*
+
+```Objective-C
+@interface WhiteRoom : NSObject
+# 设置白板延时秒数
+- (void)setTimeDelay:(NSTimeInterval)delay;
+# 获取白板当前主动延迟时间
+@property (nonatomic, assign, readonly) NSTimeInterval delay;
+@end
+```
+
+快速设置白板延时，人为给白板增加一部分延时，延迟播放，满足 HLS 情况下与音视频同步的需求。
+
+注意点：
+
+1. 该方法只对本地客户端有效。
+1. 该方法会同时影响自定义时间，用户头像回调事件。
+1. 用户本地绘制，仍然会实时出现。

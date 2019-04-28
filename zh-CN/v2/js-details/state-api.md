@@ -453,3 +453,23 @@ export type CursorView = {
   align-items: center;
 }
 ```
+
+### 主动延时
+
+1.x 不提供该 API， `2.0.0-beta.7` 新增API。
+
+```JavaScript
+//延时 1 秒播放
+room.timeDelay = 1000;
+//获取白板主动延时时间
+let delay = room.timeDelay;
+```
+
+使用 `room.timeDelay` 方法，可以快速设置白板延时，可以人为给白板增加一部分延时，延迟播放。
+
+注意点：
+
+1. 参数单位为毫秒。
+1. 该方法只对本地客户端有效。
+1. 该方法会同时影响自定义时间，用户头像回调事件。
+1. 用户本地绘制，仍然会实时出现。

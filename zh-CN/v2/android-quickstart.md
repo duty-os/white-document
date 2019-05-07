@@ -77,11 +77,12 @@ public class DemoAPI {
 
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
-    // 获取 Token 请参考 https://developer.herewhite.com/#/concept
-    public static final String TOKEN = "WHITEcGFydG5lcl9pZD1DYzlFNTJhTVFhUU5TYmlHNWJjbkpmVThTNGlNVXlJVUNwdFAmc2lnPTE3Y2ZiYzg0ZGM5N2FkNDAxZmY1MTM0ODMxYTdhZTE2ZGQ3MTdmZjI6YWRtaW5JZD00JnJvbGU9bWluaSZleHBpcmVfdGltZT0xNTY2MDQwNjk4JmFrPUNjOUU1MmFNUWFRTlNiaUc1YmNuSmZVOFM0aU1VeUlVQ3B0UCZjcmVhdGVfdGltZT0xNTM0NDgzNzQ2Jm5vbmNlPTE1MzQ0ODM3NDYzMzYwMA";
+    public static final String TOKEN = "请在 https://console.herewhite.com 中进行注册，获取 token";
     private OkHttpClient client = new OkHttpClient();
     private Gson gson = new Gson();
 
+    //该请求应该在服务器端进行，此处为了延时方便，直接在客户端请求创建。
+    //此处 API 介绍，请查看 server 端 API
     public void createRoom(String name, int limit, Callback callback) {
         Map<String, Object> roomSpec = new HashMap<>();
         roomSpec.put("name", name);

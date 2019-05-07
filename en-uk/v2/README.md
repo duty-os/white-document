@@ -26,7 +26,7 @@ We offer the White App out of the box. The White App covers mainstream platforms
 
 #### For large enterprise customers:
 
-We offer a highly available whiteboard cloud service White Service. White Service provides a one-stop shop for line optimization, data processing and storage distribution for SDKs and cloud-related services on mainstream platforms such as iOS, Android, and the Web. Customers only need to sign up for a White business account and get a White miniToken to prove their identity. You can launch the White interactive whiteboard with one click of the access document.
+We offer a highly available whiteboard cloud service White Service. White Service provides a one-stop shop for line optimization, data processing and storage distribution for SDKs and cloud-related services on mainstream platforms such as iOS, Android, and the Web. Customers only need to sign up for a White business account and get a White sdkToken to prove their identity. You can launch the White interactive whiteboard with one click of the access document.
 
 [Click to view the console](https://console.herewhite.com)
 

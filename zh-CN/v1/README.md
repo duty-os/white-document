@@ -26,7 +26,7 @@
 
 #### 针对企业的级大客户：
 
-我们提供了高可用的白板云服务 White Service。White Service 提供了 iOS、Android、Web 等主流平台的 SDK 和云端相关业务的线路优化、数据处理和存储分发一站式服务。客户只需要注册 White 企业帐号，获取证明企业身份的 White miniToken，就可以根据接入文档一键启动 White 互动白板。
+我们提供了高可用的白板云服务 White Service。White Service 提供了 iOS、Android、Web 等主流平台的 SDK 和云端相关业务的线路优化、数据处理和存储分发一站式服务。客户只需要注册 White 企业帐号，获取证明企业身份的 White sdkToken，就可以根据接入文档一键启动 White 互动白板。
 
 [点击查看控制台](https://console.herewhite.com)
 

@@ -31,7 +31,7 @@ var mode = 'transitory'; // 临时房间模式
 var mode = 'persistent'; // 持久化房间模式
 var mode = 'historied'; // 可回放房间模式
 
-var url = 'https://cloudcapiv4.herewhite.com/room?token=' + miniToken;
+var url = 'https://cloudcapiv4.herewhite.com/room?token=' + sdkToken;
 var requestInit = {
     method: 'POST',
     headers: {

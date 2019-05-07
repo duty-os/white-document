@@ -166,7 +166,7 @@ uuid | string | 白板唯一标识符 |
 ```
 </details>
 
-## 加入特定白板
+## 获取特定白板 room Token
 
 `POST /room/join?uuid={{uuid}}&token={{token}}`
 

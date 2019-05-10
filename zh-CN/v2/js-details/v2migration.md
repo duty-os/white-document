@@ -37,7 +37,7 @@ var pptImages = room.state.sceneState.scenes.map(function(scene) {
 var scenes = room.state.sceneState.scenes;
 ```
 
-建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scenes-api.md) 了解场景相关的知识。
+建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scene.md) 了解场景相关的知识。
 
 ## scenes 不见了
 
@@ -69,7 +69,7 @@ var scenes = room.state.sceneState.scenes;
 var name = scene.name;
 ```
 
-如果你之前将 ``key`` 视为场景的全局唯一标识符。那么现在我强烈建议你将场景的路径作为 ``key`` 的替代品。相关内容建议你参考阅读[《JavaScript 场景管理》](./scenes-api.md) 了解场景相关的知识。
+如果你之前将 ``key`` 视为场景的全局唯一标识符。那么现在我强烈建议你将场景的路径作为 ``key`` 的替代品。相关内容建议你参考阅读[《JavaScript 场景管理》](./js-details/scene.md) 了解场景相关的知识。
 
 你在之前可能会读取 Scene 的 ``isEmpty`` 字段，以满足自己的业务需求。但发现 ``isEmpty`` 永远是 ``undefined``。
 
@@ -105,7 +105,7 @@ var index = room.state.sceneState.index;
 room.state.sceneState.index = index; // 错误
 ```
 
-这是因为，在 v2.0 中，我们只能通过场景路径的方式修改当前场景。相关内容建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scenes-api.md) 了解场景相关的知识。然后调整你的代码。
+这是因为，在 v2.0 中，我们只能通过场景路径的方式修改当前场景。相关内容建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scene.md) 了解场景相关的知识。然后调整你的代码。
 
 ## 上传 PPT
 
@@ -123,7 +123,7 @@ var pptPages = [...];
 room.putScenes("/", pptPages.map(page => ({ppt: page})));
 ```
 
-建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scenes-api.md) 了解场景相关的知识。
+建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scene.md) 了解场景相关的知识。
 
 ## 插入与删除场景
 
@@ -145,4 +145,4 @@ var toRemoveScene = room.state.sceneState.scenes[index];
 room.removeScene('/' + toRemoveScene.name);
 ```
 
-建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scenes-api.md) 了解场景相关的知识。
+建议你参考阅读[《JavaScript 场景管理》](/zh-CN/v2/js-details/scene.md) 了解场景相关的知识。

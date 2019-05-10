@@ -291,3 +291,17 @@ let delay = room.timeDelay;
 1. 该方法只对本地客户端有效。
 1. 该方法会同时影响自定义时间，用户头像回调事件。
 1. 用户本地绘制，仍然会实时出现。
+
+## 清屏 API
+
+* 2.0.0-beta.6 及其后续版本提供
+
+```Java
+/**
+ 清除当前屏幕内容
+
+ @param retainPPT 是否保留 ppt
+ */
+let retainPpt = true;
+room.cleanCurrentScene(retainPpt);
+```

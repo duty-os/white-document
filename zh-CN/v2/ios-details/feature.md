@@ -291,3 +291,18 @@ typedef NS_ENUM(NSInteger, WhiteViewMode) {
 1. 该方法只对本地客户端有效。
 1. 该方法会同时影响自定义时间，用户头像回调事件。
 1. 用户本地绘制，仍然会实时出现。
+
+# 清屏 API
+
+* 2.0.1 及其后续版本提供
+
+```Objective-C
+@interface WhiteRoom : NSObject
+/**
+ 清除当前屏幕内容
+
+ @param retainPPT 是否保留 ppt
+ */
+- (void)cleanScene:(BOOL)retainPPT;
+@end
+```

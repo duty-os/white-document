@@ -2,21 +2,14 @@
 
 white-web-sdk 还提供多种工具，如选择器、铅笔、文字、圆形工具、矩形工具。同时还提供图片展示工具和 PPT 工具。这些功能的展现形式，关系到具体网页应用本身的交互设计、视觉风格。考虑到这一点，白板上没有直接提供这些 UI 组件。你只能通过程序调用的方式，来让白板使用这些功能。
 
-对此，你可能有如下疑问：
+## 房间状态
 
-* 我的 UI 组件已经做好了，我如何让 UI 组件的操作影响到白板的行为？
-* 白板有哪些状态，我的 UI 组件如何监听、获取白板的状态？
+1. globalState：房间全局状态，自房间创建其就存在。所有人可见，所有人可修改。
+1. memberState：成员状态。每个房间成员都有独立的一份实例，成员加入房间时自动创建，成员离开房间时自动释放。成员只能获取、监听、修改自己的 MemberState。
+1. sceneState：场景状态，和场景切换相关。
+1. broadcastState：视角状态，和主播模式、跟随模式相关。
 
-本章将解决这 2 个问题。
-
-## 白板状态
-
-当你加入一个房间后，你可以获取和修改的房间状态有如下 3 个。
-
-* __GlobalState__：全房间的状态，自房间创建其就存在。所有人可见，所有人可修改。
-* __MemberState__：成员状态。每个房间成员都有独立的一份实例，成员加入房间时自动创建，成员离开房间时自动释放。成员只能获取、监听、修改自己的 MemberState。
-* **SceneState**：场景状态，和场景切换相关。
-* __BroadcastState__：视角状态，和主播模式、跟随模式相关。
+* 以上状态，都在 `room` 的 `state` 中。
 
 这 4 个状态都是一个 key-value 对象。
 
@@ -29,7 +22,7 @@ var sceneState = room.state.sceneState;
 var broadcastState = room.state.broadcastState;
 ```
 
-其中 room 对象需要通过调用 `joinRoom` 方法获取，在之前的篇章中有说明，在此不再赘述。
+其中 room 对象需要通过调用 `white-web-sdk` 的 `joinRoom` 方法获取，在之前的篇章中有说明，在此不再赘述。
 
 这 2 个状态可能被动改变，比如 GlobalState 和 SceneState 可能被房间其他成员修改。因此，你需要监听它们的变化。具体做法是，在调用 `joinRoom` 时带上回调函数。
 
@@ -54,32 +47,36 @@ var callbacks = {
         }
     },
 };
-room.joinRoom({uuid: uuid, roomToken: roomToken}, callbacks);
+sdk.joinRoom({uuid: uuid, roomToken: roomToken}, callbacks);
 ```
 
 当你需要修改白板状态的时候，你可以使用如下方式修改。
 
 ```javascript
+// 修改全局状态
 room.setGlobalState({...});
+// 修改自己的状态
 room.setMemberState({...});
-room.setSceneState({...});
+// 修改自己的视角状态，根据传入的值不同，会影响其他人
+room.setViewMode("freedom");
+// 修改场景状态，传入的必须是场景的完整路径，而不是场景的目录
+room.setScenePath("/ppt/1")
 ```
 
-你不需要在参数中传入修改后的完整 GlobalState、 MemberState、SceneState，只需要填入你希望更新的 key-value 对即可。如果你修改了 GlobalState 或 SceneState，整个房间的人都会收到你的修改结果。
+你不需要在参数中传入修改后的完整 MemberState，只需要填入你希望更新的 key-value 对即可。如果你修改了 GlobalState 或
 
-### GlobalState
+## GlobalState
 
 ```typescript
 type GlobalState = {
-    // 当前为空，在以后的版本中可能会添加
+    // 当前默认为空
 };
 ```
 
-### MemberState
+## MemberState
 
 ```typescript
 type MemberState = {
-
     // 当前工具，修改它会切换工具。有如下工具可供挑选：
     // 1. selector 选择工具
     // 2. pencil 铅笔工具
@@ -103,7 +100,7 @@ type MemberState = {
 };
 ```
 
-### SceneState
+## SceneState
 
 ```typescript
 type SceneState = {
@@ -111,7 +108,7 @@ type SceneState = {
     // 当前场景路径
     scenePath: string;
     
-    // 当前场景所在组的其他场景
+    // 当前场景所在组的所有场景
     scenes: ReadonlyArray<Scene>;
     
     // 当前场景在所在组的索引
@@ -140,7 +137,7 @@ type Scene = {
 }
 ```
 
-### BroadcastState
+## BroadcastState
 
 ```typescript
 type BroadcastState = {
@@ -156,6 +153,7 @@ type BroadcastState = {
     broadcasterId?: number;
 };
 ```
+
 ## 白板生命周期
 
 joinRoom 的回调函数不仅可以监听白板的行为状态，还可以监听白板的生命周期状态和异常原因，具体使用如下
@@ -177,5 +175,5 @@ var callbacks = {
         // 被踢出房间的原因
     },
 };
-room.joinRoom({uuid: uuid, roomToken: roomToken}, callbacks);
+sdk.joinRoom({uuid: uuid, roomToken: roomToken}, callbacks);
 ```

@@ -28,6 +28,8 @@ sudo gem install cocoapods
 ```ruby
 target 'iOSDemo' do
     pod 'White-SDK-iOS'
+    # 使用动态 ppt 用户，暂时请使用以下命令
+    # pod 'White-SDK-iOS', '2.0.0-ppt'
 end
 ```
 

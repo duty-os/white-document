@@ -3,16 +3,17 @@
 Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自己的网站中引入一块互动白板。不过首先，我们假定你已经了解 JavaScript 的基础语法，并掌握了 HTML 页面的基础知识。
 
 
-
 # 创建项目
+
+**使用动态 ppt 项目的客户，请使用 2.0.0-beta.11**
 
 首先，你需要在你桌面端创建一个文件夹，作为工作空间。随后，我们将在这个工作空间中添加一些文件。然后，我们创建一个名为 `index.html` 的文件。
 ```html
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.css">
-        <script src="https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.js"></script>
+        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.7.css">
+        <script src="https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.7.js"></script>
         <script src="index.js"></script>
     </head>
     <body>
@@ -25,8 +26,8 @@ Hi, 亲爱的开发者，欢迎使用 White 白板。本教程将引导你在自
 
 该页面引用了 3 个 JavaScript 资源文件。
 
-* [https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.css](https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.css)：White 的样式文件。
-* [https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.js](https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.3.js)： White 的 SDK 文件。
+* [https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.7.css](https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.7.css)：White 的样式文件。
+* [https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.7.js](https://sdk.herewhite.com/white-web-sdk/2.0.0-beta.7.js)： White 的 SDK 文件。
 * `index.js` ：这是实现我们业务逻辑的 JS 文件。
 
 # 创建白板

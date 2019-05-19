@@ -11,6 +11,7 @@ npm install white-web-sdk@^2.0.0-beta --save
 如果你使用 yarn，输入如下命令。
 
 ```bash
+# 不使用动态 ppt 的旧客户，可以暂时停留在 beta7 版本
 yarn add white-web-sdk@^2.0.0-beta
 ```
 

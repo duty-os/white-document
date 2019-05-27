@@ -126,3 +126,17 @@ player.pause();
 player.stop();
 ```
 
+实时房间发的数据，回放的时候也能监听到
+
+```javascript
+
+// 发数据
+room.dispatchMagixEvent("message", "hello world!");
+
+// 在回放中监听自定义事件
+player.addMagixEventListener("message", event => {
+    console.log(event.payload)
+    // 在 event.payload 中获取数据
+});
+```
+

@@ -296,11 +296,9 @@ let delay = room.timeDelay;
 
 * 2.0.0-beta.6 及其后续版本提供
 
-```Java
+```js
 /**
  清除当前屏幕内容
-
- @param retainPPT 是否保留 ppt
  */
 let retainPpt = true;
 room.cleanCurrentScene(retainPpt);

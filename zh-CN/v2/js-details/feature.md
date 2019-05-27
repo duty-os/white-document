@@ -303,25 +303,3 @@ let delay = room.timeDelay;
 let retainPpt = true;
 room.cleanCurrentScene(retainPpt);
 ```
-
-## 自定义事件
-
-```js
-/**
-    利用白板的信令通道收发数据
- */
-
-// 发数据
-room.dispatchMagixEvent("message", "hello world!");
-
-// 监听事件名称，收数据
-room.addMagixEventListener("message", event => {
-    console.log(event.payload)
-    // 在 event.payload 中获取数据
-});
-// 在回放中使用
-player.addMagixEventListener("message", event => {
-    console.log(event.payload)
-    // 在 event.payload 中获取数据
-});
-```
